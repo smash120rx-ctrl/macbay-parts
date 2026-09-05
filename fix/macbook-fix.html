@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="uk">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Ремонт MacBook — macbayparts</title>
+
+    <!-- Основні стилі сайту -->
+    <link rel="stylesheet" href="../style.css">
+
+    <!-- Стилі сторінки ремонту -->
+    <link rel="stylesheet" href="macbook-fix.css">
+</head>
+
+<body>
+
+
+<!-- ===================================================== -->
+<!-- HEADER -->
+<!-- ===================================================== -->
+
+<header class="header">
+
+    <div class="header-left">
+
+        <a href="../index.html" class="logo">
+            macbay<span>parts</span>
+        </a>
+
+    </div>
+
+
+    <!-- ПОШУК -->
+
+    <div class="search" id="searchBox">
+
+        <div class="search-input-wrapper">
+
+            <span class="search-icon">⌕</span>
+
+            <input
+                type="text"
+                id="model-search"
+                placeholder="Пошук моделі (напр. A2337 або M1)..."
+                autocomplete="off"
+            >
+
+            <button
+                type="button"
+                class="search-clear"
+                id="searchClear"
+            >
+                ×
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <!-- RIGHT -->
+
+    <div class="header-right">
+
+        <a
+            href="../cart.html"
+            class="header-icon"
+        >
+            🛒
+            <span>
+                Кошик (<span id="cart-counter">0</span>)
+            </span>
+        </a>
+
+
+        <!-- PHONE -->
+
+        <div class="phone-dropdown">
+
+            <button
+                class="header-icon phone-button"
+                type="button"
+            >
+                📞
+                <span>Зателефонувати</span>
+            </button>
+
+            <div class="phone-menu">
+
+                <a href="tel:+380988412544">
+                    📞 +380 98 841 2544
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</header>
+
+
+
+<!-- ===================================================== -->
+<!-- MAIN -->
+<!-- ===================================================== -->
+
+<main class="fix-page">
+
+
+    <!-- HERO -->
+
+    <section class="fix-hero">
+
+        <span class="section-label">
+            СЕРВІСНИЙ ЦЕНТР
+        </span>
+
+
+        <h2>
+            Оберіть модель вашого MacBook
+        </h2>
+
+
+        <p>
+            Виберіть пристрій зі списку або використайте
+            пошук за кодом моделі, наприклад A2337,
+            щоб переглянути вартість та терміни ремонту.
+        </p>
+
+
+        <!-- CATEGORIES -->
+
+        <div class="fix-tabs">
+
+            <button
+                class="tab-btn active"
+                data-category="all"
+            >
+                Всі моделі
+            </button>
+
+
+            <button
+                class="tab-btn"
+                data-category="air"
+            >
+                MacBook Air
+            </button>
+
+
+            <button
+                class="tab-btn"
+                data-category="pro"
+            >
+                MacBook Pro
+            </button>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- ================================================= -->
+    <!-- MODELS -->
+    <!-- ================================================= -->
+
+    <section class="models-grid-wrapper">
+
+        <!--
+            JavaScript автоматично
+            вставить сюди всі MacBook
+        -->
+
+        <div
+            id="fix-grid"
+            class="fix-grid"
+        ></div>
+
+    </section>
+
+</main>
+
+
+
+<!-- ===================================================== -->
+<!-- SERVICES MODAL -->
+<!-- ===================================================== -->
+
+<div
+    id="services-modal"
+    class="services-modal hidden"
+>
+
+
+    <div class="services-content">
+
+
+        <!-- CLOSE -->
+
+        <button
+            class="close-btn"
+            id="modalClose"
+            type="button"
+        >
+            &times;
+        </button>
+
+
+
+        <!-- HEADER -->
+
+        <div class="modal-header">
+
+            <span class="section-label">
+                ПОСЛУГИ ТА ВАРТІСТЬ
+            </span>
+
+
+            <h3 id="modal-title">
+                Ремонт MacBook
+            </h3>
+
+
+            <p class="modal-subtitle">
+                Оберіть необхідні ремонтні роботи
+                для вашого MacBook.
+            </p>
+
+        </div>
+
+
+
+        <!-- SERVICES -->
+
+        <ul
+            class="services-list"
+            id="services-list"
+        ></ul>
+
+
+
+        <!-- FOOTER -->
+
+        <div class="modal-footer">
+
+            <p class="disclaimer">
+                * Вказані ціни є орієнтовними за роботу.
+                Точна вартість запчастин узгоджується
+                після діагностики.
+            </p>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+
+<!-- ===================================================== -->
+<!-- FOOTER -->
+<!-- ===================================================== -->
+
+<footer>
+
+
+    <!-- BRAND -->
+
+    <div class="footer-brand">
+
+        <div class="logo">
+            macbay<span>parts</span>
+        </div>
+
+
+        <p>
+            Професійний ремонт MacBook та комплектуючі
+            для техніки Apple.
+        </p>
+
+    </div>
+
+
+
+    <!-- NAVIGATION -->
+
+    <div>
+
+        <h4>
+            Навігація
+        </h4>
+
+
+        <a href="../index.html">
+            Головна
+        </a>
+
+
+        <a href="macbook-fix.html">
+            Ремонт
+        </a>
+
+
+        <a href="../index.html#models">
+            Запчастини
+        </a>
+
+
+        <a href="../cart.html">
+            Кошик
+        </a>
+
+    </div>
+
+
+
+    <!-- CONTACTS -->
+
+    <div>
+
+        <h4>
+            Контакти
+        </h4>
+
+
+        <a href="tel:+380988412544">
+            📞 +380 98 841 2544
+        </a>
+
+
+        <a
+            href="https://www.instagram.com/macbay_official/?hl=uk"
+            target="_blank"
+            rel="noopener"
+        >
+            📷 Instagram
+        </a>
+
+
+        <p>
+            📍 ТЦ Плазма, проспект Свободи, 5, Львів
+        </p>
+
+    </div>
+
+</footer>
+
+
+
+<!-- ===================================================== -->
+<!-- JAVASCRIPT -->
+<!-- ===================================================== -->
+
+<script src="macbook-fix.js"></script>
+
+<script src="supabase-prices.js"></script>
+</body>
+</html>

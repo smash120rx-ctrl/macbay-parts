@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <title>Адмінка — macbayparts</title>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <style>
+    body { font-family: system-ui, sans-serif; padding: 40px; background: #0f172a; color: #f8fafc; }
+    .container { max-width: 800px; margin: 0 auto; background: #1e293b; padding: 30px; border-radius: 12px; }
+    .form-group { display: flex; gap: 10px; margin-bottom: 25px; flex-wrap: wrap; }
+    input, select { padding: 12px; border: 1px solid #334155; background: #0f172a; color: #fff; border-radius: 6px; flex: 1; }
+    button { background: #0ea5e9; color: #fff; border: none; padding: 12px 20px; border-radius: 6px; cursor: pointer; font-weight: bold; }
+    table { width: 100%; border-collapse: collapse; margin-top: 10px; }
+    th, td { border-bottom: 1px solid #334155; padding: 12px; text-align: left; }
+    .btn-del { background: #ef4444; padding: 6px 12px; font-size: 13px; }
+    .btn-edit { background: #f59e0b; padding: 6px 12px; font-size: 13px; margin-right: 5px; }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <h2>Управління товарами та цінами</h2>
+
+  <form id="addForm" class="form-group">
+    <input type="text" id="pName" placeholder="Назва (напр. Заміна дисплею A2337)" required>
+    <input type="text" id="pPrice" placeholder="Ціна (напр. 4500 грн)" required>
+    <select id="pCategory">
+      <option value="air">MacBook Air</option>
+      <option value="pro">MacBook Pro</option>
+    </select>
+    <button type="submit">Додати</button>
+  </form>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Назва</th>
+        <th>Ціна</th>
+        <th>Категорія</th>
+        <th>Дії</th>
+      </tr>
+    </thead>
+    <tbody id="tableBody"></tbody>
+  </table>
+</div>
+
+<script>
+  const SUPABASE_URL = 'https://tbkqilsmcocyqhkupszy.supabase.co';
+  const SUPABASE_KEY = 'sb_publishable_Z9U7_z_2meBOSYazEnHA5g_p8nmh_al';
+  const _supabase = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+
+  async function loadProducts() {
+    const { data, error } = await _supabase.from('products').select('*').order('id', { ascending: false });
+    if (error) return console.error(error);
+    
+    const tbody = document.getElementById('tableBody');
+    tbody.innerHTML = '';
+    data.forEach(item => {
+      tbody.innerHTML += `
+        <tr>
+          <td>${item.name}</td>
+          <td><strong style="color: #38bdf8;">${item.price}</strong></td>
+          <td>${item.category}</td>
+          <td>
+            <button class="btn-edit" onclick="editPrice(${item.id}, '${item.price}')">Змінити ціну</button>
+            <button class="btn-del" onclick="deleteItem(${item.id})">Видалити</button>
+          </td>
+        </tr>
+      `;
+    });
+  }
+
+  document.getElementById('addForm').addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const name = document.getElementById('pName').value;
+    const price = document.getElementById('pPrice').value;
+    const category = document.getElementById('pCategory').value;
+
+    await _supabase.from('products').insert([{ name, price, category }]);
+    document.getElementById('addForm').reset();
+    loadProducts();
+  });
+
+  async function editPrice(id, currentPrice) {
+    const newPrice = prompt('Введіть нову ціну:', currentPrice);
+    if (newPrice) {
+      await _supabase.from('products').update({ price: newPrice }).eq('id', id);
+      loadProducts();
+    }
+  }
+
+  async function deleteItem(id) {
+    if (confirm('Видалити ціну/послугу?')) {
+      await _supabase.from('products').delete().eq('id', id);
+      loadProducts();
+    }
+  }
+
+  loadProducts();
+</script>
+</body>
+</html>

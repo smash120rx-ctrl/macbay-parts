@@ -1,0 +1,716 @@
+<!DOCTYPE html>
+<html lang="uk">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Оформлення замовлення — macbayparts</title>
+
+    <!-- EMAILJS -->
+    <script
+        type="text/javascript"
+        src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"
+    ></script>
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family:
+                "Segoe UI",
+                Tahoma,
+                Geneva,
+                Verdana,
+                sans-serif;
+
+            background: #f4f6f9;
+
+            color: #333;
+
+            padding: 20px;
+
+            line-height: 1.5;
+        }
+
+        .checkout-wrapper {
+            width: 100%;
+            max-width: 700px;
+
+            margin: 30px auto;
+        }
+
+        .cart-preview {
+            display: flex;
+
+            justify-content: flex-end;
+
+            align-items: center;
+
+            margin-bottom: 12px;
+
+            font-size: 14px;
+
+            font-weight: 600;
+        }
+
+        .cart-badge {
+            display: inline-flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            min-width: 25px;
+
+            height: 25px;
+
+            margin-left: 7px;
+
+            padding: 0 7px;
+
+            border-radius: 50px;
+
+            background: #e53e3e;
+
+            color: white;
+
+            font-size: 12px;
+        }
+
+        .checkout-container {
+            width: 100%;
+
+            background: white;
+
+            padding: 35px;
+
+            border-radius: 14px;
+
+            box-shadow:
+                0 10px 30px
+                rgba(0, 0, 0, 0.08);
+        }
+
+        h1 {
+            text-align: center;
+
+            margin-bottom: 30px;
+
+            color: #1a252f;
+
+            font-size: 28px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+
+            margin-bottom: 8px;
+
+            font-size: 14px;
+
+            font-weight: 600;
+
+            color: #4a5568;
+        }
+
+        input,
+        select,
+        textarea {
+
+            width: 100%;
+
+            padding: 13px 14px;
+
+            border: 1px solid #cbd5e0;
+
+            border-radius: 8px;
+
+            background: white;
+
+            color: #333;
+
+            font-size: 15px;
+
+            outline: none;
+
+            transition: 0.2s;
+        }
+
+        input:focus,
+        select:focus,
+        textarea:focus {
+
+            border-color: #3182ce;
+
+            box-shadow:
+                0 0 0 3px
+                rgba(49, 130, 206, 0.15);
+        }
+
+        textarea {
+            resize: vertical;
+        }
+
+        .checkout-items-box {
+
+            background: #f8fafc;
+
+            border: 1px solid #e2e8f0;
+
+            border-radius: 10px;
+
+            padding: 15px;
+
+            max-height: 400px;
+
+            overflow-y: auto;
+        }
+
+        .empty-cart-msg {
+
+            text-align: center;
+
+            padding: 25px 10px;
+
+            color: #a0aec0;
+        }
+
+        .checkout-item-row {
+
+            display: flex;
+
+            justify-content: space-between;
+
+            align-items: center;
+
+            gap: 15px;
+
+            padding: 14px 0;
+
+            border-bottom: 1px dashed #dfe5ec;
+        }
+
+        .checkout-item-row:last-child {
+            border-bottom: none;
+        }
+
+        .checkout-item-info {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 12px;
+
+            flex: 1;
+
+            min-width: 0;
+        }
+
+        .checkout-item-image {
+
+            width: 65px;
+
+            height: 65px;
+
+            flex-shrink: 0;
+
+            object-fit: contain;
+
+            border-radius: 8px;
+
+            background: white;
+
+            border: 1px solid #eee;
+        }
+
+        .checkout-item-details {
+
+            min-width: 0;
+        }
+
+        .checkout-item-name {
+
+            display: block;
+
+            font-weight: 600;
+
+            color: #2d3748;
+
+            font-size: 14px;
+
+            word-break: break-word;
+        }
+
+        .checkout-item-price {
+
+            display: block;
+
+            margin-top: 3px;
+
+            color: #718096;
+
+            font-size: 13px;
+        }
+
+        .checkout-item-controls {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 7px;
+
+            flex-shrink: 0;
+        }
+
+        .qty-btn {
+
+            width: 28px;
+
+            height: 28px;
+
+            border: 1px solid #cbd5e0;
+
+            border-radius: 5px;
+
+            background: #edf2f7;
+
+            cursor: pointer;
+
+            font-size: 17px;
+
+            font-weight: bold;
+        }
+
+        .qty-btn:hover {
+            background: #e2e8f0;
+        }
+
+        .checkout-item-qty {
+
+            min-width: 45px;
+
+            text-align: center;
+
+            font-size: 14px;
+
+            font-weight: 600;
+        }
+
+        .remove-btn {
+
+            border: none;
+
+            background: none;
+
+            color: #e53e3e;
+
+            font-size: 22px;
+
+            cursor: pointer;
+
+            margin-left: 3px;
+        }
+
+        .remove-btn:hover {
+            color: #c53030;
+        }
+
+        .total-summary {
+
+            display: flex;
+
+            justify-content: space-between;
+
+            align-items: center;
+
+            gap: 15px;
+
+            margin-top: 15px;
+
+            padding-top: 18px;
+
+            border-top: 2px solid #edf2f7;
+
+            font-size: 19px;
+
+            font-weight: 700;
+
+            color: #2d3748;
+        }
+
+        #totalPrice {
+            color: #1a8f4d;
+        }
+
+        .submit-btn {
+
+            width: 100%;
+
+            margin-top: 10px;
+
+            padding: 15px;
+
+            border: none;
+
+            border-radius: 9px;
+
+            background: #38a169;
+
+            color: white;
+
+            font-size: 16px;
+
+            font-weight: 700;
+
+            cursor: pointer;
+
+            transition: 0.2s;
+        }
+
+        .submit-btn:hover {
+            background: #2f855a;
+        }
+
+        .submit-btn:disabled {
+
+            opacity: 0.7;
+
+            cursor: not-allowed;
+        }
+
+        #formStatus {
+
+            margin-top: 15px;
+
+            text-align: center;
+
+            font-weight: 600;
+
+            min-height: 22px;
+        }
+
+        .required-star {
+            color: #e53e3e;
+        }
+
+        @media (max-width: 600px) {
+
+            body {
+                padding: 10px;
+            }
+
+            .checkout-container {
+                padding: 22px 16px;
+            }
+
+            h1 {
+                font-size: 23px;
+            }
+
+            .checkout-item-row {
+                align-items: flex-start;
+
+                flex-direction: column;
+            }
+
+            .checkout-item-controls {
+                width: 100%;
+
+                justify-content: flex-end;
+            }
+
+            .total-summary {
+                font-size: 16px;
+            }
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+<div class="checkout-wrapper">
+
+    <div class="cart-preview">
+
+        🛒 Товарів у кошику:
+
+        <span
+            id="cart-counter"
+            class="cart-badge"
+        >
+            0
+        </span>
+
+    </div>
+
+
+    <div class="checkout-container">
+
+        <h1>
+            Оформлення замовлення
+        </h1>
+
+
+        <form id="orderForm">
+
+
+            <!-- ПІБ -->
+
+            <div class="form-group">
+
+                <label for="name">
+
+                    ПІБ
+                    <span class="required-star">*</span>
+
+                </label>
+
+                <input
+                    type="text"
+                    id="name"
+                    name="user_name"
+                    required
+                    placeholder="Іванов Іван Іванович"
+                >
+
+            </div>
+
+
+            <!-- EMAIL -->
+
+            <div class="form-group">
+
+                <label for="email">
+
+                    Email
+                    <span class="required-star">*</span>
+
+                </label>
+
+                <input
+                    type="email"
+                    id="email"
+                    name="user_email"
+                    required
+                    placeholder="example@gmail.com"
+                >
+
+            </div>
+
+
+            <!-- ТЕЛЕФОН -->
+
+            <div class="form-group">
+
+                <label for="phone">
+
+                    Номер телефону
+                    <span class="required-star">*</span>
+
+                </label>
+
+                <input
+                    type="tel"
+                    id="phone"
+                    name="user_phone"
+                    required
+                    placeholder="+380991234567"
+                >
+
+            </div>
+
+
+            <!-- ДОСТАВКА -->
+
+            <div class="form-group">
+
+                <label for="delivery">
+
+                    Спосіб доставки
+                    <span class="required-star">*</span>
+
+                </label>
+
+                <select
+                    id="delivery"
+                    name="delivery_method"
+                    required
+                >
+
+                    <option
+                        value=""
+                        disabled
+                        selected
+                    >
+                        Оберіть спосіб доставки
+                    </option>
+
+                    <option value="Нова Пошта">
+                        Нова Пошта
+                    </option>
+
+                    <option value="Укрпошта">
+                        Укрпошта
+                    </option>
+
+                    <option value="Самовивіз">
+                        Самовивіз
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <!-- АДРЕСА -->
+
+            <div class="form-group">
+
+                <label for="address">
+
+                    Місто та номер відділення / Адреса
+                    <span class="required-star">*</span>
+
+                </label>
+
+                <input
+                    type="text"
+                    id="address"
+                    name="delivery_address"
+                    required
+                    placeholder="м. Київ, Відділення №1"
+                >
+
+            </div>
+
+
+            <!-- ОПЛАТА -->
+
+            <div class="form-group">
+
+                <label for="payment">
+
+                    Спосіб оплати
+                    <span class="required-star">*</span>
+
+                </label>
+
+                <select
+                    id="payment"
+                    name="payment_method"
+                    required
+                >
+
+                    <option value="Оплата при отриманні">
+                        Оплата при отриманні
+                        (накладений платіж)
+                    </option>
+
+                    <option value="Оплата на картку">
+                        Оплата на картку / за реквізитами
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <!-- ТОВАРИ -->
+
+            <div class="form-group">
+
+                <label>
+                    Товари у вашому замовленні:
+                </label>
+
+                <div
+                    id="checkoutItemsList"
+                    class="checkout-items-box"
+                ></div>
+
+
+                <div class="total-summary">
+
+                    <span>
+                        Разом до сплати:
+                    </span>
+
+                    <span id="totalPrice">
+                        0 грн
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <!-- КОМЕНТАР -->
+
+            <div class="form-group">
+
+                <label for="comment">
+
+                    Коментар до замовлення
+                    (необов'язково)
+
+                </label>
+
+                <textarea
+                    id="comment"
+                    name="user_comment"
+                    rows="4"
+                    placeholder="Додаткова інформація..."
+                ></textarea>
+
+            </div>
+
+
+            <!-- КНОПКА -->
+
+            <button
+                type="submit"
+                id="submitBtn"
+                class="submit-btn"
+            >
+
+                Підтвердити замовлення
+
+            </button>
+
+
+            <div
+                id="formStatus"
+            ></div>
+
+
+        </form>
+
+    </div>
+
+</div>
+
+
+<script src="checkout.js"></script>
+
+<script src="supabase-prices.js"></script>
+</body>
+
+</html>

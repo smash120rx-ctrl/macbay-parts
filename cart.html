@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html lang="uk">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Кошик — macbayparts</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+
+        body {
+            background-color: #f5f5f7;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI",
+                Roboto, Helvetica, Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #222;
+        }
+
+        .cart-container {
+            max-width: 1100px;
+            margin: 30px auto;
+            padding: 0 15px;
+        }
+
+        .cart-title {
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        .cart-grid {
+            display: grid;
+            grid-template-columns: 1fr 340px;
+            gap: 20px;
+        }
+
+        @media (max-width: 768px) {
+
+            .cart-grid {
+                grid-template-columns: 1fr;
+            }
+
+        }
+
+        /* ============================= */
+        /* СПИСОК ТОВАРІВ */
+        /* ============================= */
+
+        .cart-list {
+            background: #fff;
+            border-radius: 16px;
+            padding: 20px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+        }
+
+        .cart-item-card {
+            display: flex;
+            align-items: center;
+            gap: 18px;
+            padding: 16px 0;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .cart-item-card:last-child {
+            border-bottom: none;
+        }
+
+        /* ============================= */
+        /* ФОТО ТОВАРУ */
+        /* ============================= */
+
+        .cart-product-image {
+            width: 100px;
+            height: 100px;
+            flex-shrink: 0;
+
+            border-radius: 12px;
+
+            background: #f7f7f7;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            overflow: hidden;
+        }
+
+        .cart-product-image img {
+            width: 100%;
+            height: 100%;
+
+            object-fit: contain;
+
+            display: block;
+        }
+
+        .no-product-image {
+            color: #aaa;
+            font-size: 12px;
+        }
+
+        /* ============================= */
+        /* ІНФОРМАЦІЯ */
+        /* ============================= */
+
+        .item-info {
+            flex: 1;
+            min-width: 0;
+            padding-right: 15px;
+        }
+
+        .item-name {
+            font-size: 16px;
+            font-weight: 600;
+            color: #111;
+            margin-bottom: 5px;
+        }
+
+        .item-status {
+            font-size: 13px;
+            color: #10b981;
+        }
+
+        /* ============================= */
+        /* КІЛЬКІСТЬ */
+        /* ============================= */
+
+        .quantity-controls {
+            display: flex;
+            align-items: center;
+
+            background: #f1f5f9;
+
+            border-radius: 8px;
+
+            padding: 4px 8px;
+
+            gap: 10px;
+
+            flex-shrink: 0;
+        }
+
+        .btn-qty {
+            background: none;
+            border: none;
+
+            font-size: 16px;
+            font-weight: bold;
+
+            cursor: pointer;
+
+            width: 24px;
+            height: 24px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            border-radius: 4px;
+
+            transition: 0.2s;
+        }
+
+        .btn-qty:hover {
+            background: #e2e8f0;
+        }
+
+        .qty-val {
+            font-weight: 600;
+            font-size: 14px;
+        }
+
+        /* ============================= */
+        /* ВИДАЛЕННЯ */
+        /* ============================= */
+
+        .btn-remove {
+            background: none;
+            border: none;
+
+            color: #94a3b8;
+
+            cursor: pointer;
+
+            font-size: 18px;
+
+            margin-left: 5px;
+
+            transition: 0.2s;
+
+            flex-shrink: 0;
+        }
+
+        .btn-remove:hover {
+            color: #ef4444;
+        }
+
+        /* ============================= */
+        /* ПІДСУМОК */
+        /* ============================= */
+
+        .summary-card {
+            background: #fff;
+
+            border-radius: 16px;
+
+            padding: 20px;
+
+            box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+
+            height: fit-content;
+        }
+
+        .summary-title {
+            font-size: 18px;
+            font-weight: 700;
+
+            margin-bottom: 15px;
+        }
+
+        .summary-row {
+            display: flex;
+            justify-content: space-between;
+
+            margin-bottom: 12px;
+
+            font-size: 15px;
+
+            color: #666;
+        }
+
+        .summary-row.total {
+            font-size: 18px;
+            font-weight: 700;
+
+            color: #111;
+
+            border-top: 1px solid #f0f0f0;
+
+            padding-top: 12px;
+
+            margin-top: 15px;
+        }
+
+        /* ============================= */
+        /* КНОПКА ОФОРМИТИ */
+        /* ============================= */
+
+        .checkout-btn {
+            width: 100%;
+
+            background: #00a046;
+
+            color: #fff;
+
+            border: none;
+
+            padding: 14px;
+
+            border-radius: 10px;
+
+            font-size: 16px;
+
+            font-weight: 600;
+
+            cursor: pointer;
+
+            transition: 0.2s;
+
+            margin-top: 10px;
+
+            display: block;
+
+            text-align: center;
+
+            text-decoration: none;
+
+            box-sizing: border-box;
+        }
+
+        .checkout-btn:hover {
+            background: #00893b;
+        }
+
+        .checkout-btn.disabled {
+            background: #ccc;
+
+            cursor: not-allowed;
+
+            pointer-events: none;
+        }
+
+        /* ============================= */
+        /* ОЧИСТИТИ КОШИК */
+        /* ============================= */
+
+        .btn-clear-all {
+            background: transparent;
+
+            border: none;
+
+            color: #ef4444;
+
+            cursor: pointer;
+
+            font-size: 13px;
+
+            margin-top: 15px;
+
+            width: 100%;
+
+            text-align: center;
+        }
+
+        /* ============================= */
+        /* ПУСТИЙ КОШИК */
+        /* ============================= */
+
+        .empty-cart {
+            text-align: center;
+
+            padding: 40px 0;
+        }
+
+        .empty-cart p {
+            font-size: 18px;
+
+            color: #666;
+
+            margin-bottom: 15px;
+        }
+
+        /* ============================= */
+        /* МОБІЛЬНА ВЕРСІЯ */
+        /* ============================= */
+
+        @media (max-width: 600px) {
+
+            .cart-item-card {
+                gap: 10px;
+            }
+
+            .cart-product-image {
+                width: 70px;
+                height: 70px;
+            }
+
+            .item-name {
+                font-size: 14px;
+            }
+
+            .quantity-controls {
+                gap: 4px;
+                padding: 3px 5px;
+            }
+
+            .btn-remove {
+                margin-left: 2px;
+            }
+
+        }
+
+    
+        .item-color{font-size:13px;color:#64748b;margin:3px 0;}
+        .item-unit-price{font-size:13px;color:#64748b;margin-top:3px;}
+        .item-line-total{font-weight:700;min-width:120px;text-align:right;color:#111827;}
+        .empty-cart h2{font-size:24px;color:#111827;}
+        .empty-cart p{color:#64748b;}
+        @media(max-width:700px){
+            .cart-item-card{flex-wrap:wrap;}
+            .item-info{min-width:calc(100% - 90px);}
+            .item-line-total{margin-left:auto;min-width:auto;}
+        }
+</style>
+
+</head>
+
+<body>
+
+<header class="header">
+
+    <div class="header-left">
+
+        <a href="index.html" class="logo">
+
+            <span class="blue">mac</span>
+            <span class="lightblue">bay</span>
+            <span class="black">parts</span>
+
+        </a>
+
+    </div>
+
+    <div class="header-right">
+
+        <a href="index.html"
+           class="header-icon"
+           style="text-decoration: none;">
+
+            ← <span>До товарів</span>
+
+        </a>
+
+    </div>
+
+</header>
+
+
+<div class="cart-container">
+
+    <h1 class="cart-title">
+        Кошик
+    </h1>
+
+
+    <div class="cart-grid">
+
+        <!-- ============================= -->
+        <!-- ТОВАРИ -->
+        <!-- ============================= -->
+
+        <div class="cart-list" id="cart-items">
+
+        </div>
+
+
+        <!-- ============================= -->
+        <!-- ПІДСУМОК -->
+        <!-- ============================= -->
+
+        <div class="summary-card">
+
+            <div class="summary-title">
+                Разом
+            </div>
+
+            <div class="summary-row">
+
+                <span>
+                    Товари (<span id="summary-count">0</span>):
+                </span>
+
+                <span>
+                    Ціну уточнюйте
+                </span>
+
+            </div>
+
+
+            <div class="summary-row total">
+
+                <span>
+                    До сплати:
+                </span>
+
+                <span id="summary-total" style="color:#00a046;">
+                    Ціну уточнюйте
+                </span>
+
+            </div>
+
+
+            <a href="checkout.html"
+               class="checkout-btn"
+               id="go-checkout-link">
+
+                Оформити замовлення
+
+            </a>
+
+
+            <button
+                class="btn-clear-all"
+                onclick="clearCart()">
+
+                Очистити кошик
+
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<script src="script.js"></script>
+
+
+<script>
+/* =====================================================
+   НАДІЙНИЙ КОШИК
+===================================================== */
+(function () {
+    function readCart() {
+        try {
+            const cart = JSON.parse(localStorage.getItem("userCart") || "[]");
+            return Array.isArray(cart) ? cart : [];
+        } catch (_) {
+            return [];
+        }
+    }
+
+    function writeCart(cart) {
+        localStorage.setItem("userCart", JSON.stringify(cart));
+        if (typeof updateCartCounter === "function") updateCartCounter();
+    }
+
+    function money(value) {
+        const n = parseFloat(String(value || "").replace(/\s/g,"").replace(",", ".").replace(/[^\d.]/g,""));
+        if (!Number.isFinite(n) || n === 0) return "Ціну уточнюйте";
+        return new Intl.NumberFormat("uk-UA", {style:"currency", currency:"UAH", maximumFractionDigits:0}).format(n);
+    }
+
+    function renderCart() {
+        const container = document.getElementById("cart-items");
+        const countEl = document.getElementById("summary-count");
+        const totalEl = document.getElementById("summary-total");
+        const checkout = document.getElementById("go-checkout-link");
+        if (!container) return;
+
+        const cart = readCart();
+        const count = cart.reduce((s,i) => s + Number(i.quantity || 1), 0);
+        const total = cart.reduce((s,i) => {
+            const p = parseFloat(String(i.price || "").replace(/\s/g,"").replace(",", ".").replace(/[^\d.]/g,""));
+            return s + (Number.isFinite(p) ? p : 0) * Number(i.quantity || 1);
+        }, 0);
+
+        if (countEl) countEl.textContent = count;
+        if (totalEl) totalEl.textContent = total ? money(total) : "Ціну уточнюйте";
+
+        if (!cart.length) {
+            container.innerHTML = `
+                <div class="empty-cart">
+                    <div style="font-size:54px;margin-bottom:10px">🛒</div>
+                    <h2 style="margin:0 0 8px">Кошик порожній</h2>
+                    <p>Ви ще не додали жодного товару.</p>
+                    <a href="index.html" class="checkout-btn" style="max-width:280px;margin:18px auto 0">
+                        ← Повернутися до каталогу
+                    </a>
+                </div>`;
+            if (checkout) checkout.classList.add("disabled");
+            return;
+        }
+
+        if (checkout) checkout.classList.remove("disabled");
+
+        container.innerHTML = cart.map((item, index) => {
+            const qty = Number(item.quantity || 1);
+            const color = item.color ? `<div class="item-color">Колір: <strong>${escapeHtml(item.color)}</strong></div>` : "";
+            return `
+            <div class="cart-item-card">
+                <div class="cart-product-image">
+                    ${item.image ? `<img src="${escapeAttr(item.image)}" alt="${escapeAttr(item.name)}" onerror="this.style.display='none'">` : `<div class="no-product-image">Фото</div>`}
+                </div>
+                <div class="item-info">
+                    <div class="item-name">${escapeHtml(item.name)}</div>
+                    ${color}
+                    <div class="item-status">● В наявності</div>
+                    <div class="item-unit-price">${escapeHtml(money(item.price))}</div>
+                </div>
+                <div class="quantity-controls">
+                    <button class="btn-qty" type="button" data-action="minus" data-index="${index}">−</button>
+                    <span class="qty-val">${qty}</span>
+                    <button class="btn-qty" type="button" data-action="plus" data-index="${index}">+</button>
+                </div>
+                <div class="item-line-total">${money((parseFloat(String(item.price||"").replace(/\s/g,"").replace(",", ".").replace(/[^\d.]/g,""))||0)*qty)}</div>
+                <button class="btn-remove" type="button" data-action="remove" data-index="${index}" aria-label="Видалити">×</button>
+            </div>`;
+        }).join("");
+    }
+
+    function escapeHtml(v) {
+        return String(v ?? "").replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[c]));
+    }
+    function escapeAttr(v) { return escapeHtml(v); }
+
+    document.addEventListener("click", function(e) {
+        const btn = e.target.closest("[data-action]");
+        if (!btn) return;
+        const action = btn.dataset.action;
+        const index = Number(btn.dataset.index);
+        const cart = readCart();
+        if (!cart[index]) return;
+
+        if (action === "plus") cart[index].quantity = Number(cart[index].quantity || 1) + 1;
+        if (action === "minus") {
+            cart[index].quantity = Number(cart[index].quantity || 1) - 1;
+            if (cart[index].quantity <= 0) cart.splice(index, 1);
+        }
+        if (action === "remove") cart.splice(index, 1);
+
+        writeCart(cart);
+        renderCart();
+    });
+
+    window.clearCart = function() {
+        if (!readCart().length) return;
+        writeCart([]);
+        renderCart();
+    };
+
+    document.addEventListener("DOMContentLoaded", renderCart);
+})();
+</script>
+
+<script src="supabase-prices.js"></script>
+</body>
+</html>
