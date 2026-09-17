@@ -1,102 +1,65 @@
 <!DOCTYPE html>
 <html lang="uk">
 <head>
-  <meta charset="UTF-8">
-  <title>Адмінка — macbayparts</title>
-  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-  <style>
-    body { font-family: system-ui, sans-serif; padding: 40px; background: #0f172a; color: #f8fafc; }
-    .container { max-width: 800px; margin: 0 auto; background: #1e293b; padding: 30px; border-radius: 12px; }
-    .form-group { display: flex; gap: 10px; margin-bottom: 25px; flex-wrap: wrap; }
-    input, select { padding: 12px; border: 1px solid #334155; background: #0f172a; color: #fff; border-radius: 6px; flex: 1; }
-    button { background: #0ea5e9; color: #fff; border: none; padding: 12px 20px; border-radius: 6px; cursor: pointer; font-weight: bold; }
-    table { width: 100%; border-collapse: collapse; margin-top: 10px; }
-    th, td { border-bottom: 1px solid #334155; padding: 12px; text-align: left; }
-    .btn-del { background: #ef4444; padding: 6px 12px; font-size: 13px; }
-    .btn-edit { background: #f59e0b; padding: 6px 12px; font-size: 13px; margin-right: 5px; }
-  </style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Адмінка — macbayparts</title>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<style>
+:root{font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:#0f172a;background:#f4f7fb}
+*{box-sizing:border-box}body{margin:0}.wrap{max-width:1500px;margin:0 auto;padding:28px 18px 60px}.top{display:flex;gap:14px;align-items:center;justify-content:space-between;flex-wrap:wrap;margin-bottom:18px}.top h1{margin:0;font-size:28px}.muted{color:#64748b;font-size:14px}.toolbar{background:#fff;border:1px solid #dbe4ef;border-radius:16px;padding:16px;display:grid;grid-template-columns:minmax(220px,1fr) 170px 150px auto;gap:10px;position:sticky;top:10px;z-index:5;box-shadow:0 8px 24px rgba(15,23,42,.06)}input,select,textarea{width:100%;border:1px solid #cbd5e1;border-radius:10px;padding:10px 12px;font:inherit;background:#fff}textarea{min-height:90px;resize:vertical}.btn{border:0;border-radius:10px;padding:10px 14px;font-weight:700;cursor:pointer}.primary{background:#0ea5e9;color:#fff}.dark{background:#0f172a;color:#fff}.danger{background:#ef4444;color:#fff}.light{background:#e2e8f0;color:#0f172a}.status{margin:14px 0;padding:10px 12px;border-radius:10px;background:#e0f2fe;color:#075985;display:none}.table-wrap{margin-top:16px;background:#fff;border:1px solid #dbe4ef;border-radius:16px;overflow:auto;box-shadow:0 8px 24px rgba(15,23,42,.05)}table{width:100%;border-collapse:collapse;min-width:1100px}th,td{padding:11px;border-bottom:1px solid #e5e7eb;text-align:left;vertical-align:middle}th{background:#f8fafc;font-size:13px;position:sticky;top:0}td img{width:58px;height:58px;object-fit:contain;border-radius:8px;background:#f8fafc;border:1px solid #e2e8f0}.stock{font-weight:700}.stock.yes{color:#16a34a}.stock.no{color:#dc2626}.actions{display:flex;gap:7px;flex-wrap:wrap}.count{font-weight:700}.empty{text-align:center;padding:30px;color:#64748b}.modal{position:fixed;inset:0;background:rgba(15,23,42,.55);display:none;align-items:center;justify-content:center;padding:18px;z-index:20}.modal.open{display:flex}.dialog{width:min(760px,100%);max-height:90vh;overflow:auto;background:#fff;border-radius:18px;padding:22px}.dialog h2{margin-top:0}.grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}.full{grid-column:1/-1}.row-actions{display:flex;justify-content:flex-end;gap:8px;margin-top:16px}@media(max-width:800px){.toolbar{grid-template-columns:1fr}.grid{grid-template-columns:1fr}.full{grid-column:auto}}
+</style>
 </head>
 <body>
-
-<div class="container">
-  <h2>Управління товарами та цінами</h2>
-
-  <form id="addForm" class="form-group">
-    <input type="text" id="pName" placeholder="Назва (напр. Заміна дисплею A2337)" required>
-    <input type="text" id="pPrice" placeholder="Ціна (напр. 4500 грн)" required>
-    <select id="pCategory">
-      <option value="air">MacBook Air</option>
-      <option value="pro">MacBook Pro</option>
-    </select>
-    <button type="submit">Додати</button>
-  </form>
-
-  <table>
-    <thead>
-      <tr>
-        <th>Назва</th>
-        <th>Ціна</th>
-        <th>Категорія</th>
-        <th>Дії</th>
-      </tr>
-    </thead>
-    <tbody id="tableBody"></tbody>
-  </table>
+<div class="wrap">
+  <div class="top">
+    <div><h1>Керування товарами</h1><div class="muted">Таблиця <b>products_new</b> · ціни, назви, наявність та фото</div></div>
+    <button class="btn primary" id="addBtn">+ Додати товар</button>
+  </div>
+  <div class="toolbar">
+    <input id="search" placeholder="Пошук: назва, модель, категорія, опис...">
+    <select id="stockFilter"><option value="all">Усі товари</option><option value="yes">В наявності</option><option value="no">Немає</option></select>
+    <select id="categoryFilter"><option value="all">Усі категорії</option></select>
+    <button class="btn dark" id="reloadBtn">Оновити</button>
+  </div>
+  <div class="status" id="status"></div>
+  <div class="muted" id="count"></div>
+  <div class="table-wrap"><table><thead><tr><th>ID</th><th>Фото</th><th>Назва</th><th>Модель</th><th>Категорія</th><th>Ціна</th><th>Наявність</th><th>Дії</th></tr></thead><tbody id="tbody"></tbody></table></div>
 </div>
 
+<div class="modal" id="modal"><div class="dialog">
+  <h2 id="modalTitle">Редагувати товар</h2>
+  <form id="form">
+    <input type="hidden" id="id">
+    <div class="grid">
+      <div class="full"><label>Назва</label><input id="title" required></div>
+      <div><label>Модель</label><input id="model" placeholder="A1932"></div>
+      <div><label>Категорія</label><input id="category" placeholder="battery"></div>
+      <div><label>Ціна</label><input id="price" placeholder="4500 грн"></div>
+      <div><label>Наявність</label><select id="stock"><option value="true">В наявності</option><option value="false">Немає / передзамовлення</option></select></div>
+      <div class="full"><label>Фото — URL</label><input id="image_url" placeholder="https://... або шлях до файлу"></div>
+      <div class="full"><label>Опис</label><textarea id="description"></textarea></div>
+    </div>
+    <div class="row-actions"><button type="button" class="btn light" id="cancelBtn">Скасувати</button><button class="btn primary" type="submit">Зберегти</button></div>
+  </form>
+</div></div>
+
 <script>
-  const SUPABASE_URL = 'https://tbkqilsmcocyqhkupszy.supabase.co';
-  const SUPABASE_KEY = 'sb_publishable_Z9U7_z_2meBOSYazEnHA5g_p8nmh_al';
-  const _supabase = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
-
-  async function loadProducts() {
-    const { data, error } = await _supabase.from('products').select('*').order('id', { ascending: false });
-    if (error) return console.error(error);
-    
-    const tbody = document.getElementById('tableBody');
-    tbody.innerHTML = '';
-    data.forEach(item => {
-      tbody.innerHTML += `
-        <tr>
-          <td>${item.name}</td>
-          <td><strong style="color: #38bdf8;">${item.price}</strong></td>
-          <td>${item.category}</td>
-          <td>
-            <button class="btn-edit" onclick="editPrice(${item.id}, '${item.price}')">Змінити ціну</button>
-            <button class="btn-del" onclick="deleteItem(${item.id})">Видалити</button>
-          </td>
-        </tr>
-      `;
-    });
-  }
-
-  document.getElementById('addForm').addEventListener('submit', async (e) => {
-    e.preventDefault();
-    const name = document.getElementById('pName').value;
-    const price = document.getElementById('pPrice').value;
-    const category = document.getElementById('pCategory').value;
-
-    await _supabase.from('products').insert([{ name, price, category }]);
-    document.getElementById('addForm').reset();
-    loadProducts();
-  });
-
-  async function editPrice(id, currentPrice) {
-    const newPrice = prompt('Введіть нову ціну:', currentPrice);
-    if (newPrice) {
-      await _supabase.from('products').update({ price: newPrice }).eq('id', id);
-      loadProducts();
-    }
-  }
-
-  async function deleteItem(id) {
-    if (confirm('Видалити ціну/послугу?')) {
-      await _supabase.from('products').delete().eq('id', id);
-      loadProducts();
-    }
-  }
-
-  loadProducts();
+const SUPABASE_URL='https://ofkirctsgclaqdpdvjis.supabase.co';
+const SUPABASE_KEY='sb_publishable_ixT1HmrvcAyXdJJQ0pIYLg_Je15dQTV';
+const db=supabase.createClient(SUPABASE_URL,SUPABASE_KEY);
+let allProducts=[];
+const $=id=>document.getElementById(id);
+function showStatus(msg,error=false){const el=$('status');el.textContent=msg;el.style.display='block';el.style.background=error?'#fee2e2':'#e0f2fe';el.style.color=error?'#991b1b':'#075985';setTimeout(()=>el.style.display='none',3500)}
+function esc(v){return String(v??'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;').replace(/'/g,'&#039;')}
+function rebuildCategories(){const current=$('categoryFilter').value;const cats=[...new Set(allProducts.map(x=>x.category).filter(Boolean))].sort();$('categoryFilter').innerHTML='<option value="all">Усі категорії</option>'+cats.map(c=>`<option value="${esc(c)}">${esc(c)}</option>`).join('');$('categoryFilter').value=cats.includes(current)?current:'all'}
+function filtered(){const q=$('search').value.trim().toLowerCase(),sf=$('stockFilter').value,cf=$('categoryFilter').value;return allProducts.filter(p=>{const hay=[p.title,p.model,p.category,p.description,p.search_text].join(' ').toLowerCase();if(q&&!hay.includes(q))return false;if(sf==='yes'&&!p.stock)return false;if(sf==='no'&&p.stock)return false;if(cf!=='all'&&p.category!==cf)return false;return true})}
+function render(){const rows=filtered();$('count').innerHTML=`Показано <span class="count">${rows.length}</span> із ${allProducts.length}`;$('tbody').innerHTML=rows.length?rows.map(p=>`<tr><td>${p.id}</td><td>${p.image_url?`<img src="${esc(p.image_url)}" alt="">`:'—'}</td><td><b>${esc(p.title)}</b></td><td>${esc(p.model)}</td><td>${esc(p.category)}</td><td>${esc(p.price||'Ціну уточнюйте')}</td><td class="stock ${p.stock?'yes':'no'}">${p.stock?'● В наявності':'● Немає'}</td><td><div class="actions"><button class="btn light" onclick="editProduct(${p.id})">Редагувати</button><button class="btn danger" onclick="deleteProduct(${p.id})">Видалити</button></div></td></tr>`).join(''):'<tr><td colspan="8" class="empty">Нічого не знайдено</td></tr>'}
+async function load(){const {data,error}=await db.from('products_new').select('*').order('id',{ascending:true});if(error){showStatus('Помилка завантаження: '+error.message,true);return}allProducts=data||[];rebuildCategories();render()}
+function openEditor(p=null){$('modalTitle').textContent=p?'Редагувати товар':'Додати товар';$('id').value=p?.id||'';$('title').value=p?.title||'';$('model').value=p?.model||'';$('category').value=p?.category||'';$('price').value=p?.price||'';$('stock').value=String(p?.stock??true);$('image_url').value=p?.image_url||'';$('description').value=p?.description||'';$('modal').classList.add('open')}
+window.editProduct=id=>openEditor(allProducts.find(p=>p.id===id));
+window.deleteProduct=async id=>{const p=allProducts.find(x=>x.id===id);if(!p||!confirm(`Видалити «${p.title}»?`))return;const {error}=await db.from('products_new').delete().eq('id',id);if(error){showStatus('Не вдалося видалити: '+error.message,true);return}showStatus('Товар видалено');load()}
+$('form').addEventListener('submit',async e=>{e.preventDefault();const id=$('id').value;const title=$('title').value.trim(),model=$('model').value.trim(),category=$('category').value.trim(),description=$('description').value.trim();const row={title,model,category,description,price:$('price').value.trim(),stock:$('stock').value==='true',image_url:$('image_url').value.trim(),search_text:[title,model,category,description].filter(Boolean).join(' ').toLowerCase()};let result;if(id){result=await db.from('products_new').update(row).eq('id',id)}else{result=await db.from('products_new').insert(row)}if(result.error){showStatus('Помилка збереження: '+result.error.message,true);return}showStatus(id?'Товар оновлено':'Товар додано');$('modal').classList.remove('open');load()});
+$('addBtn').onclick=()=>openEditor();$('cancelBtn').onclick=()=>$('modal').classList.remove('open');$('modal').onclick=e=>{if(e.target===$('modal'))$('modal').classList.remove('open')};$('reloadBtn').onclick=load;$('search').oninput=render;$('stockFilter').onchange=render;$('categoryFilter').onchange=render;load();
 </script>
-</body>
-</html>
+</body></html>

@@ -1,17 +1,14 @@
 <!DOCTYPE html>
 <html lang="uk">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Кошик — macbayparts</title>
-
-    <link rel="stylesheet" href="style.css">
-
-    <style>
-
-        body {
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>
+   Кошик — macbayparts
+  </title>
+  <link href="style.css" rel="stylesheet"/>
+  <style>
+   body {
             background-color: #f5f5f7;
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI",
                 Roboto, Helvetica, Arial, sans-serif;
@@ -375,124 +372,160 @@
             .item-info{min-width:calc(100% - 90px);}
             .item-line-total{margin-left:auto;min-width:auto;}
         }
-</style>
-
-</head>
-
-<body>
-
-<header class="header">
-
-    <div class="header-left">
-
-        <a href="index.html" class="logo">
-
-            <span class="blue">mac</span>
-            <span class="lightblue">bay</span>
-            <span class="black">parts</span>
-
-        </a>
-
+  </style>
+ </head>
+ <body>
+  <header class="header">
+   <div class="header-left">
+    <a class="logo" href="index.html">
+     macbay
+     <span>
+      parts
+     </span>
+    </a>
+   </div>
+   <!-- ================= SEARCH ================= -->
+   <div class="search" id="searchBox">
+    <div class="search-input-wrapper">
+     <span class="search-icon">
+      ⌕
+     </span>
+     <input autocomplete="off" id="searchInput" placeholder="Пошук по моделях та запчастинах..." type="text"/>
+     <button class="search-clear" id="searchClear" type="button">
+      ×
+     </button>
     </div>
-
-    <div class="header-right">
-
-        <a href="index.html"
-           class="header-icon"
-           style="text-decoration: none;">
-
-            ← <span>До товарів</span>
-
-        </a>
-
+    <div class="search-panel">
+     <div class="search-results" id="searchResults">
+     </div>
+     <div class="popular-searches">
+      <h3>
+       Популярні запити
+      </h3>
+      <div class="popular-list">
+       <button type="button">
+        MacBook Air A1466
+       </button>
+       <button type="button">
+        MacBook Pro A1708
+       </button>
+       <button type="button">
+        A2337
+       </button>
+       <button type="button">
+        A2485
+       </button>
+       <button type="button">
+        Антена
+       </button>
+       <button type="button">
+        Акумулятори
+       </button>
+       <button type="button">
+        Тачпад
+       </button>
+       <button type="button">
+        Материнська плата
+       </button>
+       <button type="button">
+        Топкейс
+       </button>
+       <button type="button">
+        Матриця
+       </button>
+       <button type="button">
+        Клавіатури
+       </button>
+       <button type="button">
+        Шлейфи
+       </button>
+      </div>
+     </div>
     </div>
-
-</header>
-
-
-<div class="cart-container">
-
-    <h1 class="cart-title">
-        Кошик
-    </h1>
-
-
-    <div class="cart-grid">
-
-        <!-- ============================= -->
-        <!-- ТОВАРИ -->
-        <!-- ============================= -->
-
-        <div class="cart-list" id="cart-items">
-
-        </div>
-
-
-        <!-- ============================= -->
-        <!-- ПІДСУМОК -->
-        <!-- ============================= -->
-
-        <div class="summary-card">
-
-            <div class="summary-title">
-                Разом
-            </div>
-
-            <div class="summary-row">
-
-                <span>
-                    Товари (<span id="summary-count">0</span>):
-                </span>
-
-                <span>
-                    Ціну уточнюйте
-                </span>
-
-            </div>
-
-
-            <div class="summary-row total">
-
-                <span>
-                    До сплати:
-                </span>
-
-                <span id="summary-total" style="color:#00a046;">
-                    Ціну уточнюйте
-                </span>
-
-            </div>
-
-
-            <a href="checkout.html"
-               class="checkout-btn"
-               id="go-checkout-link">
-
-                Оформити замовлення
-
-            </a>
-
-
-            <button
-                class="btn-clear-all"
-                onclick="clearCart()">
-
-                Очистити кошик
-
-            </button>
-
-        </div>
-
+   </div>
+   <!-- ================= HEADER RIGHT ================= -->
+   <div class="header-right">
+    <a class="header-icon" href="models/accessories.html">
+     💻
+     <span>
+      Аксесуари
+     </span>
+    </a>
+    <a class="header-icon" href="cart.html">
+     🛒
+     <span>
+      Кошик (
+      <span id="cart-counter">
+       0
+      </span>
+      )
+     </span>
+    </a>
+    <div class="phone-dropdown">
+     <button class="header-icon phone-button" type="button">
+      📞
+      <span>
+       Зателефонувати
+      </span>
+     </button>
+     <div class="phone-menu">
+      <a href="tel:+380 98 841 2544">
+       📞 +380 98 841 2544
+      </a>
+     </div>
     </div>
-
-</div>
-
-
-<script src="script.js"></script>
-
-
-<script>
-/* =====================================================
+   </div>
+  </header>
+  <div class="cart-container">
+   <h1 class="cart-title">
+    Кошик
+   </h1>
+   <div class="cart-grid">
+    <!-- ============================= -->
+    <!-- ТОВАРИ -->
+    <!-- ============================= -->
+    <div class="cart-list" id="cart-items">
+    </div>
+    <!-- ============================= -->
+    <!-- ПІДСУМОК -->
+    <!-- ============================= -->
+    <div class="summary-card">
+     <div class="summary-title">
+      Разом
+     </div>
+     <div class="summary-row">
+      <span>
+       Товари (
+       <span id="summary-count">
+        0
+       </span>
+       ):
+      </span>
+      <span>
+       Ціну уточнюйте
+      </span>
+     </div>
+     <div class="summary-row total">
+      <span>
+       До сплати:
+      </span>
+      <span id="summary-total" style="color:#00a046;">
+       Ціну уточнюйте
+      </span>
+     </div>
+     <a class="checkout-btn" href="checkout.html" id="go-checkout-link">
+      Оформити замовлення
+     </a>
+     <button class="btn-clear-all" onclick="clearCart()">
+      Очистити кошик
+     </button>
+    </div>
+   </div>
+  </div>
+  <script src="script.js">
+  </script>
+  <script>
+   /* =====================================================
    НАДІЙНИЙ КОШИК
 ===================================================== */
 (function () {
@@ -606,8 +639,8 @@
 
     document.addEventListener("DOMContentLoaded", renderCart);
 })();
-</script>
-
-<script src="supabase-prices.js"></script>
-</body>
+  </script>
+  <script src="supabase-prices.js">
+  </script>
+ </body>
 </html>

@@ -1134,3 +1134,54 @@ document.addEventListener(
 
     }
 );
+document.addEventListener('DOMContentLoaded', () => {
+  // 1. Автоматичне створення кнопок вибору ємності для всіх акумуляторів
+  const isBattery = window.location.pathname.includes('battery') || document.title.toLowerCase().includes('акумулятор');
+  
+  if (isBattery && !document.querySelector('.battery-selector-wrap')) {
+    const targetBlock = document.querySelector('.price, .product-price') || 
+                        Array.from(document.querySelectorAll('*')).find(el => el.children.length === 0 && el.textContent.includes('Ціну уточнюйте')) ||
+                        document.querySelector('h1')?.parentNode;
+
+    if (targetBlock) {
+      const container = document.createElement('div');
+      container.className = 'battery-selector-wrap';
+      container.style.cssText = 'margin: 15px 0; font-family: -apple-system, sans-serif;';
+      container.innerHTML = `
+        <span style="display: block; font-size: 14px; font-weight: 600; color: #1d1d1f; margin-bottom: 8px;">Ємність акумулятора:</span>
+        <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+          <label style="cursor: pointer;">
+            <input type="radio" name="battery_health" value="85-90%" checked style="display: none;">
+            <span class="cap-btn">85–90%</span>
+          </label>
+          <label style="cursor: pointer;">
+            <input type="radio" name="battery_health" value="90-95%" style="display: none;">
+            <span class="cap-btn">90–95%</span>
+          </label>
+          <label style="cursor: pointer;">
+            <input type="radio" name="battery_health" value="95-100%" style="display: none;">
+            <span class="cap-btn">95–100%</span>
+          </label>
+        </div>
+        <style>
+          .cap-btn { display: inline-block; padding: 8px 14px; font-size: 13px; font-weight: 500; color: #1d1d1f; background: #f5f5f7; border: 1.5px solid #e5e5e7; border-radius: 8px; transition: all 0.2s; }
+          label:hover .cap-btn { border-color: #0071e3; }
+          input[type="radio"]:checked + .cap-btn { border-color: #0071e3; background: #0071e3; color: #fff; box-shadow: 0 2px 6px rgba(0,113,227,0.25); }
+        </style>
+      `;
+      targetBlock.parentNode.insertBefore(container, targetBlock);
+    }
+  }
+
+  // 2. Додавання вибраної ємності під час кліку "Додати в кошик"
+  const buyBtn = document.querySelector('.buy-btn, .add-to-cart, [btn-cart]');
+  if (buyBtn) {
+    buyBtn.addEventListener('click', () => {
+      const selectedCap = document.querySelector('input[name="battery_health"]:checked')?.value;
+      if (selectedCap) {
+        // Зберігаємо обрану ємність тимчасово або передаємо у ваш об'єкт товару
+        localStorage.setItem('selected_battery_health', selectedCap);
+      }
+    });
+  }
+});

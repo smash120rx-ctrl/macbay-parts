@@ -82,26 +82,26 @@ const products = [
     { name: "MacBook Pro A3401", url: "models/matrices.html", type: "MacBook Pro" },
 
     // --- МАТРИЦІ ---
-    { name: "Дисплей у зборі MacBook Air A3113 (Midnight Blue, Midnight)", url: "models/matrices.html", type: "Матриці" },
-    { name: "Дисплей у зборі MacBook Air A2941 (Midnight Blue, Space Gray)", url: "models/matrices.html", type: "Матриці" },
-    { name: "Дисплей у зборі MacBook Air A3114 (Space Gray, StarLight)", url: "models/matrices.html", type: "Матриці" },
-    { name: "Дисплей у зборі MacBook Pro A2992 (Space Black)", url: "models/matrices.html", type: "Матриці" },
-    { name: "Дисплей у зборі MacBook Pro A3112 (Space Black)", url: "models/matrices.html", type: "Матриці" },
-    { name: "Дисплей у зборі MacBook Pro A3401 (Space Black)", url: "models/matrices.html", type: "Матриці" },
+    { name: "Дисплей у зборі MacBook Air A3113 (Midnight Blue, Midnight)", url: "models/matrices.html", type: "Матриця" },
+    { name: "Дисплей у зборі MacBook Air A2941 (Midnight Blue, Space Gray)", url: "models/matrices.html", type: "Матриця" },
+    { name: "Дисплей у зборі MacBook Air A3114 (Space Gray, StarLight)", url: "models/matrices.html", type: "Матриця" },
+    { name: "Дисплей у зборі MacBook Pro A2992 (Space Black)", url: "models/matrices.html", type: "Матриця" },
+    { name: "Дисплей у зборі MacBook Pro A3112 (Space Black)", url: "models/matrices.html", type: "Матриця" },
+    { name: "Дисплей у зборі MacBook Pro A3401 (Space Black)", url: "models/matrices.html", type: "Матриця" },
 
     // --- МАТЕРИНСЬКІ ПЛАТИ ---
-    { name: "Материнська плата MacBook Air A1932 (T2)", url: "models/motherboards.html", type: "Материнські плати" },
-    { name: "Материнська плата MacBook Air A2337 (M1)", url: "models/motherboards.html", type: "Материнські плати" },
-    { name: "Материнська плата MacBook Air A2941 (M2)", url: "models/motherboards.html", type: "Материнські плати" },
-    { name: "Материнська плата MacBook Air A3113 (M3 24GB/512GB)", url: "models/motherboards.html", type: "Материнські плати" },
-    { name: "Материнська плата MacBook Air A3114 (M3)", url: "models/motherboards.html", type: "Материнські плати" },
-    { name: "Материнська плата MacBook Pro A2485 (M1 Pro 16GB/512GB)", url: "models/motherboards.html", type: "Материнські плати" },
-    { name: "Материнська плата MacBook Pro A2485 (M1 Max 32GB/1TB)", url: "models/motherboards.html", type: "Материнські плати" },
-    { name: "Материнська плата MacBook Pro A2779 (M2 Pro 16GB/512GB)", url: "models/motherboards.html", type: "Материнські плати" },
-    { name: "Материнська плата MacBook Pro A2991 (M3 Pro 18GB/512GB)", url: "models/motherboards.html", type: "Материнські плати" },
-    { name: "Материнська плата MacBook Pro A2992 (M3 Pro 18GB/1TB)", url: "models/motherboards.html", type: "Материнські плати" },
-    { name: "Материнська плата MacBook Pro A2992 (M3 Pro 18GB/512GB)", url: "models/motherboards.html", type: "Материнські плати" },
-    { name: "Материнська плата MacBook Pro A3401 (M4 Pro 24GB/512GB)", url: "models/motherboards.html", type: "Материнські плати" },
+    { name: "Материнська плата MacBook Air A1932 (T2)", url: "models/motherboards.html", type: "Материнська плата" },
+    { name: "Материнська плата MacBook Air A2337 (M1)", url: "models/motherboards.html", type: "Материнська плата" },
+    { name: "Материнська плата MacBook Air A2941 (M2)", url: "models/motherboards.html", type: "Материнська плата" },
+    { name: "Материнська плата MacBook Air A3113 (M3 24GB/512GB)", url: "models/motherboards.html", type: "Материнська плата" },
+    { name: "Материнська плата MacBook Air A3114 (M3)", url: "models/motherboards.html", type: "Материнська плата" },
+    { name: "Материнська плата MacBook Pro A2485 (M1 Pro 16GB/512GB)", url: "models/motherboards.html", type: "Материнська плата" },
+    { name: "Материнська плата MacBook Pro A2485 (M1 Max 32GB/1TB)", url: "models/motherboards.html", type: "Материнська плата" },
+    { name: "Материнська плата MacBook Pro A2779 (M2 Pro 16GB/512GB)", url: "models/motherboards.html", type: "Материнська плата" },
+    { name: "Материнська плата MacBook Pro A2991 (M3 Pro 18GB/512GB)", url: "models/motherboards.html", type: "Материнська плата" },
+    { name: "Материнська плата MacBook Pro A2992 (M3 Pro 18GB/1TB)", url: "models/motherboards.html", type: "Материнська плата" },
+    { name: "Материнська плата MacBook Pro A2992 (M3 Pro 18GB/512GB)", url: "models/motherboards.html", type: "Материнська плата" },
+    { name: "Материнська плата MacBook Pro A3401 (M4 Pro 24GB/512GB)", url: "models/motherboards.html", type: "Материнська плата" },
 
     // --- БАТАРЕЇ ---
     { name: "Акумулятор MacBook Air A1965 (A1932/A2179)", url: "models/batteries.html", type: "Батареї" },
@@ -130,32 +130,32 @@ const products = [
     { name: "Кабель MagSafe 3 (2m) Midnight", url: "models/accessories.html", type: "Аксесуари" },
 
     // --- АНТЕНИ ---
-    { name: "Антена MacBook Pro A2141", url: "models/Antens.html", type: "Антени" },
-    { name: "Антена MacBook Pro A2338", url: "models/Antens.html", type: "Антени" },
-    { name: "Антена MacBook Pro A2442", url: "models/Antens.html", type: "Антени" },
-    { name: "Антена MacBook Pro A2779", url: "models/Antens.html", type: "Антени" },
-    { name: "Антена MacBook Pro A2780", url: "models/Antens.html", type: "Антени" },
-    { name: "Антена MacBook Pro A2991", url: "models/Antens.html", type: "Антени" },
-    { name: "Антена MacBook Pro A2992", url: "models/Antens.html", type: "Антени" },
-    { name: "Антена MacBook Pro A3112", url: "models/Antens.html", type: "Антени" },
-    { name: "Антена MacBook Pro A3401", url: "models/Antens.html", type: "Антени" },
-    { name: "Антена MacBook Air A2337", url: "models/Antens.html", type: "Антени" },
-    { name: "Антена MacBook Air A2941", url: "models/Antens.html", type: "Антени" },
-    { name: "Антена MacBook Air A3114", url: "models/Antens.html", type: "Антени" },
+    { name: "Антена MacBook Pro A2141", url: "models/Antens.html", type: "Антена" },
+    { name: "Антена MacBook Pro A2338", url: "models/Antens.html", type: "Антена" },
+    { name: "Антена MacBook Pro A2442", url: "models/Antens.html", type: "Антена" },
+    { name: "Антена MacBook Pro A2779", url: "models/Antens.html", type: "Антена" },
+    { name: "Антена MacBook Pro A2780", url: "models/Antens.html", type: "Антена" },
+    { name: "Антена MacBook Pro A2991", url: "models/Antens.html", type: "Антена" },
+    { name: "Антена MacBook Pro A2992", url: "models/Antens.html", type: "Антена" },
+    { name: "Антена MacBook Pro A3112", url: "models/Antens.html", type: "Антена" },
+    { name: "Антена MacBook Pro A3401", url: "models/Antens.html", type: "Антена" },
+    { name: "Антена MacBook Air A2337", url: "models/Antens.html", type: "Антена" },
+    { name: "Антена MacBook Air A2941", url: "models/Antens.html", type: "Антена" },
+    { name: "Антена MacBook Air A3114", url: "models/Antens.html", type: "Антена" },
 
     // --- КУЛЕРИ ---
-    { name: "Вентилятор (кулер) MacBook Air A2337", url: "models/coolers.html", type: "Кулери" },
-    { name: "Вентилятор (кулер) MacBook Air A2941", url: "models/coolers.html", type: "Кулери" },
-    { name: "Вентилятор (кулер) MacBook Air A3114", url: "models/coolers.html", type: "Кулери" },
-    { name: "Вентилятор (кулер) MacBook Pro A2141", url: "models/coolers.html", type: "Кулери" },
-    { name: "Вентилятор (кулер) MacBook Pro A2338", url: "models/coolers.html", type: "Кулери" },
-    { name: "Вентилятор (кулер) MacBook Pro A2442", url: "models/coolers.html", type: "Кулери" },
-    { name: "Вентилятор (кулер) MacBook Pro A2779", url: "models/coolers.html", type: "Кулери" },
-    { name: "Вентилятор (кулер) MacBook Pro A2780", url: "models/coolers.html", type: "Кулери" },
-    { name: "Вентилятор (кулер) MacBook Pro A2991", url: "models/coolers.html", type: "Кулери" },
-    { name: "Вентилятор (кулер) MacBook Pro A2992", url: "models/coolers.html", type: "Кулери" },
-    { name: "Вентилятор (кулер) MacBook Pro A3112", url: "models/coolers.html", type: "Кулери" },
-    { name: "Вентилятор (кулер) MacBook Pro A3401", url: "models/coolers.html", type: "Кулери" },
+    { name: "Вентилятор (кулер) MacBook Air A2337", url: "models/coolers.html", type: "Кулер" },
+    { name: "Вентилятор (кулер) MacBook Air A2941", url: "models/coolers.html", type: "Кулер" },
+    { name: "Вентилятор (кулер) MacBook Air A3114", url: "models/coolers.html", type: "Кулер" },
+    { name: "Вентилятор (кулер) MacBook Pro A2141", url: "models/coolers.html", type: "Кулер" },
+    { name: "Вентилятор (кулер) MacBook Pro A2338", url: "models/coolers.html", type: "Кулер" },
+    { name: "Вентилятор (кулер) MacBook Pro A2442", url: "models/coolers.html", type: "Кулер" },
+    { name: "Вентилятор (кулер) MacBook Pro A2779", url: "models/coolers.html", type: "Кулер" },
+    { name: "Вентилятор (кулер) MacBook Pro A2780", url: "models/coolers.html", type: "Кулер" },
+    { name: "Вентилятор (кулер) MacBook Pro A2991", url: "models/coolers.html", type: "Кулер" },
+    { name: "Вентилятор (кулер) MacBook Pro A2992", url: "models/coolers.html", type: "Кулер" },
+    { name: "Вентилятор (кулер) MacBook Pro A3112", url: "models/coolers.html", type: "Кулер" },
+    { name: "Вентилятор (кулер) MacBook Pro A3401", url: "models/coolers.html", type: "Кулер" },
 
     // --- ЗАПЧАСТИНИ ---
     { name: "Аудіо роз'єм MacBook Pro A2442", url: "models/cables.html", type: "Запчастини" },
@@ -195,20 +195,20 @@ const products = [
     { name: "Шлейф мікрофона MacBook Air A2681", url: "models/cables.html", type: "Шлейфи" },
 
     // --- ІНШІ ---
-    { name: "Антени", url: "models/Antens.html", type: "Запчастини" },
+    { name: "Антена", url: "models/Antens.html", type: "Запчастини" },
     { name: "Дисплеї MacBook", url: "models/LCD-дисплеї.html", type: "Запчастини" },
-    { name: "Матриці", url: "models/matrices.html", type: "Запчастини" },
-    { name: "Дисплеї Матриці в зборі", url: "models/matrices.html", type: "Запчастини" },
-    { name: "Тачпади", url: "models/touchpads.html", type: "Запчастини" },
+    { name: "Матриця", url: "models/matrices.html", type: "Запчастини" },
+    { name: "Дисплеї Матриця в зборі", url: "models/matrices.html", type: "Запчастини" },
+    { name: "Тачпад", url: "models/touchpads.html", type: "Запчастини" },
     { name: "Акумуляторні батареї", url: "models/batteries.html", type: "Запчастини" },
     { name: "Батареї", url: "models/batteries.html", type: "Запчастини" },
     { name: "Клавіатури та кнопки", url: "models/keyboards.html", type: "Запчастини" },
     { name: "Клавіатури", url: "models/keyboards.html", type: "Запчастини" },
     { name: "Аксесуари", url: "models/accessories.html", type: "Запчастини" },
-    { name: "Динаміки", url: "models/speakers.html", type: "Запчастини" },
-    { name: "Кулери", url: "models/coolers.html", type: "Запчастини" },
-    { name: "Материнські плати", url: "models/motherboards.html", type: "Запчастини" },
-    { name: "Топкейси", url: "models/topcases.html", type: "Запчастини" },
+    { name: "Динамік", url: "models/speakers.html", type: "Запчастини" },
+    { name: "Кулер", url: "models/coolers.html", type: "Запчастини" },
+    { name: "Материнська плата", url: "models/motherboards.html", type: "Запчастини" },
+    { name: "Топкейс", url: "models/topcases.html", type: "Запчастини" },
     { name: "Шлейфи", url: "models/cables.html", type: "Запчастини" },
     { name: "Гравіювання", url: "models/Gravi.html", type: "Послуги" },
     { name: "Мікросхеми", url: "models/chips.html", type: "Запчастини" },
@@ -236,6 +236,50 @@ const searchBox = document.getElementById("searchBox");
 const searchInput = document.getElementById("searchInput");
 const searchResults = document.getElementById("searchResults");
 const searchClear = document.getElementById("searchClear");
+
+// =====================================================
+// DATABASE SEARCH — products_new
+// =====================================================
+const MACBAY_SUPABASE_URL = 'https://ofkirctsgclaqdpdvjis.supabase.co';
+const MACBAY_SUPABASE_KEY = 'sb_publishable_ixT1HmrvcAyXdJJQ0pIYLg_Je15dQTV';
+let dbProducts = [];
+
+function dbProductUrl(product) {
+    const model = String(product.model || '').toLowerCase().replace(/[^a-z0-9]/g, '');
+    const category = String(product.category || '').toLowerCase();
+    const categoryMap = {
+        display: 'display', topcase: 'topcase', battery: 'battery', antennas: 'antennas',
+        cables: 'cables', cooler: 'cooler', 'io-board': 'io-board', motherboard: 'motherboard',
+        speakers: 'speakers', trackpad: 'trackpad'
+    };
+    if (model && categoryMap[category]) return `models/${model}-${categoryMap[category]}.html`;
+    if (category === 'display') return 'models/matrices.html';
+    if (category === 'battery') return 'models/batteries.html';
+    if (category === 'antennas') return 'models/Antens.html';
+    if (category === 'cables') return 'models/cables.html';
+    if (category === 'cooler') return 'models/coolers.html';
+    if (category === 'motherboard') return 'models/motherboards.html';
+    if (category === 'speakers') return 'models/speakers.html';
+    if (category === 'trackpad') return 'models/touchpads.html';
+    if (category === 'topcase') return 'models/topcases.html';
+    return 'macbook-air.html';
+}
+
+async function loadDatabaseSearchProducts() {
+    try {
+        const response = await fetch(`${MACBAY_SUPABASE_URL}/rest/v1/products_new?select=id,title,model,category,description,search_text&order=id`, {
+            headers: { apikey: MACBAY_SUPABASE_KEY, Authorization: `Bearer ${MACBAY_SUPABASE_KEY}` }
+        });
+        if (!response.ok) return;
+        dbProducts = await response.json();
+        if (searchInput && searchInput.value.trim()) renderSearchResults(searchInput.value.trim());
+    } catch (error) {
+        console.error('Database search:', error);
+    }
+}
+
+loadDatabaseSearchProducts();
+
 
 function highlightMatch(text, query) {
 
@@ -269,18 +313,28 @@ function renderSearchResults(value) {
     const queryWords =
         rawQuery.split(/\s+/).filter(Boolean);
 
-    const found =
-        products.filter(product => {
+    const staticFound = products.filter(product => {
+        const targetText = `${product.name} ${product.type}`.toLowerCase();
+        return queryWords.every(word => targetText.includes(word));
+    });
 
-            const targetText =
-                `${product.name} ${product.type}`
-                    .toLowerCase();
+    const dbFound = dbProducts.filter(product => {
+        const targetText = [product.title, product.model, product.category, product.description, product.search_text]
+            .filter(Boolean).join(' ').toLowerCase();
+        return queryWords.every(word => targetText.includes(word));
+    }).map(product => ({
+        name: product.title,
+        type: `${product.model || ''} · ${product.category || 'Запчастина'}`.trim(),
+        url: dbProductUrl(product)
+    }));
 
-            return queryWords.every(
-                word => targetText.includes(word)
-            );
-
-        });
+    const seen = new Set();
+    const found = [...staticFound, ...dbFound].filter(product => {
+        const key = `${product.name}|${product.url}`;
+        if (seen.has(key)) return false;
+        seen.add(key);
+        return true;
+    }).slice(0, 60);
 
     if (found.length === 0) {
 
@@ -1586,3 +1640,88 @@ document.addEventListener(
 
     }
 );
+function addBatteryToCartFromCard(button) {
+    // 1. Знаходимо картку товару, в якій знаходиться кнопка
+    const card = button.closest('.product-card') || button.closest('.card') || button.parentElement.parentElement;
+
+    // 2. Зчитуємо вибрану ємність
+    const selectedRadio = card.querySelector('input[name="battery_health"]:checked');
+    const capacity = selectedRadio ? selectedRadio.value : '85-90%';
+
+    // 3. Знаходимо назву, ціну та картинку в цій картці
+    const titleElem = card.querySelector('h1, h2, h3, .product-title, .title');
+    const priceElem = card.querySelector('.price, .product-price');
+    const imgElem = card.querySelector('img');
+
+    const title = titleElem ? titleElem.innerText.trim() : 'Акумулятор MacBook';
+    const price = priceElem ? priceElem.innerText.trim() : 'Ціну уточнюйте';
+    const imgSrc = imgElem ? imgElem.src : '';
+
+    const finalTitle = `${title} (${capacity})`;
+
+    // 4. Додаємо в кошик через вашу функцію addToCart
+    if (typeof addToCart === 'function') {
+        addToCart(finalTitle, price, imgSrc, '');
+        alert(`Товар «${finalTitle}» додано в кошик!`);
+    } else {
+        alert('Помилка: функцію addToCart не знайдено!');
+    }
+}
+// Автоматична ізоляція радіокнопок при завантаженні сторінки
+document.addEventListener("DOMContentLoaded", function () {
+    document.querySelectorAll('.color-selection-block').forEach((block, index) => {
+        const uniqueName = `item_color_${index}`;
+        block.querySelectorAll('input[type="radio"]').forEach(radio => {
+            radio.name = uniqueName;
+        });
+    });
+});
+
+// 1. Функція зміни зображення тільки у відповідній картці
+function changeCardColorImage(radioElem) {
+    // Знаходимо саме ту картку, в якій клікнули на колір
+    const card = radioElem.closest('.product-card') || radioElem.closest('article') || radioElem.closest('div[style*="background"]')?.parentElement;
+    if (!card) return;
+
+    const imgElem = card.querySelector('img');
+    
+    if (imgElem && imgElem.src) {
+        const selectedColor = radioElem.value.toLowerCase().replace(/\s+/g, '');
+        const currentSrc = imgElem.src;
+
+        // Видаляємо старий колір з URL (якщо був) і додаємо новий (-spacegray, -silver і т.д.)
+        const baseSrc = currentSrc.replace(/-(spacegray|silver|midnight|starlight)(\.[^.]+)$/i, '$2');
+        const newSrc = baseSrc.replace(/(\.[^.]+)$/, `-${selectedColor}$1`);
+        
+        imgElem.src = newSrc;
+    }
+}
+
+// 2. Функція додавання у кошик товару з вибраним кольором
+function addColorProductToCart(button) {
+    // Шукаємо батьківську картку
+    const card = button.closest('.product-card') || button.closest('article') || button.parentElement.parentElement;
+    if (!card) return;
+
+    // Зчитуємо вибраний колір САМЕ в цій картці
+    const selectedRadio = card.querySelector('input[type="radio"]:checked');
+    const color = selectedRadio ? selectedRadio.value : 'Space Gray';
+
+    // Зчитуємо дані товару
+    const titleElem = card.querySelector('h1, h2, h3, .product-title, .title');
+    const priceElem = card.querySelector('.price, .product-price');
+    const imgElem = card.querySelector('img');
+
+    const baseTitle = titleElem ? titleElem.innerText.trim() : 'Товар';
+    const price = priceElem ? priceElem.innerText.trim() : 'Ціну уточнюйте';
+    const imgSrc = imgElem ? imgElem.src : '';
+
+    const finalTitle = `${baseTitle} (${color})`;
+
+    if (typeof addToCart === 'function') {
+        addToCart(finalTitle, price, imgSrc, '');
+        alert(`Товар «${finalTitle}» успішно додано до кошика!`);
+    } else {
+        alert('Помилка: функцію addToCart() не знайдено в script.js');
+    }
+}

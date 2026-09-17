@@ -1,244 +1,261 @@
 <!DOCTYPE html>
 <html lang="uk">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Топкейси — macbayparts</title>
-    <link rel="stylesheet" href="topcases.css">
-</head>
-
-<body>
-
-<header class="header">
-
-    <div class="header-left">
-        <button class="menu-button" id="menuButton" type="button">☰</button>
-
-        <a href="../index.html" class="logo">
-            macbay<span>parts</span>
-        </a>
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>
+   Топкейс — macbayparts
+  </title>
+  <link href="topcases.css" rel="stylesheet"/>
+ </head>
+ <body>
+  <header class="header">
+   <div class="header-left">
+    <a class="logo" href="../index.html">
+     macbay
+     <span>
+      parts
+     </span>
+    </a>
+   </div>
+   <!-- ================= SEARCH ================= -->
+   <div class="search" id="searchBox">
+    <div class="search-input-wrapper">
+     <span class="search-icon">
+      ⌕
+     </span>
+     <input autocomplete="off" id="searchInput" placeholder="Пошук по моделях та запчастинах..." type="text"/>
+     <button class="search-clear" id="searchClear" type="button">
+      ×
+     </button>
     </div>
-
-    <div class="search" id="searchBox">
-
-        <div class="search-input-wrapper">
-            <span class="search-icon">⌕</span>
-
-            <input
-                type="text"
-                id="searchInput"
-                placeholder="Пошук по моделях та запчастинах..."
-                autocomplete="off"
-            >
-
-            <button
-                type="button"
-                class="search-clear"
-                id="searchClear">
-                ×
-            </button>
-        </div>
-
-        <div class="search-panel">
-
-            <div class="search-results" id="searchResults"></div>
-
-            <div class="popular-searches">
-                <h3>Популярні запити</h3>
-
-                <div class="popular-list">
-                    <button type="button">Акумулятори</button>
-                    <button type="button">Тачпади</button>
-                    <button type="button">Материнські плати</button>
-                    <button type="button">Топкейси</button>
-                    <button type="button">Матриці</button>
-                    <button type="button">Шлейфи</button>
-                </div>
-            </div>
-
-        </div>
+    <div class="search-panel">
+     <div class="search-results" id="searchResults">
+     </div>
+     <div class="popular-searches">
+      <h3>
+       Популярні запити
+      </h3>
+      <div class="popular-list">
+       <button type="button">
+        MacBook Air A1466
+       </button>
+       <button type="button">
+        MacBook Pro A1708
+       </button>
+       <button type="button">
+        A2337
+       </button>
+       <button type="button">
+        A2485
+       </button>
+       <button type="button">
+        Антена
+       </button>
+       <button type="button">
+        Акумулятори
+       </button>
+       <button type="button">
+        Тачпад
+       </button>
+       <button type="button">
+        Материнська плата
+       </button>
+       <button type="button">
+        Топкейс
+       </button>
+       <button type="button">
+        Матриця
+       </button>
+       <button type="button">
+        Клавіатури
+       </button>
+       <button type="button">
+        Шлейфи
+       </button>
+      </div>
+     </div>
     </div>
-
-    <div class="header-right">
-
-        <a href="../cart.html" class="header-icon">
-            🛒
-            <span>Кошик</span>
-        </a>
-
-        <div class="phone-dropdown">
-
-            <button
-                class="header-icon phone-button"
-                type="button">
-                📞
-                <span>Зателефонувати</span>
-            </button>
-
-            <div class="phone-menu">
-                <a href="tel:+380988412544">
-                    📞 +380 98 841 2544
-                </a>
-            </div>
-
-        </div>
-
+   </div>
+   <!-- ================= HEADER RIGHT ================= -->
+   <div class="header-right">
+    <a class="header-icon" href="../models/accessories.html">
+     💻
+     <span>
+      Аксесуари
+     </span>
+    </a>
+    <a class="header-icon" href="../cart.html">
+     🛒
+     <span>
+      Кошик (
+      <span id="cart-counter">
+       0
+      </span>
+      )
+     </span>
+    </a>
+    <div class="phone-dropdown">
+     <button class="header-icon phone-button" type="button">
+      📞
+      <span>
+       Зателефонувати
+      </span>
+     </button>
+     <div class="phone-menu">
+      <a href="tel:+380 98 841 2544">
+       📞 +380 98 841 2544
+      </a>
+     </div>
     </div>
-
-</header>
-
-
-<!-- ================= SIDE MENU ================= -->
-
-<aside class="side-menu" id="sideMenu">
-
-    <div class="side-menu-header">
-        <strong>Каталог</strong>
-        <button id="closeMenu" type="button">✕</button>
-    </div>
-
-    <nav>
-
-        <a href="../index.html">🏠 Головна</a>
-        <a href="../fix/macbook-fix.html">🔧 Ремонт MacBook</a>
-        <a href="touchpads.html">🖱 Тачпади</a>
-        <a href="batteries.html">🔋 Акумуляторні батареї</a>
-        <a href="keyboards.html">⌨ Клавіатури та кнопки</a>
-        <a href="accessories.html">🎒 Аксесуари</a>
-        <a href="speakers.html">🔊 Динаміки</a>
-        <a href="coolers.html">❄ Кулери</a>
-        <a href="motherboards.html">🧩 Материнські плати</a>
-        <a href="matrices.html">🖥 Матриці</a>
-        <a href="topcases.html">💻 Топкейси</a>
-        <a href="cables.html">🔌 Шлейфи</a>
-        <a href="Antens.html">📡 Антени</a>
-        <a href="Gravi.html">✍ Гравіювання</a>
-        <a href="../cart.html">🛒 Кошик</a>
-
-    </nav>
-
-</aside>
-
-<div class="overlay" id="overlay"></div>
-
-
-<!-- ================= CATALOG ================= -->
-
-<main class="catalog">
-
-    <div class="catalog-heading">
-
-        <span>КАТАЛОГ ЗАПЧАСТИН</span>
-
-        <h1>Топкейси</h1>
-
-        <p>
-            Оригінальні та сумісні топкейси для різних моделей MacBook.
-        </p>
-
-    </div>
-
-
-    <div class="products">
-
-
-        <!-- ================================================= -->
-        <!-- 1. A2337 -->
-        <!-- ================================================= -->
-
-        <article class="product-card">
-
-            <div class="product-images single-image">
-
-                <div class="product-image">
-                    <img
-                        src="topcases/topcase-for-macbook-air-13-2020 silver.jpg"
-                        alt="MacBook Air A2337 Silver Topcase">
-                </div>
-
-            </div>
-
-            <div class="stock">● В наявності</div>
-
-            <h2>Топкейс MacBook Air A2337</h2>
-
-            <p>
-                Верхня частина корпуса з клавіатурою
+   </div>
+  </header>
+  <!-- ================= SIDE MENU ================= -->
+  <aside class="side-menu" id="sideMenu">
+   <div class="side-menu-header">
+    <strong>
+     Каталог
+    </strong>
+    <button id="closeMenu" type="button">
+     ✕
+    </button>
+   </div>
+   <nav>
+    <a href="../index.html">
+     🏠 Головна
+    </a>
+    <a href="../fix/macbook-fix.html">
+     🔧 Ремонт MacBook
+    </a>
+    <a href="touchpads.html">
+     🖱 Тачпад
+    </a>
+    <a href="batteries.html">
+     🔋 Акумуляторні батареї
+    </a>
+    <a href="keyboards.html">
+     ⌨ Клавіатури та кнопки
+    </a>
+    <a href="accessories.html">
+     🎒 Аксесуари
+    </a>
+    <a href="speakers.html">
+     🔊 Динамік
+    </a>
+    <a href="coolers.html">
+     ❄ Кулер
+    </a>
+    <a href="motherboards.html">
+     🧩 Материнська плата
+    </a>
+    <a href="matrices.html">
+     🖥 Матриця
+    </a>
+    <a href="topcases.html">
+     💻 Топкейс
+    </a>
+    <a href="cables.html">
+     🔌 Шлейфи
+    </a>
+    <a href="Antens.html">
+     📡 Антена
+    </a>
+    <a href="Gravi.html">
+     ✍ Гравіювання
+    </a>
+    <a href="../cart.html">
+     🛒 Кошик
+    </a>
+   </nav>
+  </aside>
+  <div class="overlay" id="overlay">
+  </div>
+  <!-- ================= CATALOG ================= -->
+  <main class="catalog">
+   <div class="catalog-heading">
+    <span>
+     КАТАЛОГ ЗАПЧАСТИН
+    </span>
+    <h1>
+     Топкейс
+    </h1>
+    <p>
+     Оригінальні та сумісні топкейс для різних моделей MacBook.
+    </p>
+   </div>
+   <div class="products">
+    <!-- ================================================= -->
+    <!-- 1. A2337 -->
+    <!-- ================================================= -->
+    <article class="product-card">
+     <div class="product-images single-image">
+      <div class="product-image">
+       <img src="topcases/topcase-for-macbook-air-13-2020 silver.jpg" alt="MacBook Air A2337 Silver Topcase" loading="lazy" onerror="this.parentElement.style.display='none'">
+      </div>
+     </div>
+     <div class="stock">
+      ● В наявності
+     </div>
+     <h2>
+      Топкейс MacBook Air A2337
+     </h2>
+     <p>
+      Верхня частина корпуса з клавіатурою
                 для MacBook Air M1 A2337.
-            </p>
-
-            <div class="price">Ціну уточнюйте</div>
-
-            <button class="buy-button" type="button">
-                Купити
-            </button>
-
-        </article>
-
-
-        <!-- ================================================= -->
-        <!-- 2. A2442 -->
-        <!-- ================================================= -->
-
-        <article class="product-card">
-
-            <div class="product-images single-image">
-
-                <div class="product-image">
-                    <img
-                        src="topcases/MacBook Pro A2442 space g.jpg"
-                        alt="MacBook Pro A2442 Space Gray Topcase">
-                </div>
-
-            </div>
-
-            <div class="stock">● В наявності</div>
-
-            <h2>Топкейс MacBook Pro A2442</h2>
-
-            <p>
-                Верхня частина корпуса з клавіатурою
+     </p>
+     <div class="price">
+      Ціну уточнюйте
+     </div>
+     <button class="buy-button" type="button">
+      Купити
+     </button>
+    </article>
+    <!-- ================================================= -->
+    <!-- 2. A2442 -->
+    <!-- ================================================= -->
+    <article class="product-card">
+     <div class="product-images single-image">
+      <div class="product-image">
+       <img src="topcases/MacBook Pro A2442 space g.jpg" alt="MacBook Pro A2442 Space Gray Topcase" loading="lazy" onerror="this.parentElement.style.display='none'">
+      </div>
+     </div>
+     <div class="stock">
+      ● В наявності
+     </div>
+     <h2>
+      Топкейс MacBook Pro A2442
+     </h2>
+     <p>
+      Верхня частина корпуса з клавіатурою
                 для MacBook Pro 14" A2442.
-            </p>
-
-            <div class="price">Ціну уточнюйте</div>
-
-            <button class="buy-button" type="button">
-                Купити
-            </button>
-
-        </article>
-
-
-        <!-- ================================================= -->
-        <!-- 3. A2485 -->
-        <!-- ================================================= -->
-
-        <article class="product-card">
-
-            <div class="product-images single-image">
-
-                <div class="product-image">
-                    <img
-                        src="topcases/2485 Silver.jpg"
-                        alt="MacBook Pro A2485 Topcase">
-                </div>
-
-            </div>
-
-            <div class="stock">● В наявності</div>
-
-            <h2>Топкейс MacBook Pro A2485</h2>
-
-            <p>
-                Верхня частина корпуса з клавіатурою
+     </p>
+     <div class="price">
+      Ціну уточнюйте
+     </div>
+     <button class="buy-button" type="button">
+      Купити
+     </button>
+    </article>
+    <!-- ================================================= -->
+    <!-- 3. A2485 -->
+    <!-- ================================================= -->
+    <article class="product-card">
+     <div class="product-images single-image">
+      <div class="product-image">
+       <img src="topcases/2485 Silver.jpg" alt="MacBook Pro A2485 Topcase" loading="lazy" onerror="this.parentElement.style.display='none'">
+      </div>
+     </div>
+     <div class="stock">
+      ● В наявності
+     </div>
+     <h2>
+      Топкейс MacBook Pro A2485
+     </h2>
+     <p>
+      Верхня частина корпуса з клавіатурою
                 для MacBook Pro 16" A2485.
-            </p>
-
-            <div
-                class="color-picker"
-                data-color-variants='[
+     </p>
+     <div class="color-picker" data-color-variants='[
                     {
                         "color":"Silver",
                         "image":"topcases/2485 Silver.jpg"
@@ -248,70 +265,45 @@
                         "image":"topcases/MacBook Pro A2485 space g.webp"
                     }
                 ]'>
-
-                <div class="color-picker-title">
-                    Оберіть колір:
-                </div>
-
-                <div class="color-options">
-
-                    <button
-                        class="color-option selected"
-                        type="button"
-                        data-color="Silver"
-                        data-image="topcases/2485 Silver.jpg">
-                        Silver
-                    </button>
-
-                    <button
-                        class="color-option"
-                        type="button"
-                        data-color="Space Gray"
-                        data-image="topcases/MacBook Pro A2485 space g.webp">
-                        Space Gray
-                    </button>
-
-                </div>
-
-            </div>
-
-            <div class="price">Ціну уточнюйте</div>
-
-            <button class="buy-button" type="button">
-                Купити
-            </button>
-
-        </article>
-
-
-        <!-- ================================================= -->
-        <!-- 4. A2681 -->
-        <!-- ================================================= -->
-
-        <article class="product-card">
-
-            <div class="product-images single-image">
-
-                <div class="product-image">
-                    <img
-                        src="topcases/MacBook Air A2681 midnight bl.jpg"
-                        alt="MacBook Air A2681 Topcase">
-                </div>
-
-            </div>
-
-            <div class="stock">● В наявності</div>
-
-            <h2>Топкейс MacBook Air A2681</h2>
-
-            <p>
-                Верхня частина корпуса з клавіатурою
+      <div class="color-picker-title">
+       Оберіть колір:
+      </div>
+      <div class="color-options">
+       <button class="color-option selected" data-color="Silver" data-image="topcases/2485 Silver.jpg" type="button">
+        Silver
+       </button>
+       <button class="color-option" data-color="Space Gray" data-image="topcases/MacBook Pro A2485 space g.webp" type="button">
+        Space Gray
+       </button>
+      </div>
+     </div>
+     <div class="price">
+      Ціну уточнюйте
+     </div>
+     <button class="buy-button" type="button">
+      Купити
+     </button>
+    </article>
+    <!-- ================================================= -->
+    <!-- 4. A2681 -->
+    <!-- ================================================= -->
+    <article class="product-card">
+     <div class="product-images single-image">
+      <div class="product-image">
+       <img src="topcases/MacBook Air A2681 midnight bl.jpg" alt="MacBook Air A2681 Topcase" loading="lazy" onerror="this.parentElement.style.display='none'">
+      </div>
+     </div>
+     <div class="stock">
+      ● В наявності
+     </div>
+     <h2>
+      Топкейс MacBook Air A2681
+     </h2>
+     <p>
+      Верхня частина корпуса з клавіатурою
                 для MacBook Air M2 A2681.
-            </p>
-
-            <div
-                class="color-picker"
-                data-color-variants='[
+     </p>
+     <div class="color-picker" data-color-variants='[
                     {
                         "color":"Midnight Blue",
                         "image":"topcases/MacBook Air A2681 midnight bl.jpg"
@@ -321,172 +313,123 @@
                         "image":"topcases/MacBook Air A2681 sil.jpg"
                     }
                 ]'>
-
-                <div class="color-picker-title">
-                    Оберіть колір:
-                </div>
-
-                <div class="color-options">
-
-                    <button
-                        class="color-option selected"
-                        type="button"
-                        data-color="Midnight Blue"
-                        data-image="topcases/MacBook Air A2681 midnight bl.jpg">
-                        Midnight Blue
-                    </button>
-
-                    <button
-                        class="color-option"
-                        type="button"
-                        data-color="Silver"
-                        data-image="topcases/MacBook Air A2681 sil.jpg">
-                        Silver
-                    </button>
-
-                </div>
-
-            </div>
-
-            <div class="price">Ціну уточнюйте</div>
-
-            <button class="buy-button" type="button">
-                Купити
-            </button>
-
-        </article>
-
-
-        <!-- ================================================= -->
-        <!-- 5. A2780 -->
-        <!-- ================================================= -->
-
-        <article class="product-card">
-
-            <div class="product-images single-image">
-
-                <div class="product-image">
-                    <img
-                        src="topcases/MacBook Pro A2780 silver.jpg"
-                        alt="MacBook Pro A2780 Silver Topcase">
-                </div>
-
-            </div>
-
-            <div class="stock">● В наявності</div>
-
-            <h2>Топкейс MacBook Pro A2780</h2>
-
-            <p>
-                Верхня частина корпуса з клавіатурою
+      <div class="color-picker-title">
+       Оберіть колір:
+      </div>
+      <div class="color-options">
+       <button class="color-option selected" data-color="Midnight Blue" data-image="topcases/MacBook Air A2681 midnight bl.jpg" type="button">
+        Midnight Blue
+       </button>
+       <button class="color-option" data-color="Silver" data-image="topcases/MacBook Air A2681 sil.jpg" type="button">
+        Silver
+       </button>
+      </div>
+     </div>
+     <div class="price">
+      Ціну уточнюйте
+     </div>
+     <button class="buy-button" type="button">
+      Купити
+     </button>
+    </article>
+    <!-- ================================================= -->
+    <!-- 5. A2780 -->
+    <!-- ================================================= -->
+    <article class="product-card">
+     <div class="product-images single-image">
+      <div class="product-image">
+       <img src="topcases/MacBook Pro A2780 silver.jpg" alt="MacBook Pro A2780 Silver Topcase" loading="lazy" onerror="this.parentElement.style.display='none'">
+      </div>
+     </div>
+     <div class="stock">
+      ● В наявності
+     </div>
+     <h2>
+      Топкейс MacBook Pro A2780
+     </h2>
+     <p>
+      Верхня частина корпуса з клавіатурою
                 для MacBook Pro A2780.
-            </p>
-
-            <div class="price">Ціну уточнюйте</div>
-
-            <button class="buy-button" type="button">
-                Купити
-            </button>
-
-        </article>
-
-
-        <!-- ================================================= -->
-        <!-- 6. A2941 -->
-        <!-- ================================================= -->
-
-        <article class="product-card">
-
-            <div class="product-images single-image">
-
-                <div class="product-image">
-                    <img
-                        src="topcases/MacBook Air A2941 space grey.jpg"
-                        alt="MacBook Air A2941 Space Gray Topcase">
-                </div>
-
-            </div>
-
-            <div class="stock">● В наявності</div>
-
-            <h2>Топкейс MacBook Air A2941</h2>
-
-            <p>
-                Верхня частина корпуса з клавіатурою
+     </p>
+     <div class="price">
+      Ціну уточнюйте
+     </div>
+     <button class="buy-button" type="button">
+      Купити
+     </button>
+    </article>
+    <!-- ================================================= -->
+    <!-- 6. A2941 -->
+    <!-- ================================================= -->
+    <article class="product-card">
+     <div class="product-images single-image">
+      <div class="product-image">
+       <img src="topcases/MacBook Air A2941 space grey.jpg" alt="MacBook Air A2941 Space Gray Topcase" loading="lazy" onerror="this.parentElement.style.display='none'">
+      </div>
+     </div>
+     <div class="stock">
+      ● В наявності
+     </div>
+     <h2>
+      Топкейс MacBook Air A2941
+     </h2>
+     <p>
+      Верхня частина корпуса з клавіатурою
                 для MacBook Air A2941.
-            </p>
-
-            <div class="price">Ціну уточнюйте</div>
-
-            <button class="buy-button" type="button">
-                Купити
-            </button>
-
-        </article>
-
-
-        <!-- ================================================= -->
-        <!-- 7. A2991 -->
-        <!-- ================================================= -->
-
-        <article class="product-card">
-
-            <div class="product-images single-image">
-
-                <div class="product-image">
-                    <img
-                        src="topcases/MacBook Pro A2991 space black.jpg"
-                        alt="MacBook Pro A2991 Space Black Topcase">
-                </div>
-
-            </div>
-
-            <div class="stock">● В наявності</div>
-
-            <h2>Топкейс MacBook Pro A2991</h2>
-
-            <p>
-                Верхня частина корпуса з клавіатурою
+     </p>
+     <div class="price">
+      Ціну уточнюйте
+     </div>
+     <button class="buy-button" type="button">
+      Купити
+     </button>
+    </article>
+    <!-- ================================================= -->
+    <!-- 7. A2991 -->
+    <!-- ================================================= -->
+    <article class="product-card">
+     <div class="product-images single-image">
+      <div class="product-image">
+       <img src="topcases/MacBook Pro A2991 space black.jpg" alt="MacBook Pro A2991 Space Black Topcase" loading="lazy" onerror="this.parentElement.style.display='none'">
+      </div>
+     </div>
+     <div class="stock">
+      ● В наявності
+     </div>
+     <h2>
+      Топкейс MacBook Pro A2991
+     </h2>
+     <p>
+      Верхня частина корпуса з клавіатурою
                 для MacBook Pro A2991.
-            </p>
-
-            <div class="price">Ціну уточнюйте</div>
-
-            <button class="buy-button" type="button">
-                Купити
-            </button>
-
-        </article>
-
-
-        <!-- ================================================= -->
-        <!-- 8. A2992 -->
-        <!-- ================================================= -->
-
-        <article class="product-card">
-
-            <div class="product-images single-image">
-
-                <div class="product-image">
-                    <img
-                        src="topcases/MacBook Pro A2992 silver.jpg"
-                        alt="MacBook Pro A2992 Topcase">
-                </div>
-
-            </div>
-
-            <div class="stock">● В наявності</div>
-
-            <h2>Топкейс MacBook Pro A2992</h2>
-
-            <p>
-                Верхня частина корпуса з клавіатурою
+     </p>
+     <div class="price">
+      Ціну уточнюйте
+     </div>
+     <button class="buy-button" type="button">
+      Купити
+     </button>
+    </article>
+    <!-- ================================================= -->
+    <!-- 8. A2992 -->
+    <!-- ================================================= -->
+    <article class="product-card">
+     <div class="product-images single-image">
+      <div class="product-image">
+       <img src="topcases/MacBook Pro A2992 silver.jpg" alt="MacBook Pro A2992 Topcase" loading="lazy" onerror="this.parentElement.style.display='none'">
+      </div>
+     </div>
+     <div class="stock">
+      ● В наявності
+     </div>
+     <h2>
+      Топкейс MacBook Pro A2992
+     </h2>
+     <p>
+      Верхня частина корпуса з клавіатурою
                 для MacBook Pro A2992.
-            </p>
-
-            <div
-                class="color-picker"
-                data-color-variants='[
+     </p>
+     <div class="color-picker" data-color-variants='[
                     {
                         "color":"Silver",
                         "image":"topcases/MacBook Pro A2992 silver.jpg"
@@ -496,104 +439,71 @@
                         "image":"topcases/MacBook Pro A2992 space black.jpg"
                     }
                 ]'>
-
-                <div class="color-picker-title">
-                    Оберіть колір:
-                </div>
-
-                <div class="color-options">
-
-                    <button
-                        class="color-option selected"
-                        type="button"
-                        data-color="Silver"
-                        data-image="topcases/MacBook Pro A2992 silver.jpg">
-                        Silver
-                    </button>
-
-                    <button
-                        class="color-option"
-                        type="button"
-                        data-color="Space Black"
-                        data-image="topcases/MacBook Pro A2992 space black.jpg">
-                        Space Black
-                    </button>
-
-                </div>
-
-            </div>
-
-            <div class="price">Ціну уточнюйте</div>
-
-            <button class="buy-button" type="button">
-                Купити
-            </button>
-
-        </article>
-
-
-        <!-- ================================================= -->
-        <!-- 9. A3112 -->
-        <!-- ================================================= -->
-
-        <article class="product-card">
-
-            <div class="product-images single-image">
-
-                <div class="product-image">
-                    <img
-                        src="topcases/A3112-Macbook-Pro-14-Space-Black-Keyboard-Topcase-Battery-1-1.webp"
-                        alt="MacBook Pro A3112 Space Black Topcase">
-                </div>
-
-            </div>
-
-            <div class="stock">● В наявності</div>
-
-            <h2>Топкейс MacBook Pro A3112</h2>
-
-            <p>
-                Верхня частина корпуса з клавіатурою
+      <div class="color-picker-title">
+       Оберіть колір:
+      </div>
+      <div class="color-options">
+       <button class="color-option selected" data-color="Silver" data-image="topcases/MacBook Pro A2992 silver.jpg" type="button">
+        Silver
+       </button>
+       <button class="color-option" data-color="Space Black" data-image="topcases/MacBook Pro A2992 space black.jpg" type="button">
+        Space Black
+       </button>
+      </div>
+     </div>
+     <div class="price">
+      Ціну уточнюйте
+     </div>
+     <button class="buy-button" type="button">
+      Купити
+     </button>
+    </article>
+    <!-- ================================================= -->
+    <!-- 9. A3112 -->
+    <!-- ================================================= -->
+    <article class="product-card">
+     <div class="product-images single-image">
+      <div class="product-image">
+       <img src="topcases/A3112-Macbook-Pro-14-Space-Black-Keyboard-Topcase-Battery-1-1.webp" alt="MacBook Pro A3112 Space Black Topcase" loading="lazy" onerror="this.parentElement.style.display='none'">
+      </div>
+     </div>
+     <div class="stock">
+      ● В наявності
+     </div>
+     <h2>
+      Топкейс MacBook Pro A3112
+     </h2>
+     <p>
+      Верхня частина корпуса з клавіатурою
                 для MacBook Pro 14" A3112.
-            </p>
-
-            <div class="price">Ціну уточнюйте</div>
-
-            <button class="buy-button" type="button">
-                Купити
-            </button>
-
-        </article>
-
-
-        <!-- ================================================= -->
-        <!-- 10. A3113 -->
-        <!-- ================================================= -->
-
-        <article class="product-card">
-
-            <div class="product-images single-image">
-
-                <div class="product-image">
-                    <img
-                        src="topcases/MacBook Air A3113 midnight blue.webp"
-                        alt="MacBook Air A3113 Topcase">
-                </div>
-
-            </div>
-
-            <div class="stock">● В наявності</div>
-
-            <h2>Топкейс MacBook Air A3113</h2>
-
-            <p>
-                Верхня частина корпуса з клавіатурою
+     </p>
+     <div class="price">
+      Ціну уточнюйте
+     </div>
+     <button class="buy-button" type="button">
+      Купити
+     </button>
+    </article>
+    <!-- ================================================= -->
+    <!-- 10. A3113 -->
+    <!-- ================================================= -->
+    <article class="product-card">
+     <div class="product-images single-image">
+      <div class="product-image">
+       <img src="topcases/MacBook Air A3113 midnight blue.webp" alt="MacBook Air A3113 Topcase" loading="lazy" onerror="this.parentElement.style.display='none'">
+      </div>
+     </div>
+     <div class="stock">
+      ● В наявності
+     </div>
+     <h2>
+      Топкейс MacBook Air A3113
+     </h2>
+     <p>
+      Верхня частина корпуса з клавіатурою
                 для MacBook Air A3113.
-            </p>
-
-            <div
-                class="color-picker"
-                data-color-variants='[
+     </p>
+     <div class="color-picker" data-color-variants='[
                     {
                         "color":"Midnight Blue",
                         "image":"topcases/MacBook Air A3113 midnight blue.webp"
@@ -603,70 +513,45 @@
                         "image":"topcases/MacBook Air A3113 space black.webp"
                     }
                 ]'>
-
-                <div class="color-picker-title">
-                    Оберіть колір:
-                </div>
-
-                <div class="color-options">
-
-                    <button
-                        class="color-option selected"
-                        type="button"
-                        data-color="Midnight Blue"
-                        data-image="topcases/MacBook Air A3113 midnight blue.webp">
-                        Midnight Blue
-                    </button>
-
-                    <button
-                        class="color-option"
-                        type="button"
-                        data-color="Space Black"
-                        data-image="topcases/MacBook Air A3113 space black.webp">
-                        Space Black
-                    </button>
-
-                </div>
-
-            </div>
-
-            <div class="price">Ціну уточнюйте</div>
-
-            <button class="buy-button" type="button">
-                Купити
-            </button>
-
-        </article>
-
-
-        <!-- ================================================= -->
-        <!-- 11. A3114 -->
-        <!-- ================================================= -->
-
-        <article class="product-card">
-
-            <div class="product-images single-image">
-
-                <div class="product-image">
-                    <img
-                        src="topcases/MacBook Air A3114 Silver.jpg"
-                        alt="MacBook Air A3114 Topcase">
-                </div>
-
-            </div>
-
-            <div class="stock">● В наявності</div>
-
-            <h2>Топкейс MacBook Air A3114</h2>
-
-            <p>
-                Верхня частина корпуса з клавіатурою
+      <div class="color-picker-title">
+       Оберіть колір:
+      </div>
+      <div class="color-options">
+       <button class="color-option selected" data-color="Midnight Blue" data-image="topcases/MacBook Air A3113 midnight blue.webp" type="button">
+        Midnight Blue
+       </button>
+       <button class="color-option" data-color="Space Black" data-image="topcases/MacBook Air A3113 space black.webp" type="button">
+        Space Black
+       </button>
+      </div>
+     </div>
+     <div class="price">
+      Ціну уточнюйте
+     </div>
+     <button class="buy-button" type="button">
+      Купити
+     </button>
+    </article>
+    <!-- ================================================= -->
+    <!-- 11. A3114 -->
+    <!-- ================================================= -->
+    <article class="product-card">
+     <div class="product-images single-image">
+      <div class="product-image">
+       <img src="topcases/MacBook Air A3114 Silver.jpg" alt="MacBook Air A3114 Topcase" loading="lazy" onerror="this.parentElement.style.display='none'">
+      </div>
+     </div>
+     <div class="stock">
+      ● В наявності
+     </div>
+     <h2>
+      Топкейс MacBook Air A3114
+     </h2>
+     <p>
+      Верхня частина корпуса з клавіатурою
                 для MacBook Air A3114.
-            </p>
-
-            <div
-                class="color-picker"
-                data-color-variants='[
+     </p>
+     <div class="color-picker" data-color-variants='[
                     {
                         "color":"Silver",
                         "image":"topcases/MacBook Air A3114 Silver.jpg"
@@ -680,78 +565,48 @@
                         "image":"topcases/MacBook Air A3114 starlight.jpg"
                     }
                 ]'>
-
-                <div class="color-picker-title">
-                    Оберіть колір:
-                </div>
-
-                <div class="color-options">
-
-                    <button
-                        class="color-option selected"
-                        type="button"
-                        data-color="Silver"
-                        data-image="topcases/MacBook Air A3114 Silver.jpg">
-                        Silver
-                    </button>
-
-                    <button
-                        class="color-option"
-                        type="button"
-                        data-color="Space Gray"
-                        data-image="topcases/MacBook Air A3114 Space Gray.jpg">
-                        Space Gray
-                    </button>
-
-                    <button
-                        class="color-option"
-                        type="button"
-                        data-color="Starlight"
-                        data-image="topcases/MacBook Air A3114 starlight.jpg">
-                        Starlight
-                    </button>
-
-                </div>
-
-            </div>
-
-            <div class="price">Ціну уточнюйте</div>
-
-            <button class="buy-button" type="button">
-                Купити
-            </button>
-
-        </article>
-
-
-        <!-- ================================================= -->
-        <!-- 12. A3401 -->
-        <!-- ================================================= -->
-
-        <article class="product-card">
-
-            <div class="product-images single-image">
-
-                <div class="product-image">
-                    <img
-                        src="topcases/MacBook Pro A3401 Silver.jpg"
-                        alt="MacBook Pro A3401 Topcase">
-                </div>
-
-            </div>
-
-            <div class="stock">● В наявності</div>
-
-            <h2>Топкейс MacBook Pro A3401</h2>
-
-            <p>
-                Верхня частина корпуса з клавіатурою
+      <div class="color-picker-title">
+       Оберіть колір:
+      </div>
+      <div class="color-options">
+       <button class="color-option selected" data-color="Silver" data-image="topcases/MacBook Air A3114 Silver.jpg" type="button">
+        Silver
+       </button>
+       <button class="color-option" data-color="Space Gray" data-image="topcases/MacBook Air A3114 Space Gray.jpg" type="button">
+        Space Gray
+       </button>
+       <button class="color-option" data-color="Starlight" data-image="topcases/MacBook Air A3114 starlight.jpg" type="button">
+        Starlight
+       </button>
+      </div>
+     </div>
+     <div class="price">
+      Ціну уточнюйте
+     </div>
+     <button class="buy-button" type="button">
+      Купити
+     </button>
+    </article>
+    <!-- ================================================= -->
+    <!-- 12. A3401 -->
+    <!-- ================================================= -->
+    <article class="product-card">
+     <div class="product-images single-image">
+      <div class="product-image">
+       <img src="topcases/MacBook Pro A3401 Silver.jpg" alt="MacBook Pro A3401 Topcase" loading="lazy" onerror="this.parentElement.style.display='none'">
+      </div>
+     </div>
+     <div class="stock">
+      ● В наявності
+     </div>
+     <h2>
+      Топкейс MacBook Pro A3401
+     </h2>
+     <p>
+      Верхня частина корпуса з клавіатурою
                 для MacBook Pro A3401.
-            </p>
-
-            <div
-                class="color-picker"
-                data-color-variants='[
+     </p>
+     <div class="color-picker" data-color-variants='[
                     {
                         "color":"Silver",
                         "image":"topcases/MacBook Pro A3401 Silver.jpg"
@@ -761,103 +616,79 @@
                         "image":"topcases/MacBook Pro A3401 space black.jpg"
                     }
                 ]'>
-
-                <div class="color-picker-title">
-                    Оберіть колір:
-                </div>
-
-                <div class="color-options">
-
-                    <button
-                        class="color-option selected"
-                        type="button"
-                        data-color="Silver"
-                        data-image="topcases/MacBook Pro A3401 Silver.jpg">
-                        Silver
-                    </button>
-
-                    <button
-                        class="color-option"
-                        type="button"
-                        data-color="Space Black"
-                        data-image="topcases/MacBook Pro A3401 space black.jpg">
-                        Space Black
-                    </button>
-
-                </div>
-
-            </div>
-
-            <div class="price">Ціну уточнюйте</div>
-
-            <button class="buy-button" type="button">
-                Купити
-            </button>
-
-        </article>
-
+      <div class="color-picker-title">
+       Оберіть колір:
+      </div>
+      <div class="color-options">
+       <button class="color-option selected" data-color="Silver" data-image="topcases/MacBook Pro A3401 Silver.jpg" type="button">
+        Silver
+       </button>
+       <button class="color-option" data-color="Space Black" data-image="topcases/MacBook Pro A3401 space black.jpg" type="button">
+        Space Black
+       </button>
+      </div>
+     </div>
+     <div class="price">
+      Ціну уточнюйте
+     </div>
+     <button class="buy-button" type="button">
+      Купити
+     </button>
+    </article>
+   </div>
+  </main>
+  <!-- ================= FOOTER ================= -->
+  <footer>
+   <div class="footer-brand">
+    <div class="logo">
+     macbay
+     <span>
+      parts
+     </span>
     </div>
-
-</main>
-
-
-<!-- ================= FOOTER ================= -->
-
-<footer>
-
-    <div class="footer-brand">
-
-        <div class="logo">
-            macbay<span>parts</span>
-        </div>
-
-        <p>
-            Ремонт MacBook та комплектуючі
+    <p>
+     Ремонт MacBook та комплектуючі
             для техніки Apple.
-        </p>
-
-    </div>
-
-
-    <div>
-
-        <h4>Навігація</h4>
-
-        <a href="../index.html">Головна</a>
-        <a href="topcases.html">Топкейси</a>
-        <a href="../cart.html">Кошик</a>
-
-    </div>
-
-
-    <div>
-
-        <h4>Контакти</h4>
-
-        <a href="tel:+380988412544">
-            📞 +380 98 841 2544
-        </a>
-
-        <a
-            href="https://www.instagram.com/macbay_official/?hl=uk"
-            target="_blank"
-            rel="noopener">
-            📷 Instagram
-        </a>
-
-        <p>
-            📍 Тц плазма, проспект Свободи, 5,
+    </p>
+   </div>
+   <div>
+    <h4>
+     Навігація
+    </h4>
+    <a href="../index.html">
+     Головна
+    </a>
+    <a href="topcases.html">
+     Топкейс
+    </a>
+    <a href="../cart.html">
+     Кошик
+    </a>
+   </div>
+   <div>
+    <h4>
+     Контакти
+    </h4>
+    <a href="tel:+380988412544">
+     📞 +380 98 841 2544
+    </a>
+    <a href="https://www.instagram.com/macbay_official/?hl=uk" rel="noopener" target="_blank">
+     📷 Instagram
+    </a>
+    <p>
+     📍 Тц плазма, проспект Свободи, 5,
             Львів, Львівська область, 79000
-        </p>
-
-    </div>
-
-</footer>
-
-
-<script src="../script.js"></script>
-<script src="supabase-prices.js"></script>
-
-</body>
+    </p>
+   </div>
+  </footer>
+  <script src="../script.js">
+  </script>
+  <script src="supabase-prices.js">
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
+  </script>
+  <script src="../product-options.js">
+  </script>
+ </body>
 </html>
 ```

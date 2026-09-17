@@ -1,480 +1,497 @@
 <!DOCTYPE html>
 <html lang="uk">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title id="page-title">Деталі товару — macbayparts</title>
-
-    <link rel="stylesheet" href="models/Antens.css">
-    
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title id="page-title">Завантаження... — macbayparts</title>
+    <link href="models/Antens.css" rel="stylesheet"/>
     <style>
-        /* Стилі для розгортання картки на повний екран */
+        :root {
+            --bg-color: #f5f5f7;
+            --card-bg: #ffffff;
+            --text-primary: #1d1d1f;
+            --text-secondary: #86868b;
+            --accent-color: #0071e3;
+            --accent-hover: #0077ed;
+            --border-color: #e5e5e7;
+            --radius-main: 20px;
+            --radius-inner: 12px;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-primary);
+            font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Helvetica Neue", sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
         .product-page-container {
-            max-width: 900px;
+            max-width: 1000px;
             margin: 40px auto;
             padding: 0 20px;
         }
 
         .product-detail-card {
-            background: #ffffff;
-            border-radius: 16px;
-            padding: 30px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            background: var(--card-bg);
+            border-radius: var(--radius-main);
+            padding: 40px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 30px;
-            align-items: center;
+            gap: 40px;
+            align-items: start;
         }
 
-        .product-detail-card .product-image img {
+        .product-image-wrapper {
+            background: #fafafa;
+            border-radius: var(--radius-inner);
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 1px solid var(--border-color);
+            min-height: 250px;
+        }
+
+        .product-image-wrapper img {
             width: 100%;
             height: auto;
-            border-radius: 12px;
-            object-fit: cover;
+            max-height: 300px;
+            object-fit: contain;
+            mix-blend-mode: multiply;
+            transition: opacity 0.2s ease;
         }
 
         .product-detail-info {
             display: flex;
             flex-direction: column;
-            gap: 15px;
+            gap: 16px;
         }
 
-        .product-detail-info h1 {
-            font-size: 24px;
+        .stock-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 13px;
+            font-weight: 600;
+            color: #34c759;
+            background: rgba(52, 199, 89, 0.1);
+            padding: 4px 10px;
+            border-radius: 20px;
+            width: fit-content;
+        }
+
+        .product-title {
+            font-size: 26px;
+            font-weight: 700;
             margin: 0;
-            color: #1d1d1f;
+            line-height: 1.2;
+            letter-spacing: -0.5px;
+        }
+
+        .product-desc {
+            font-size: 14px;
+            color: var(--text-secondary);
+            margin: 0;
+            line-height: 1.5;
+        }
+
+        /* БЛОК ВИБОРУ ОПЦІЙ (ЄМНІСТЬ / КОЛІР) */
+        .option-select-box {
+            background: var(--bg-color);
+            padding: 20px;
+            border-radius: var(--radius-inner);
+            margin: 8px 0;
+        }
+
+        .option-title {
+            display: block;
+            font-size: 13px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: var(--text-secondary);
+            margin-bottom: 12px;
+        }
+
+        .option-group {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .option-card {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: var(--card-bg);
+            border: 2px solid var(--border-color);
+            border-radius: var(--radius-inner);
+            padding: 12px 16px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            user-select: none;
+        }
+
+        .option-card:hover {
+            border-color: var(--accent-color);
+        }
+
+        .option-left {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 15px;
+            font-weight: 600;
+        }
+
+        .option-card input[type="radio"] {
+            appearance: none;
+            width: 18px;
+            height: 18px;
+            border: 2px solid var(--text-secondary);
+            border-radius: 50%;
+            outline: none;
+            margin: 0;
+            cursor: pointer;
+            display: grid;
+            place-content: center;
+            transition: border-color 0.2s ease;
+        }
+
+        .option-card input[type="radio"]::before {
+            content: "";
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background-color: var(--accent-color);
+            transform: scale(0);
+            transition: transform 0.15s ease-in-out;
+        }
+
+        .option-card input[type="radio"]:checked {
+            border-color: var(--accent-color);
+        }
+
+        .option-card input[type="radio"]:checked::before {
+            transform: scale(1);
+        }
+
+        .option-card:has(input[type="radio"]:checked) {
+            border-color: var(--accent-color);
+            background: #f0f7ff;
+        }
+
+        .opt-price {
+            font-size: 14px;
+            font-weight: 700;
+            color: var(--text-secondary);
+        }
+
+        .option-card:has(input[type="radio"]:checked) .opt-price {
+            color: var(--accent-color);
+        }
+
+        .product-price-wrapper {
+            display: flex;
+            align-items: baseline;
+            gap: 8px;
+            margin-top: 4px;
+        }
+
+        .price-label {
+            font-size: 14px;
+            color: var(--text-secondary);
+        }
+
+        .product-price {
+            font-size: 28px;
+            font-weight: 800;
+            color: var(--accent-color);
+        }
+
+        .buy-button {
+            width: 100%;
+            padding: 16px;
+            background: var(--text-primary);
+            color: #ffffff;
+            border: none;
+            border-radius: var(--radius-inner);
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .buy-button:hover {
+            background: var(--accent-color);
+            transform: translateY(-1px);
+            box-shadow: 0 6px 16px rgba(0, 113, 227, 0.3);
         }
 
         @media (max-width: 768px) {
             .product-detail-card {
                 grid-template-columns: 1fr;
+                padding: 24px;
+                gap: 24px;
             }
         }
     </style>
 </head>
-
 <body>
 
-<!-- ===================================================== -->
-<!-- HEADER -->
-<!-- ===================================================== -->
+  <!-- HEADER -->
+  <header class="header">
+   <div class="header-left">
+    <a class="logo" href="index.html">macbay <span>parts</span></a>
+   </div>
+   <div class="search" id="searchBox">
+    <div class="search-input-wrapper">
+     <span class="search-icon">⌕</span>
+     <input autocomplete="off" id="searchInput" placeholder="Пошук по моделях та запчастинах..." type="text"/>
+     <button class="search-clear" id="searchClear" type="button">×</button>
+    </div>
+    <div class="search-panel">
+     <div class="search-results" id="searchResults"></div>
+    </div>
+   </div>
+   <div class="header-right">
+    <a class="header-icon" href="models/accessories.html">💻 <span>Аксесуари</span></a>
+    <a class="header-icon" href="cart.html">🛒 <span>Кошик (<span id="cart-counter">0</span>)</span></a>
+    <div class="phone-dropdown">
+     <button class="header-icon phone-button" type="button">📞 <span>Зателефонувати</span></button>
+     <div class="phone-menu">
+      <a href="tel:+380988412544">📞 +380 98 841 2544</a>
+     </div>
+    </div>
+   </div>
+  </header>
 
-<header class="header">
-
-    <div class="header-left">
-
-        <button
-            class="menu-button"
-            id="menuButton"
-            type="button"
-        >
-            ☰
-        </button>
-
-        <a
-            href="index.html"
-            class="logo"
-        >
-            macbay<span>parts</span>
-        </a>
-
+  <!-- MAIN CONTENT -->
+  <main class="product-page-container">
+   <article class="product-detail-card">
+    <div class="product-image-wrapper">
+     <img alt="Завантаження фото..." id="product-img" src=""/>
     </div>
 
+    <div class="product-detail-info">
+     <div class="stock-badge">● В наявності</div>
+     <h1 class="product-title" id="product-title">Завантаження...</h1>
+     <p class="product-desc">
+      Оригінальна комплектуюча запчастина для MacBook. Пройшла повну перевірку якості та сумісності.
+     </p>
 
-    <!-- ================= SEARCH ================= -->
-
-    <div
-        class="search"
-        id="searchBox"
-    >
-
-        <div class="search-input-wrapper">
-
-            <span class="search-icon">
-                ⌕
-            </span>
-
-            <input
-                type="text"
-                id="searchInput"
-                placeholder="Пошук по моделях та запчастинах..."
-                autocomplete="off"
-            >
-
-            <button
-                type="button"
-                class="search-clear"
-                id="searchClear"
-            >
-                ×
-            </button>
-
+     <!-- БЛОК ВИБОРУ ЄМНОСТІ (АКУМУЛЯТОРИ) -->
+     <div class="option-select-box" id="battery-capacity-box" style="display: none;">
+      <span class="option-title">Оберіть ємність акумулятора:</span>
+      <div class="option-group">
+       <label class="option-card">
+        <div class="option-left">
+         <input checked name="battery_health" type="radio" value="85-90%" id="cap-85"/>
+         <span>85–90%</span>
         </div>
+        <span class="opt-price" id="label-price-85">-- грн</span>
+       </label>
 
-
-        <div class="search-panel">
-
-            <div
-                class="search-results"
-                id="searchResults"
-            ></div>
-
-
-            <div class="popular-searches">
-
-                <h3>
-                    Популярні запити
-                </h3>
-
-                <div class="popular-list">
-
-                    <button type="button">
-                        MacBook Air A1466
-                    </button>
-
-                    <button type="button">
-                        MacBook Pro A1708
-                    </button>
-
-                    <button type="button">
-                        A2337
-                    </button>
-
-                    <button type="button">
-                        A2485
-                    </button>
-
-                    <button type="button">
-                        LCD-дисплеї
-                    </button>
-
-                    <button type="button">
-                        Акумулятори
-                    </button>
-
-                    <button type="button">
-                        Тачпади
-                    </button>
-
-                    <button type="button">
-                        Материнські плати
-                    </button>
-
-                    <button type="button">
-                        Топкейси
-                    </button>
-
-                    <button type="button">
-                        Матриці
-                    </button>
-
-                </div>
-
-            </div>
-
+       <label class="option-card">
+        <div class="option-left">
+         <input name="battery_health" type="radio" value="90-95%" id="cap-90"/>
+         <span>90–95%</span>
         </div>
+        <span class="opt-price" id="label-price-90">-- грн</span>
+       </label>
 
-    </div>
-
-
-    <!-- ================= HEADER RIGHT ================= -->
-    <div class="header-right">
-
-        <a
-            href="cart.html"
-            class="header-icon"
-        >
-            🛒
-            <span>
-                Кошик (<span id="cart-counter">0</span>)
-            </span>
-        </a>
-
-
-        <div class="phone-dropdown">
-
-            <button
-                class="header-icon phone-button"
-                type="button"
-            >
-                📞
-                <span>
-                    Зателефонувати
-                </span>
-            </button>
-
-
-            <div class="phone-menu">
-
-                <a href="tel:+380000000000">
-                    📞 +380 00 000 00 00
-                </a>
-
-                <a href="tel:+380001111111">
-                    📞 +380 00 111 11 11
-                </a>
-
-            </div>
-
+       <label class="option-card">
+        <div class="option-left">
+         <input name="battery_health" type="radio" value="95-100%" id="cap-95"/>
+         <span>95–100%</span>
         </div>
+        <span class="opt-price" id="label-price-95">-- грн</span>
+       </label>
+      </div>
+     </div>
 
+     <!-- БЛОК ВИБОРУ КОЛЬОРУ (ТАЧПАДИ / ТОПКЕЙСИ) -->
+     <div class="option-select-box" id="color-select-box" style="display: none;"></div>
+
+     <div class="product-price-wrapper">
+      <span class="price-label">Ціна:</span>
+      <div class="product-price" id="product-price">Ціну уточнюйте</div>
+     </div>
+
+     <button class="buy-button" id="product-buy-btn">Додати в кошик</button>
     </div>
-
-</header>
-
-<!-- ================= SIDE MENU ================= -->
-
-<aside
-    class="side-menu"
-    id="sideMenu"
->
-
-    <div class="side-menu-header">
-
-        <strong>
-            Каталог
-        </strong>
-
-        <button
-            id="closeMenu"
-            type="button"
-        >
-            ✕
-        </button>
-
-    </div>
-
-
-    <nav>
-
-        <a href="index.html">
-            🏠 Головна
-        </a>
-
-        <a href="fix/macbook-fix.html">
-            🔧 Ремонт MacBook
-        </a>
-
-        <a href="models/matrices.html">
-            🖥 LCD-дисплеї
-        </a>
-
-        <a href="models/touchpads.html">
-            🖱 Тачпади
-        </a>
-
-        <a href="models/batteries.html">
-            🔋 Акумуляторні батареї
-        </a>
-
-        <a href="models/keyboards.html">
-            ⌨ Клавіатури та кнопки
-        </a>
-
-        <a href="models/accessories.html">
-            🎒 Аксесуари
-        </a>
-
-        <a href="models/speakers.html">
-            🔊 Динаміки
-        </a>
-
-        <a href="models/coolers.html">
-            ❄ Кулери
-        </a>
-
-        <a href="models/motherboards.html">
-            🧩 Материнські плати
-        </a>
-
-        <a href="models/matrices.html">
-            🖥 Матриці
-        </a>
-
-        <a href="models/topcases.html">
-            💻 Топкейси
-        </a>
-
-        <a href="models/cables.html">
-            🔌 Шлейфи
-        </a>
-
-        <a href="models/Antens.html">
-            📡 Антени
-        </a>
-
-        <a href="models/Gravi.html">
-            ✍ Гравіювання
-        </a>
-
-        <a href="cart.html">
-            🛒 Кошик
-        </a>
-
-    </nav>
-
-</aside>
-
-
-<div
-    class="overlay"
-    id="overlay"
-></div>
-
-
-<!-- ===================================================== -->
-<!-- PRODUCT DETAIL CONTENT -->
-<!-- ===================================================== -->
-
-<main class="product-page-container">
-
-    <article class="product-detail-card">
-
-        <div class="product-image">
-            <img id="product-img" src="" alt="Товар">
-        </div>
-
-        <div class="product-detail-info">
-
-            <div class="stock">
-                ● В наявності
-            </div>
-
-            <h1 id="product-title">Завантаження...</h1>
-
-            <p id="product-desc">
-                Оригінальна комплектуюча запчастина для MacBook. Пройшла повну перевірку якості та сумісності.
-            </p>
-
-            <div class="price" id="product-price">
-                Ціну уточнюйте
-            </div>
-
-            <button class="buy-button" id="product-buy-btn">
-                Купити
-            </button>
-
-        </div>
-
-    </article>
-
-</main>
-
-
-<!-- ===================================================== -->
-<!-- FOOTER -->
-<!-- ===================================================== -->
-
-<footer>
-
-    <div class="footer-column">
-
-        <div class="footer-logo">
-            macbay<span>parts</span>
-        </div>
-
-        <p>
-            Ремонт MacBook та комплектуючі
-            для техніки Apple.
-        </p>
-
-    </div>
-
-
-    <div class="footer-column">
-
-        <h3>
-            Навігація
-        </h3>
-
-        <a href="index.html">
-            Головна
-        </a>
-
-        <a href="models/Antens.html">
-            Антени
-        </a>
-
-        <a href="cart.html">
-            Кошик
-        </a>
-
-    </div>
-
-
-    <div class="footer-column">
-
-        <h3>
-            Контакти
-        </h3>
-
-        <a href="tel:+380000000000">
-            📞 +380 00 000 00 00
-        </a>
-
-        <a href="tel:+380001111111">
-            📞 +380 00 111 11 11
-        </a>
-
-        <a
-            href="https://www.instagram.com/macbay_official/?hl=uk"
-            target="_blank"
-            rel="noopener"
-        >
-            📷 Instagram
-        </a>
-
-        <p>
-            📍 Київ
-        </p>
-
-    </div>
-
-</footer>
-
-<script src="script.js"></script>
-
-<script>
-    document.addEventListener("DOMContentLoaded", function () {
+   </article>
+  </main>
+
+  <script src="script.js"></script>
+  <script>
+   document.addEventListener("DOMContentLoaded", function () {
         const urlParams = new URLSearchParams(window.location.search);
 
         const title = urlParams.get('title');
-        const price = urlParams.get('price');
-        const img = urlParams.get('img');
-        const color = urlParams.get('color') || '';
+        const defaultPrice = urlParams.get('price') || 'Ціну уточнюйте';
+        const imgParam = urlParams.get('img');
+
+        // Ціни для акумуляторів
+        const price85 = urlParams.get('price_85') || defaultPrice;
+        const price90 = urlParams.get('price_90') || defaultPrice;
+        const price95 = urlParams.get('price_95') || defaultPrice;
+
+        // Ціни за кольорами (для топкейсів і тачпадів)
+        const pricesByColor = {
+            'Space Gray': urlParams.get('price_spacegray') || urlParams.get('price_gray') || defaultPrice,
+            'Silver': urlParams.get('price_silver') || defaultPrice,
+            'Midnight': urlParams.get('price_midnight') || defaultPrice,
+            'Starlight': urlParams.get('price_starlight') || defaultPrice
+        };
 
         let currentProductName = "";
+        let currentSelectedPrice = defaultPrice;
 
+        // 1. Встановлюємо заголовок
         if (title) {
             currentProductName = decodeURIComponent(title);
             document.getElementById('product-title').innerText = currentProductName;
             document.getElementById('page-title').innerText = `${currentProductName} — macbayparts`;
         }
 
-        if (price) {
-            document.getElementById('product-price').innerText = decodeURIComponent(price);
+        // 2. Встановлюємо початкову картинку
+        const productImgElem = document.getElementById('product-img');
+        if (imgParam && imgParam.trim() !== '') {
+            productImgElem.src = decodeURIComponent(imgParam);
+        } else {
+            productImgElem.src = 'https://via.placeholder.com/300x200?text=MacBook+Parts';
         }
 
-        if (img) {
-            document.getElementById('product-img').src = decodeURIComponent(img);
+        productImgElem.onerror = function() {
+            this.onerror = null;
+            this.src = 'https://via.placeholder.com/300x200?text=MacBook+Parts';
+        };
+
+        const batteryBox = document.getElementById('battery-capacity-box');
+        const colorBox = document.getElementById('color-select-box');
+        const mainPriceElem = document.getElementById('product-price');
+
+        const titleLower = currentProductName.toLowerCase();
+        const isTopcaseOrTrackpad = titleLower.includes('тачпад') || titleLower.includes('топкейс') || titleLower.includes('trackpad') || titleLower.includes('topcase');
+
+        // 3. ЯКЩО ЦЕ АКУМУЛЯТОР (Картинка залишається стандартною)
+        if (titleLower.includes('акумулятор') && batteryBox) {
+            batteryBox.style.display = 'block';
+            if (colorBox) colorBox.style.display = 'none';
+
+            document.getElementById('label-price-85').innerText = decodeURIComponent(price85);
+            document.getElementById('label-price-90').innerText = decodeURIComponent(price90);
+            document.getElementById('label-price-95').innerText = decodeURIComponent(price95);
+
+            function updateBatteryPrice() {
+                const selected = document.querySelector('input[name="battery_health"]:checked')?.id;
+                if (selected === 'cap-85') currentSelectedPrice = decodeURIComponent(price85);
+                if (selected === 'cap-90') currentSelectedPrice = decodeURIComponent(price90);
+                if (selected === 'cap-95') currentSelectedPrice = decodeURIComponent(price95);
+
+                mainPriceElem.innerText = currentSelectedPrice;
+            }
+
+            document.querySelectorAll('input[name="battery_health"]').forEach(radio => {
+                radio.addEventListener('change', updateBatteryPrice);
+            });
+
+            updateBatteryPrice();
+        } 
+        // 4. ЯКЩО ЦЕ ТОПКЕЙС АБО ТАЧПАД (Генеруємо кольори та динамічно змінюємо фото)
+        else if (isTopcaseOrTrackpad && colorBox) {
+            colorBox.style.display = 'block';
+            if (batteryBox) batteryBox.style.display = 'none';
+
+            colorBox.innerHTML = `
+                <span class="option-title">Оберіть колір:</span>
+                <div class="option-group">
+                    <label class="option-card">
+                        <div class="option-left">
+                            <input checked name="item_color" type="radio" value="Space Gray"/>
+                            <span>Space Gray</span>
+                        </div>
+                    </label>
+                    <label class="option-card">
+                        <div class="option-left">
+                            <input name="item_color" type="radio" value="Silver"/>
+                            <span>Silver</span>
+                        </div>
+                    </label>
+                    <label class="option-card">
+                        <div class="option-left">
+                            <input name="item_color" type="radio" value="Midnight"/>
+                            <span>Midnight</span>
+                        </div>
+                    </label>
+                    <label class="option-card">
+                        <div class="option-left">
+                            <input name="item_color" type="radio" value="Starlight"/>
+                            <span>Starlight</span>
+                        </div>
+                    </label>
+                </div>
+            `;
+
+            function updateColorAndImage() {
+                const selectedRadio = colorBox.querySelector('input[name="item_color"]:checked');
+                const selectedColor = selectedRadio ? selectedRadio.value : 'Space Gray';
+
+                // Оновлюємо ціну
+                currentSelectedPrice = decodeURIComponent(pricesByColor[selectedColor] || defaultPrice);
+                mainPriceElem.innerText = currentSelectedPrice;
+
+                // Перемикаємо фотографія під назву кольору
+                if (imgParam && imgParam.trim() !== '') {
+                    const cleanImg = decodeURIComponent(imgParam);
+                    const colorSlug = selectedColor.toLowerCase().replace(/\s+/g, '');
+                    
+                    // Шаблон файлів: name-spacegray.png, name-silver.png, name-midnight.png, name-starlight.png
+                    const newImgUrl = cleanImg.replace(/(\.[^.]+)$/, `-${colorSlug}$1`);
+                    productImgElem.src = newImgUrl;
+                }
+            }
+
+            colorBox.querySelectorAll('input[name="item_color"]').forEach(radio => {
+                radio.addEventListener('change', updateColorAndImage);
+            });
+
+            updateColorAndImage();
+        } 
+        else {
+            if (batteryBox) batteryBox.style.display = 'none';
+            if (colorBox) colorBox.style.display = 'none';
+            mainPriceElem.innerText = decodeURIComponent(defaultPrice);
         }
 
-        // Клік по кнопці "Купити" на сторінці товару
+        // 5. Клік "Додати в кошик"
         const buyBtn = document.getElementById('product-buy-btn');
         if (buyBtn) {
             buyBtn.addEventListener('click', function () {
                 if (currentProductName && typeof addToCart === 'function') {
-                    addToCart(currentProductName, price ? decodeURIComponent(price) : 'Ціну уточнюйте', img ? decodeURIComponent(img) : '', color ? decodeURIComponent(color) : '');
-                    alert(`Товар «${currentProductName}» додано до кошика!`);
+                    let finalTitle = currentProductName;
+
+                    if (batteryBox && batteryBox.style.display !== 'none') {
+                        const selectedHealth = document.querySelector('input[name="battery_health"]:checked')?.value || '85-90%';
+                        finalTitle = `${currentProductName} (${selectedHealth})`;
+                    }
+
+                    if (colorBox && colorBox.style.display !== 'none') {
+                        const selectedColor = colorBox.querySelector('input[name="item_color"]:checked')?.value || 'Space Gray';
+                        finalTitle = `${currentProductName} (${selectedColor})`;
+                    }
+
+                    addToCart(finalTitle, currentSelectedPrice, productImgElem.src, '');
+                    alert(`Товар «${finalTitle}» за ${currentSelectedPrice} додано до кошика!`);
                 }
             });
         }
     });
-</script>
-
-<script src="supabase-prices.js"></script>
-</body>
-
+  </script>
+  <script src="supabase-prices.js"></script>
+ </body>
 </html>
