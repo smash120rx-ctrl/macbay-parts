@@ -1,23 +1,13 @@
 <!DOCTYPE html>
 <html lang="uk">
- <head>
-  <meta charset="utf-8"/>
-  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-  <title>
-   Запчастина MacBook Pro — macbayparts
-  </title>
-  <link href="topcases.css" rel="stylesheet"/>
-  <link href="../favicon.png" rel="icon" type="image/png"/>
-  <style>
-   .single-product {max-width:1300px;margin:0 auto;padding:20px 20px 70px}
-.single-product-card{max-width:430px;margin:0 auto;background:#fff;border:1px solid #e5e5e7;border-radius:20px;padding:30px 20px;text-align:center;box-shadow:0 4px 15px rgba(0,0,0,.04)}
-.single-product-image{height:300px;display:flex;align-items:center;justify-content:center;margin-bottom:20px}
-.single-product-image img{max-width:100%;max-height:100%;object-fit:contain}
-.single-product-card h3{font-size:20px;line-height:1.4;margin:0;color:#1d1d1f}
-.back-model{max-width:1300px;margin:25px auto 0;padding:0 20px}
-  </style>
- </head>
- <body>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Шлейфи MacBook — macbayparts</title>
+<link href="cables.css" rel="stylesheet">
+<link href="../favicon.png" rel="icon" type="image/png">
+</head>
+<body>
   <header class="header">
    <div class="header-left">
     <a class="logo" href="../index.html">
@@ -41,49 +31,7 @@
     <div class="search-panel">
      <div class="search-results" id="searchResults">
      </div>
-     <div class="popular-searches">
-      <h3>
-       Популярні запити
-      </h3>
-      <div class="popular-list">
-       <button type="button">
-        MacBook Air A1466
-       </button>
-       <button type="button">
-        MacBook Pro A1708
-       </button>
-       <button type="button">
-        A2337
-       </button>
-       <button type="button">
-        A2485
-       </button>
-       <button type="button">
-        Антена
-       </button>
-       <button type="button">
-        Акумулятори
-       </button>
-       <button type="button">
-        Тачпад
-       </button>
-       <button type="button">
-        Материнська плата
-       </button>
-       <button type="button">
-        Топкейс
-       </button>
-       <button type="button">
-        Матриця
-       </button>
-       <button type="button">
-        Клавіатури
-       </button>
-       <button type="button">
-        Шлейфи
-       </button>
-      </div>
-     </div>
+
     </div>
    </div>
    <!-- ================= HEADER RIGHT ================= -->
@@ -112,38 +60,520 @@
       </span>
      </button>
      <div class="phone-menu">
-      <a href="tel:+380 98 841 2544">
-       📞 +380 98 841 2544
+      <a href="tel:+380773043880">
+       📞 +380 77 304 38 80
       </a>
      </div>
     </div>
    </div>
+    <a class="header-icon telegram-button" href="https://t.me/macbaypart" target="_blank" rel="noopener noreferrer" aria-label="Telegram macbaypart">
+     ✈️
+     <span>Telegram</span>
+    </a>
+
   </header>
-  <div class="back-model">
-   <a href="#" id="backLink">
-    ← Назад до моделі
-   </a>
+  <!-- ================= SIDE MENU ================= -->
+  <aside class="side-menu" id="sideMenu">
+   <div class="side-menu-header">
+    <strong>
+     Каталог
+    </strong>
+    <button id="closeMenu" type="button">
+     ✕
+    </button>
+   </div>
+   <nav>
+    <a href="../index.html">
+     🏠 Головна
+    </a>
+    <a href="../fix/macbook-fix.html">
+     🔧 Ремонт MacBook
+    </a>
+    <a href="touchpads.html">
+     🖱 Тачпад
+    </a>
+    <a href="batteries.html">
+     🔋 Акумуляторні батареї
+    </a>
+    <a href="keyboards.html">
+     ⌨ Клавіатури та кнопки
+    </a>
+    <a href="accessories.html">
+     🎒 Аксесуари
+    </a>
+    <a href="speakers.html">
+     🔊 Динамік
+    </a>
+    <a href="coolers.html">
+     ❄ Кулер
+    </a>
+    <a href="motherboards.html">
+     🧩 Материнська плата
+    </a>
+    <a href="matrices.html">
+     🖥 Матриця
+    </a>
+    <a href="topcases.html">
+     💻 Топкейс
+    </a>
+    <a class="active" href="cables.html">
+     🔌 Шлейфи
+    </a>
+    <a href="Antens.html">
+     📡 Антена
+    </a>
+    <a href="Gravi.html">
+     ✍ Гравіювання
+    </a>
+    <a href="../cart.html">
+     🛒 Кошик
+    </a>
+   </nav>
+  </aside>
+  <div class="overlay" id="overlay">
   </div>
-  <section class="models">
-   <div class="section-heading">
-    <div>
-     <h2 style="text-align:center;margin-bottom:40px">
-      <span id="pageTitle">
-       Запчастина
-      </span>
-     </h2>
-    </div>
+
+  <!-- ===================================================== -->
+  <!-- CATALOG -->
+  <!-- ===================================================== -->
+  <main class="catalog">
+   <div class="catalog-heading">
+    <span>MACBOOK PARTS</span>
+    <h1>Шлейфи MacBook</h1>
+    <p>Оригінальні шлейфи, конектори та міжплатні кабелі для MacBook Air та MacBook Pro</p>
    </div>
-   <div class="single-product">
-    <div class="single-product-card">
-     <div class="single-product-image">
-      <img alt="" id="productImage" src=""/>
+   <section class="products">
+    <article data-title="Шлейфи MacBook 13&quot; MacBook Air 2018–2019 (A1932)" data-model="A1932" data-category="Шлейф" class="product-card">
+     <div class="product-image">
+      <img src="cables.jpg" alt="Шлейфи MacBook 13&quot; MacBook Air 2018–2019 (A1932)" loading="lazy">
      </div>
-     <h3 id="productName">
-     </h3>
-    </div>
-   </div>
-  </section>
+     <div class="stock">● В наявності</div>
+     <h2>Шлейфи — 13&quot; MacBook Air 2018–2019 (A1932)</h2>
+     <p>Внутрішні шлейфи, конектори та міжплатні кабелі для 13&quot; MacBook Air 2018–2019 (A1932).</p>
+     <div class="models">A1932</div>
+     <div class="product-options cable-color-options">
+      <div class="product-options-title">Оберіть колір</div>
+      <div class="color-options">
+       <button type="button" class="color-option active" data-color="Space Gray"><span class="color-dot space-gray"></span>Space Gray</button><button type="button" class="color-option " data-color="Silver"><span class="color-dot silver"></span>Silver</button><button type="button" class="color-option " data-color="Midnight"><span class="color-dot midnight"></span>Midnight</button><button type="button" class="color-option " data-color="Starlight"><span class="color-dot starlight"></span>Starlight</button>
+      </div>
+     </div>
+     <div class="price">Ціну уточнюйте</div>
+     <button class="buy-button" type="button">Купити</button>
+    </article>
+    <article data-title="Шлейфи MacBook 13&quot; MacBook Air 2020 (A2179)" data-model="A2179" data-category="Шлейф" class="product-card">
+     <div class="product-image">
+      <img src="cables.jpg" alt="Шлейфи MacBook 13&quot; MacBook Air 2020 (A2179)" loading="lazy">
+     </div>
+     <div class="stock">● В наявності</div>
+     <h2>Шлейфи — 13&quot; MacBook Air 2020 (A2179)</h2>
+     <p>Внутрішні шлейфи, конектори та міжплатні кабелі для 13&quot; MacBook Air 2020 (A2179).</p>
+     <div class="models">A2179</div>
+     <div class="product-options cable-color-options">
+      <div class="product-options-title">Оберіть колір</div>
+      <div class="color-options">
+       <button type="button" class="color-option active" data-color="Space Gray"><span class="color-dot space-gray"></span>Space Gray</button><button type="button" class="color-option " data-color="Silver"><span class="color-dot silver"></span>Silver</button><button type="button" class="color-option " data-color="Midnight"><span class="color-dot midnight"></span>Midnight</button><button type="button" class="color-option " data-color="Starlight"><span class="color-dot starlight"></span>Starlight</button>
+      </div>
+     </div>
+     <div class="price">Ціну уточнюйте</div>
+     <button class="buy-button" type="button">Купити</button>
+    </article>
+    <article data-title="Шлейфи MacBook 13&quot; MacBook Pro 2020 (A2251)" data-model="A2251" data-category="Шлейф" class="product-card">
+     <div class="product-image">
+      <img src="cables.jpg" alt="Шлейфи MacBook 13&quot; MacBook Pro 2020 (A2251)" loading="lazy">
+     </div>
+     <div class="stock">● В наявності</div>
+     <h2>Шлейфи — 13&quot; MacBook Pro 2020 (A2251)</h2>
+     <p>Внутрішні шлейфи, конектори та міжплатні кабелі для 13&quot; MacBook Pro 2020 (A2251).</p>
+     <div class="models">A2251</div>
+     <div class="product-options cable-color-options">
+      <div class="product-options-title">Оберіть колір</div>
+      <div class="color-options">
+       <button type="button" class="color-option active" data-color="Space Gray"><span class="color-dot space-gray"></span>Space Gray</button><button type="button" class="color-option " data-color="Silver"><span class="color-dot silver"></span>Silver</button><button type="button" class="color-option " data-color="Midnight"><span class="color-dot midnight"></span>Midnight</button><button type="button" class="color-option " data-color="Starlight"><span class="color-dot starlight"></span>Starlight</button>
+      </div>
+     </div>
+     <div class="price">Ціну уточнюйте</div>
+     <button class="buy-button" type="button">Купити</button>
+    </article>
+    <article data-title="Шлейфи MacBook 13,3&quot; MacBook Air M1 2020 (A2337)" data-model="A2337" data-category="Шлейф" class="product-card">
+     <div class="product-image">
+      <img src="cables.jpg" alt="Шлейфи MacBook 13,3&quot; MacBook Air M1 2020 (A2337)" loading="lazy">
+     </div>
+     <div class="stock">● В наявності</div>
+     <h2>Шлейфи — 13,3&quot; MacBook Air M1 2020 (A2337)</h2>
+     <p>Внутрішні шлейфи, конектори та міжплатні кабелі для 13,3&quot; MacBook Air M1 2020 (A2337).</p>
+     <div class="models">A2337</div>
+     <div class="product-options cable-color-options">
+      <div class="product-options-title">Оберіть колір</div>
+      <div class="color-options">
+       <button type="button" class="color-option active" data-color="Space Gray"><span class="color-dot space-gray"></span>Space Gray</button><button type="button" class="color-option " data-color="Silver"><span class="color-dot silver"></span>Silver</button><button type="button" class="color-option " data-color="Midnight"><span class="color-dot midnight"></span>Midnight</button><button type="button" class="color-option " data-color="Starlight"><span class="color-dot starlight"></span>Starlight</button>
+      </div>
+     </div>
+     <div class="price">Ціну уточнюйте</div>
+     <button class="buy-button" type="button">Купити</button>
+    </article>
+    <article data-title="Шлейфи MacBook 13&quot; MacBook Pro M1 2020 (A2338)" data-model="A2338" data-category="Шлейф" class="product-card">
+     <div class="product-image">
+      <img src="cables.jpg" alt="Шлейфи MacBook 13&quot; MacBook Pro M1 2020 (A2338)" loading="lazy">
+     </div>
+     <div class="stock">● В наявності</div>
+     <h2>Шлейфи — 13&quot; MacBook Pro M1 2020 (A2338)</h2>
+     <p>Внутрішні шлейфи, конектори та міжплатні кабелі для 13&quot; MacBook Pro M1 2020 (A2338).</p>
+     <div class="models">A2338</div>
+     <div class="product-options cable-color-options">
+      <div class="product-options-title">Оберіть колір</div>
+      <div class="color-options">
+       <button type="button" class="color-option active" data-color="Space Gray"><span class="color-dot space-gray"></span>Space Gray</button><button type="button" class="color-option " data-color="Silver"><span class="color-dot silver"></span>Silver</button><button type="button" class="color-option " data-color="Midnight"><span class="color-dot midnight"></span>Midnight</button><button type="button" class="color-option " data-color="Starlight"><span class="color-dot starlight"></span>Starlight</button>
+      </div>
+     </div>
+     <div class="price">Ціну уточнюйте</div>
+     <button class="buy-button" type="button">Купити</button>
+    </article>
+    <article data-title="Шлейфи MacBook 14&quot; MacBook Pro M1 Pro / M1 Max 2021 (A2442)" data-model="A2442" data-category="Шлейф" class="product-card">
+     <div class="product-image">
+      <img src="cables.jpg" alt="Шлейфи MacBook 14&quot; MacBook Pro M1 Pro / M1 Max 2021 (A2442)" loading="lazy">
+     </div>
+     <div class="stock">● В наявності</div>
+     <h2>Шлейфи — 14&quot; MacBook Pro M1 Pro / M1 Max 2021 (A2442)</h2>
+     <p>Внутрішні шлейфи, конектори та міжплатні кабелі для 14&quot; MacBook Pro M1 Pro / M1 Max 2021 (A2442).</p>
+     <div class="models">A2442</div>
+     <div class="product-options cable-color-options">
+      <div class="product-options-title">Оберіть колір</div>
+      <div class="color-options">
+       <button type="button" class="color-option active" data-color="Space Gray"><span class="color-dot space-gray"></span>Space Gray</button><button type="button" class="color-option " data-color="Silver"><span class="color-dot silver"></span>Silver</button><button type="button" class="color-option " data-color="Midnight"><span class="color-dot midnight"></span>Midnight</button><button type="button" class="color-option " data-color="Starlight"><span class="color-dot starlight"></span>Starlight</button>
+      </div>
+     </div>
+     <div class="price">Ціну уточнюйте</div>
+     <button class="buy-button" type="button">Купити</button>
+    </article>
+    <article data-title="Шлейфи MacBook 16&quot; MacBook Pro M1 Pro / M1 Max 2021 (A2485)" data-model="A2485" data-category="Шлейф" class="product-card">
+     <div class="product-image">
+      <img src="cables.jpg" alt="Шлейфи MacBook 16&quot; MacBook Pro M1 Pro / M1 Max 2021 (A2485)" loading="lazy">
+     </div>
+     <div class="stock">● В наявності</div>
+     <h2>Шлейфи — 16&quot; MacBook Pro M1 Pro / M1 Max 2021 (A2485)</h2>
+     <p>Внутрішні шлейфи, конектори та міжплатні кабелі для 16&quot; MacBook Pro M1 Pro / M1 Max 2021 (A2485).</p>
+     <div class="models">A2485</div>
+     <div class="product-options cable-color-options">
+      <div class="product-options-title">Оберіть колір</div>
+      <div class="color-options">
+       <button type="button" class="color-option active" data-color="Space Gray"><span class="color-dot space-gray"></span>Space Gray</button><button type="button" class="color-option " data-color="Silver"><span class="color-dot silver"></span>Silver</button><button type="button" class="color-option " data-color="Midnight"><span class="color-dot midnight"></span>Midnight</button><button type="button" class="color-option " data-color="Starlight"><span class="color-dot starlight"></span>Starlight</button>
+      </div>
+     </div>
+     <div class="price">Ціну уточнюйте</div>
+     <button class="buy-button" type="button">Купити</button>
+    </article>
+    <article data-title="Шлейфи MacBook 13,6&quot; MacBook Air M2 2022 (A2681)" data-model="A2681" data-category="Шлейф" class="product-card">
+     <div class="product-image">
+      <img src="cables.jpg" alt="Шлейфи MacBook 13,6&quot; MacBook Air M2 2022 (A2681)" loading="lazy">
+     </div>
+     <div class="stock">● В наявності</div>
+     <h2>Шлейфи — 13,6&quot; MacBook Air M2 2022 (A2681)</h2>
+     <p>Внутрішні шлейфи, конектори та міжплатні кабелі для 13,6&quot; MacBook Air M2 2022 (A2681).</p>
+     <div class="models">A2681</div>
+     <div class="product-options cable-color-options">
+      <div class="product-options-title">Оберіть колір</div>
+      <div class="color-options">
+       <button type="button" class="color-option active" data-color="Space Gray"><span class="color-dot space-gray"></span>Space Gray</button><button type="button" class="color-option " data-color="Silver"><span class="color-dot silver"></span>Silver</button><button type="button" class="color-option " data-color="Midnight"><span class="color-dot midnight"></span>Midnight</button><button type="button" class="color-option " data-color="Starlight"><span class="color-dot starlight"></span>Starlight</button>
+      </div>
+     </div>
+     <div class="price">Ціну уточнюйте</div>
+     <button class="buy-button" type="button">Купити</button>
+    </article>
+    <article data-title="Шлейфи MacBook 14&quot; MacBook Pro M2 Pro / M2 Max 2023 (A2779)" data-model="A2779" data-category="Шлейф" class="product-card">
+     <div class="product-image">
+      <img src="cables.jpg" alt="Шлейфи MacBook 14&quot; MacBook Pro M2 Pro / M2 Max 2023 (A2779)" loading="lazy">
+     </div>
+     <div class="stock">● В наявності</div>
+     <h2>Шлейфи — 14&quot; MacBook Pro M2 Pro / M2 Max 2023 (A2779)</h2>
+     <p>Внутрішні шлейфи, конектори та міжплатні кабелі для 14&quot; MacBook Pro M2 Pro / M2 Max 2023 (A2779).</p>
+     <div class="models">A2779</div>
+     <div class="product-options cable-color-options">
+      <div class="product-options-title">Оберіть колір</div>
+      <div class="color-options">
+       <button type="button" class="color-option active" data-color="Space Gray"><span class="color-dot space-gray"></span>Space Gray</button><button type="button" class="color-option " data-color="Silver"><span class="color-dot silver"></span>Silver</button><button type="button" class="color-option " data-color="Midnight"><span class="color-dot midnight"></span>Midnight</button><button type="button" class="color-option " data-color="Starlight"><span class="color-dot starlight"></span>Starlight</button>
+      </div>
+     </div>
+     <div class="price">Ціну уточнюйте</div>
+     <button class="buy-button" type="button">Купити</button>
+    </article>
+    <article data-title="Шлейфи MacBook 16&quot; MacBook Pro M2 Pro / M2 Max 2023 (A2780)" data-model="A2780" data-category="Шлейф" class="product-card">
+     <div class="product-image">
+      <img src="cables.jpg" alt="Шлейфи MacBook 16&quot; MacBook Pro M2 Pro / M2 Max 2023 (A2780)" loading="lazy">
+     </div>
+     <div class="stock">● В наявності</div>
+     <h2>Шлейфи — 16&quot; MacBook Pro M2 Pro / M2 Max 2023 (A2780)</h2>
+     <p>Внутрішні шлейфи, конектори та міжплатні кабелі для 16&quot; MacBook Pro M2 Pro / M2 Max 2023 (A2780).</p>
+     <div class="models">A2780</div>
+     <div class="product-options cable-color-options">
+      <div class="product-options-title">Оберіть колір</div>
+      <div class="color-options">
+       <button type="button" class="color-option active" data-color="Space Gray"><span class="color-dot space-gray"></span>Space Gray</button><button type="button" class="color-option " data-color="Silver"><span class="color-dot silver"></span>Silver</button><button type="button" class="color-option " data-color="Midnight"><span class="color-dot midnight"></span>Midnight</button><button type="button" class="color-option " data-color="Starlight"><span class="color-dot starlight"></span>Starlight</button>
+      </div>
+     </div>
+     <div class="price">Ціну уточнюйте</div>
+     <button class="buy-button" type="button">Купити</button>
+    </article>
+    <article data-title="Шлейфи MacBook 14&quot; MacBook Pro M3 2023 (A2918)" data-model="A2918" data-category="Шлейф" class="product-card">
+     <div class="product-image">
+      <img src="cables.jpg" alt="Шлейфи MacBook 14&quot; MacBook Pro M3 2023 (A2918)" loading="lazy">
+     </div>
+     <div class="stock">● В наявності</div>
+     <h2>Шлейфи — 14&quot; MacBook Pro M3 2023 (A2918)</h2>
+     <p>Внутрішні шлейфи, конектори та міжплатні кабелі для 14&quot; MacBook Pro M3 2023 (A2918).</p>
+     <div class="models">A2918</div>
+     <div class="product-options cable-color-options">
+      <div class="product-options-title">Оберіть колір</div>
+      <div class="color-options">
+       <button type="button" class="color-option active" data-color="Space Gray"><span class="color-dot space-gray"></span>Space Gray</button><button type="button" class="color-option " data-color="Silver"><span class="color-dot silver"></span>Silver</button><button type="button" class="color-option " data-color="Midnight"><span class="color-dot midnight"></span>Midnight</button><button type="button" class="color-option " data-color="Starlight"><span class="color-dot starlight"></span>Starlight</button>
+      </div>
+     </div>
+     <div class="price">Ціну уточнюйте</div>
+     <button class="buy-button" type="button">Купити</button>
+    </article>
+    <article data-title="Шлейфи MacBook 15,3&quot; MacBook Air M2 2023 (A2941)" data-model="A2941" data-category="Шлейф" class="product-card">
+     <div class="product-image">
+      <img src="cables.jpg" alt="Шлейфи MacBook 15,3&quot; MacBook Air M2 2023 (A2941)" loading="lazy">
+     </div>
+     <div class="stock">● В наявності</div>
+     <h2>Шлейфи — 15,3&quot; MacBook Air M2 2023 (A2941)</h2>
+     <p>Внутрішні шлейфи, конектори та міжплатні кабелі для 15,3&quot; MacBook Air M2 2023 (A2941).</p>
+     <div class="models">A2941</div>
+     <div class="product-options cable-color-options">
+      <div class="product-options-title">Оберіть колір</div>
+      <div class="color-options">
+       <button type="button" class="color-option active" data-color="Space Gray"><span class="color-dot space-gray"></span>Space Gray</button><button type="button" class="color-option " data-color="Silver"><span class="color-dot silver"></span>Silver</button><button type="button" class="color-option " data-color="Midnight"><span class="color-dot midnight"></span>Midnight</button><button type="button" class="color-option " data-color="Starlight"><span class="color-dot starlight"></span>Starlight</button>
+      </div>
+     </div>
+     <div class="price">Ціну уточнюйте</div>
+     <button class="buy-button" type="button">Купити</button>
+    </article>
+    <article data-title="Шлейфи MacBook 16&quot; MacBook Pro M3 Pro / M3 Max 2023 (A2991)" data-model="A2991" data-category="Шлейф" class="product-card">
+     <div class="product-image">
+      <img src="cables.jpg" alt="Шлейфи MacBook 16&quot; MacBook Pro M3 Pro / M3 Max 2023 (A2991)" loading="lazy">
+     </div>
+     <div class="stock">● В наявності</div>
+     <h2>Шлейфи — 16&quot; MacBook Pro M3 Pro / M3 Max 2023 (A2991)</h2>
+     <p>Внутрішні шлейфи, конектори та міжплатні кабелі для 16&quot; MacBook Pro M3 Pro / M3 Max 2023 (A2991).</p>
+     <div class="models">A2991</div>
+     <div class="product-options cable-color-options">
+      <div class="product-options-title">Оберіть колір</div>
+      <div class="color-options">
+       <button type="button" class="color-option active" data-color="Space Gray"><span class="color-dot space-gray"></span>Space Gray</button><button type="button" class="color-option " data-color="Silver"><span class="color-dot silver"></span>Silver</button><button type="button" class="color-option " data-color="Midnight"><span class="color-dot midnight"></span>Midnight</button><button type="button" class="color-option " data-color="Starlight"><span class="color-dot starlight"></span>Starlight</button>
+      </div>
+     </div>
+     <div class="price">Ціну уточнюйте</div>
+     <button class="buy-button" type="button">Купити</button>
+    </article>
+    <article data-title="Шлейфи MacBook 14&quot; MacBook Pro M3 Pro / M3 Max 2023 (A2992)" data-model="A2992" data-category="Шлейф" class="product-card">
+     <div class="product-image">
+      <img src="cables.jpg" alt="Шлейфи MacBook 14&quot; MacBook Pro M3 Pro / M3 Max 2023 (A2992)" loading="lazy">
+     </div>
+     <div class="stock">● В наявності</div>
+     <h2>Шлейфи — 14&quot; MacBook Pro M3 Pro / M3 Max 2023 (A2992)</h2>
+     <p>Внутрішні шлейфи, конектори та міжплатні кабелі для 14&quot; MacBook Pro M3 Pro / M3 Max 2023 (A2992).</p>
+     <div class="models">A2992</div>
+     <div class="product-options cable-color-options">
+      <div class="product-options-title">Оберіть колір</div>
+      <div class="color-options">
+       <button type="button" class="color-option active" data-color="Space Gray"><span class="color-dot space-gray"></span>Space Gray</button><button type="button" class="color-option " data-color="Silver"><span class="color-dot silver"></span>Silver</button><button type="button" class="color-option " data-color="Midnight"><span class="color-dot midnight"></span>Midnight</button><button type="button" class="color-option " data-color="Starlight"><span class="color-dot starlight"></span>Starlight</button>
+      </div>
+     </div>
+     <div class="price">Ціну уточнюйте</div>
+     <button class="buy-button" type="button">Купити</button>
+    </article>
+    <article data-title="Шлейфи MacBook 14&quot; MacBook Pro M4 2024 (A3112)" data-model="A3112" data-category="Шлейф" class="product-card">
+     <div class="product-image">
+      <img src="cables.jpg" alt="Шлейфи MacBook 14&quot; MacBook Pro M4 2024 (A3112)" loading="lazy">
+     </div>
+     <div class="stock">● В наявності</div>
+     <h2>Шлейфи — 14&quot; MacBook Pro M4 2024 (A3112)</h2>
+     <p>Внутрішні шлейфи, конектори та міжплатні кабелі для 14&quot; MacBook Pro M4 2024 (A3112).</p>
+     <div class="models">A3112</div>
+     <div class="product-options cable-color-options">
+      <div class="product-options-title">Оберіть колір</div>
+      <div class="color-options">
+       <button type="button" class="color-option active" data-color="Space Gray"><span class="color-dot space-gray"></span>Space Gray</button><button type="button" class="color-option " data-color="Silver"><span class="color-dot silver"></span>Silver</button><button type="button" class="color-option " data-color="Midnight"><span class="color-dot midnight"></span>Midnight</button><button type="button" class="color-option " data-color="Starlight"><span class="color-dot starlight"></span>Starlight</button>
+      </div>
+     </div>
+     <div class="price">Ціну уточнюйте</div>
+     <button class="buy-button" type="button">Купити</button>
+    </article>
+    <article data-title="Шлейфи MacBook 13,6&quot; MacBook Air M3 2024 (A3113)" data-model="A3113" data-category="Шлейф" class="product-card">
+     <div class="product-image">
+      <img src="cables.jpg" alt="Шлейфи MacBook 13,6&quot; MacBook Air M3 2024 (A3113)" loading="lazy">
+     </div>
+     <div class="stock">● В наявності</div>
+     <h2>Шлейфи — 13,6&quot; MacBook Air M3 2024 (A3113)</h2>
+     <p>Внутрішні шлейфи, конектори та міжплатні кабелі для 13,6&quot; MacBook Air M3 2024 (A3113).</p>
+     <div class="models">A3113</div>
+     <div class="product-options cable-color-options">
+      <div class="product-options-title">Оберіть колір</div>
+      <div class="color-options">
+       <button type="button" class="color-option active" data-color="Space Gray"><span class="color-dot space-gray"></span>Space Gray</button><button type="button" class="color-option " data-color="Silver"><span class="color-dot silver"></span>Silver</button><button type="button" class="color-option " data-color="Midnight"><span class="color-dot midnight"></span>Midnight</button><button type="button" class="color-option " data-color="Starlight"><span class="color-dot starlight"></span>Starlight</button>
+      </div>
+     </div>
+     <div class="price">Ціну уточнюйте</div>
+     <button class="buy-button" type="button">Купити</button>
+    </article>
+    <article data-title="Шлейфи MacBook 15,3&quot; MacBook Air M3 2024 (A3114)" data-model="A3114" data-category="Шлейф" class="product-card">
+     <div class="product-image">
+      <img src="cables.jpg" alt="Шлейфи MacBook 15,3&quot; MacBook Air M3 2024 (A3114)" loading="lazy">
+     </div>
+     <div class="stock">● В наявності</div>
+     <h2>Шлейфи — 15,3&quot; MacBook Air M3 2024 (A3114)</h2>
+     <p>Внутрішні шлейфи, конектори та міжплатні кабелі для 15,3&quot; MacBook Air M3 2024 (A3114).</p>
+     <div class="models">A3114</div>
+     <div class="product-options cable-color-options">
+      <div class="product-options-title">Оберіть колір</div>
+      <div class="color-options">
+       <button type="button" class="color-option active" data-color="Space Gray"><span class="color-dot space-gray"></span>Space Gray</button><button type="button" class="color-option " data-color="Silver"><span class="color-dot silver"></span>Silver</button><button type="button" class="color-option " data-color="Midnight"><span class="color-dot midnight"></span>Midnight</button><button type="button" class="color-option " data-color="Starlight"><span class="color-dot starlight"></span>Starlight</button>
+      </div>
+     </div>
+     <div class="price">Ціну уточнюйте</div>
+     <button class="buy-button" type="button">Купити</button>
+    </article>
+    <article data-title="Шлейфи MacBook 16&quot; MacBook Pro M4 Max 2024 (A3186)" data-model="A3186" data-category="Шлейф" class="product-card">
+     <div class="product-image">
+      <img src="cables.jpg" alt="Шлейфи MacBook 16&quot; MacBook Pro M4 Max 2024 (A3186)" loading="lazy">
+     </div>
+     <div class="stock">● В наявності</div>
+     <h2>Шлейфи — 16&quot; MacBook Pro M4 Max 2024 (A3186)</h2>
+     <p>Внутрішні шлейфи, конектори та міжплатні кабелі для 16&quot; MacBook Pro M4 Max 2024 (A3186).</p>
+     <div class="models">A3186</div>
+     <div class="product-options cable-color-options">
+      <div class="product-options-title">Оберіть колір</div>
+      <div class="color-options">
+       <button type="button" class="color-option active" data-color="Space Gray"><span class="color-dot space-gray"></span>Space Gray</button><button type="button" class="color-option " data-color="Silver"><span class="color-dot silver"></span>Silver</button><button type="button" class="color-option " data-color="Midnight"><span class="color-dot midnight"></span>Midnight</button><button type="button" class="color-option " data-color="Starlight"><span class="color-dot starlight"></span>Starlight</button>
+      </div>
+     </div>
+     <div class="price">Ціну уточнюйте</div>
+     <button class="buy-button" type="button">Купити</button>
+    </article>
+    <article data-title="Шлейфи MacBook 15,3&quot; MacBook Air M4 2024 (A3240)" data-model="A3240" data-category="Шлейф" class="product-card">
+     <div class="product-image">
+      <img src="cables.jpg" alt="Шлейфи MacBook 15,3&quot; MacBook Air M4 2024 (A3240)" loading="lazy">
+     </div>
+     <div class="stock">● В наявності</div>
+     <h2>Шлейфи — 15,3&quot; MacBook Air M4 2024 (A3240)</h2>
+     <p>Внутрішні шлейфи, конектори та міжплатні кабелі для 15,3&quot; MacBook Air M4 2024 (A3240).</p>
+     <div class="models">A3240</div>
+     <div class="product-options cable-color-options">
+      <div class="product-options-title">Оберіть колір</div>
+      <div class="color-options">
+       <button type="button" class="color-option active" data-color="Space Gray"><span class="color-dot space-gray"></span>Space Gray</button><button type="button" class="color-option " data-color="Silver"><span class="color-dot silver"></span>Silver</button><button type="button" class="color-option " data-color="Midnight"><span class="color-dot midnight"></span>Midnight</button><button type="button" class="color-option " data-color="Starlight"><span class="color-dot starlight"></span>Starlight</button>
+      </div>
+     </div>
+     <div class="price">Ціну уточнюйте</div>
+     <button class="buy-button" type="button">Купити</button>
+    </article>
+    <article data-title="Шлейфи MacBook 15,3&quot; MacBook Air M3 2024 (A3241)" data-model="A3241" data-category="Шлейф" class="product-card">
+     <div class="product-image">
+      <img src="cables.jpg" alt="Шлейфи MacBook 15,3&quot; MacBook Air M3 2024 (A3241)" loading="lazy">
+     </div>
+     <div class="stock">● В наявності</div>
+     <h2>Шлейфи — 15,3&quot; MacBook Air M3 2024 (A3241)</h2>
+     <p>Внутрішні шлейфи, конектори та міжплатні кабелі для 15,3&quot; MacBook Air M3 2024 (A3241).</p>
+     <div class="models">A3241</div>
+     <div class="product-options cable-color-options">
+      <div class="product-options-title">Оберіть колір</div>
+      <div class="color-options">
+       <button type="button" class="color-option active" data-color="Space Gray"><span class="color-dot space-gray"></span>Space Gray</button><button type="button" class="color-option " data-color="Silver"><span class="color-dot silver"></span>Silver</button><button type="button" class="color-option " data-color="Midnight"><span class="color-dot midnight"></span>Midnight</button><button type="button" class="color-option " data-color="Starlight"><span class="color-dot starlight"></span>Starlight</button>
+      </div>
+     </div>
+     <div class="price">Ціну уточнюйте</div>
+     <button class="buy-button" type="button">Купити</button>
+    </article>
+    <article data-title="Шлейфи MacBook 14&quot; MacBook Pro M4 Pro 2024 (A3401)" data-model="A3401" data-category="Шлейф" class="product-card">
+     <div class="product-image">
+      <img src="cables.jpg" alt="Шлейфи MacBook 14&quot; MacBook Pro M4 Pro 2024 (A3401)" loading="lazy">
+     </div>
+     <div class="stock">● В наявності</div>
+     <h2>Шлейфи — 14&quot; MacBook Pro M4 Pro 2024 (A3401)</h2>
+     <p>Внутрішні шлейфи, конектори та міжплатні кабелі для 14&quot; MacBook Pro M4 Pro 2024 (A3401).</p>
+     <div class="models">A3401</div>
+     <div class="product-options cable-color-options">
+      <div class="product-options-title">Оберіть колір</div>
+      <div class="color-options">
+       <button type="button" class="color-option active" data-color="Space Gray"><span class="color-dot space-gray"></span>Space Gray</button><button type="button" class="color-option " data-color="Silver"><span class="color-dot silver"></span>Silver</button><button type="button" class="color-option " data-color="Midnight"><span class="color-dot midnight"></span>Midnight</button><button type="button" class="color-option " data-color="Starlight"><span class="color-dot starlight"></span>Starlight</button>
+      </div>
+     </div>
+     <div class="price">Ціну уточнюйте</div>
+     <button class="buy-button" type="button">Купити</button>
+    </article>
+    <article data-title="Шлейфи MacBook 14&quot; MacBook Pro M5 Pro 2026 (A3426)" data-model="A3426" data-category="Шлейф" class="product-card">
+     <div class="product-image">
+      <img src="cables.jpg" alt="Шлейфи MacBook 14&quot; MacBook Pro M5 Pro 2026 (A3426)" loading="lazy">
+     </div>
+     <div class="stock">● В наявності</div>
+     <h2>Шлейфи — 14&quot; MacBook Pro M5 Pro 2026 (A3426)</h2>
+     <p>Внутрішні шлейфи, конектори та міжплатні кабелі для 14&quot; MacBook Pro M5 Pro 2026 (A3426).</p>
+     <div class="models">A3426</div>
+     <div class="product-options cable-color-options">
+      <div class="product-options-title">Оберіть колір</div>
+      <div class="color-options">
+       <button type="button" class="color-option active" data-color="Space Gray"><span class="color-dot space-gray"></span>Space Gray</button><button type="button" class="color-option " data-color="Silver"><span class="color-dot silver"></span>Silver</button><button type="button" class="color-option " data-color="Midnight"><span class="color-dot midnight"></span>Midnight</button><button type="button" class="color-option " data-color="Starlight"><span class="color-dot starlight"></span>Starlight</button>
+      </div>
+     </div>
+     <div class="price">Ціну уточнюйте</div>
+     <button class="buy-button" type="button">Купити</button>
+    </article>
+    <article data-title="Шлейфи MacBook 14&quot; MacBook Pro M5 2025 (A3434)" data-model="A3434" data-category="Шлейф" class="product-card">
+     <div class="product-image">
+      <img src="cables.jpg" alt="Шлейфи MacBook 14&quot; MacBook Pro M5 2025 (A3434)" loading="lazy">
+     </div>
+     <div class="stock">● В наявності</div>
+     <h2>Шлейфи — 14&quot; MacBook Pro M5 2025 (A3434)</h2>
+     <p>Внутрішні шлейфи, конектори та міжплатні кабелі для 14&quot; MacBook Pro M5 2025 (A3434).</p>
+     <div class="models">A3434</div>
+     <div class="product-options cable-color-options">
+      <div class="product-options-title">Оберіть колір</div>
+      <div class="color-options">
+       <button type="button" class="color-option active" data-color="Space Gray"><span class="color-dot space-gray"></span>Space Gray</button><button type="button" class="color-option " data-color="Silver"><span class="color-dot silver"></span>Silver</button><button type="button" class="color-option " data-color="Midnight"><span class="color-dot midnight"></span>Midnight</button><button type="button" class="color-option " data-color="Starlight"><span class="color-dot starlight"></span>Starlight</button>
+      </div>
+     </div>
+     <div class="price">Ціну уточнюйте</div>
+     <button class="buy-button" type="button">Купити</button>
+    </article>
+    <article data-title="Шлейфи MacBook 13,6&quot; MacBook Air M4 2025 (A3448)" data-model="A3448" data-category="Шлейф" class="product-card">
+     <div class="product-image">
+      <img src="cables.jpg" alt="Шлейфи MacBook 13,6&quot; MacBook Air M4 2025 (A3448)" loading="lazy">
+     </div>
+     <div class="stock">● В наявності</div>
+     <h2>Шлейфи — 13,6&quot; MacBook Air M4 2025 (A3448)</h2>
+     <p>Внутрішні шлейфи, конектори та міжплатні кабелі для 13,6&quot; MacBook Air M4 2025 (A3448).</p>
+     <div class="models">A3448</div>
+     <div class="product-options cable-color-options">
+      <div class="product-options-title">Оберіть колір</div>
+      <div class="color-options">
+       <button type="button" class="color-option active" data-color="Space Gray"><span class="color-dot space-gray"></span>Space Gray</button><button type="button" class="color-option " data-color="Silver"><span class="color-dot silver"></span>Silver</button><button type="button" class="color-option " data-color="Midnight"><span class="color-dot midnight"></span>Midnight</button><button type="button" class="color-option " data-color="Starlight"><span class="color-dot starlight"></span>Starlight</button>
+      </div>
+     </div>
+     <div class="price">Ціну уточнюйте</div>
+     <button class="buy-button" type="button">Купити</button>
+    </article>
+    <article data-title="Шлейфи MacBook 15,3&quot; MacBook Air M4 2025 (A3449)" data-model="A3449" data-category="Шлейф" class="product-card">
+     <div class="product-image">
+      <img src="cables.jpg" alt="Шлейфи MacBook 15,3&quot; MacBook Air M4 2025 (A3449)" loading="lazy">
+     </div>
+     <div class="stock">● В наявності</div>
+     <h2>Шлейфи — 15,3&quot; MacBook Air M4 2025 (A3449)</h2>
+     <p>Внутрішні шлейфи, конектори та міжплатні кабелі для 15,3&quot; MacBook Air M4 2025 (A3449).</p>
+     <div class="models">A3449</div>
+     <div class="product-options cable-color-options">
+      <div class="product-options-title">Оберіть колір</div>
+      <div class="color-options">
+       <button type="button" class="color-option active" data-color="Space Gray"><span class="color-dot space-gray"></span>Space Gray</button><button type="button" class="color-option " data-color="Silver"><span class="color-dot silver"></span>Silver</button><button type="button" class="color-option " data-color="Midnight"><span class="color-dot midnight"></span>Midnight</button><button type="button" class="color-option " data-color="Starlight"><span class="color-dot starlight"></span>Starlight</button>
+      </div>
+     </div>
+     <div class="price">Ціну уточнюйте</div>
+     <button class="buy-button" type="button">Купити</button>
+    </article>
+   </section>
+  </main>
+
+  <!-- ===================================================== -->
+  <!-- FOOTER -->
+  <!-- ===================================================== -->
   <footer>
    <div class="footer-brand">
     <div class="logo">
@@ -154,8 +584,7 @@
     </div>
     <p>
      Ремонт MacBook та комплектуючі
-     <br/>
-     для техніки Apple.
+            для техніки Apple.
     </p>
    </div>
    <div>
@@ -165,11 +594,8 @@
     <a href="../index.html">
      Головна
     </a>
-    <a href="../fix/macbook-fix.html">
-     Ремонт
-    </a>
-    <a href="../index.html#models">
-     Запчастини
+    <a href="matrices.html">
+     Матриця
     </a>
     <a href="../cart.html">
      Кошик
@@ -179,36 +605,45 @@
     <h4>
      Контакти
     </h4>
-    <a href="tel:+380 98 841 2544">
-     📞 +380 98 841 2544
+    <a href="tel:+380773043880">
+     📞 +380 77 304 38 80
     </a>
     <a href="https://www.instagram.com/macbay_official/?hl=uk" rel="noopener" target="_blank">
      📷 Instagram
     </a>
+    <p>
+     📍 Тц плазма, проспект Свободи, 5, Львів, Львівська область, 79000
+    </p>
    </div>
   </footer>
-  <script>
-   const models = ['A2941', 'A2251', 'A2338', 'A2442', 'A2485', 'A2779', 'A2780', 'A2918', 'A2992', 'A2991', 'A3112', 'A3401', 'A3186', 'A3434', 'A3426'];
-const data = {'A2941': {'name': '15" MacBook Air M2 2023 (A2941) - Внутрішні шлейфи, конектори та міжплатні кабелі', 'image': 'cables.jpg'}, 'A2251': {'name': '13" MacBook Pro 2020 (A2251) - Внутрішні шлейфи, конектори та міжплатні кабелі', 'image': 'cables.jpg'}, 'A2338': {'name': '13" MacBook Pro M1 2020 (A2338) - Внутрішні шлейфи, конектори та міжплатні кабелі', 'image': 'cables.jpg'}, 'A2442': {'name': '14" MacBook Pro M1 Pro / M1 Max 2021 (A2442) - Внутрішні шлейфи, конектори та міжплатні кабелі', 'image': 'cables.jpg'}, 'A2485': {'name': '16" MacBook Pro M1 Pro / M1 Max 2021 (A2485) - Внутрішні шлейфи, конектори та міжплатні кабелі', 'image': 'cables.jpg'}, 'A2779': {'name': '14" MacBook Pro M2 Pro / M2 Max 2023 (A2779) - Внутрішні шлейфи, конектори та міжплатні кабелі', 'image': 'cables.jpg'}, 'A2780': {'name': '16" MacBook Pro M2 Pro / M2 Max 2023 (A2780) - Внутрішні шлейфи, конектори та міжплатні кабелі', 'image': 'cables.jpg'}, 'A2918': {'name': '14" MacBook Pro M3 2023 (A2918) - Внутрішні шлейфи, конектори та міжплатні кабелі', 'image': 'cables.jpg'}, 'A2992': {'name': '14" MacBook Pro M3 Pro / M3 Max 2023 (A2992) - Внутрішні шлейфи, конектори та міжплатні кабелі', 'image': 'cables.jpg'}, 'A2991': {'name': '16" MacBook Pro M3 Pro / M3 Max 2023 (A2991) - Внутрішні шлейфи, конектори та міжплатні кабелі', 'image': 'cables.jpg'}, 'A3112': {'name': '14" MacBook Pro M4 2024 (A3112) - Внутрішні шлейфи, конектори та міжплатні кабелі', 'image': 'cables.jpg'}, 'A3401': {'name': '14" MacBook Pro M4 Pro 2024 (A3401) - Внутрішні шлейфи, конектори та міжплатні кабелі', 'image': 'cables.jpg'}, 'A3186': {'name': '16" MacBook Pro M4 Max 2024 (A3186) - Внутрішні шлейфи, конектори та міжплатні кабелі', 'image': 'cables.jpg'}, 'A3434': {'name': '14" MacBook Pro M5 2025 (A3434) - Внутрішні шлейфи, конектори та міжплатні кабелі', 'image': 'cables.jpg'}, 'A3426': {'name': '14" MacBook Pro M5 Pro 2026 (A3426) - Внутрішні шлейфи, конектори та міжплатні кабелі', 'image': 'cables.jpg'}};
-const p = new URLSearchParams(location.search);
-const m = (p.get('model') || '').toUpperCase();
-const item = data[m];
-if (item) {
- document.title = item.name + ' — macbayparts';
- document.getElementById('pageTitle').textContent = item.name;
- document.getElementById('productName').textContent = item.name;
- document.getElementById('productImage').src = '../' + item.image;
- document.getElementById('productImage').alt = item.name;
- document.getElementById('backLink').href = 'pro-a' + m.substring(1).toLowerCase() + '.html';
-}
-  </script>
   <script src="../script.js">
   </script>
-  <script src="../supabase-prices.js">
+  <script src="supabase-prices.js">
   </script>
   <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
   </script>
   <script src="../product-options.js">
   </script>
- </body>
+   <script src="../supabase-auto-loader.js"></script>
+ 
+
+  <script>
+   document.addEventListener('DOMContentLoaded', function () {
+    document.querySelectorAll('.cable-color-options').forEach(function (box) {
+      box.querySelectorAll('.color-option').forEach(function (button) {
+        button.addEventListener('click', function () {
+          box.querySelectorAll('.color-option').forEach(function (b) { b.classList.remove('active'); });
+          button.classList.add('active');
+        });
+      });
+    });
+   });
+  </script>
+  <script src="../script.js"></script>
+  <script src="../supabase-prices.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+  <script src="../product-options.js"></script>
+  <script src="../supabase-auto-loader.js"></script>
+
+</body>
 </html>

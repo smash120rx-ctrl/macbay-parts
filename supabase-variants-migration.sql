@@ -1,22 +1,20 @@
--- MACBAYPARTS: optional product variants / stock fields
--- Run once in Supabase SQL Editor.
-alter table public.products
-    add column if not exists stock boolean default true,
-    add column if not exists image_url text,
-    add column if not exists color_variants jsonb default '[]'::jsonb,
-    add column if not exists battery_variants jsonb default '[]'::jsonb;
+-- MACBAYPARTS — compatibility note for the current database
+--
+-- The current site uses public.products_new with exactly these fields:
+-- id, title, model, category, description, price, stock, image_url, search_text
+--
+-- Do NOT run the old migration that altered public.products.
+-- The current website does not require color_variants or battery_variants.
+-- Colors for display/topcase products can be represented by separate rows in products_new.
+-- Battery capacity buttons use the base price from the matching battery row.
+--
 
--- Example battery_variants value:
--- [
---   {"name":"85–90%","price":1200},
---   {"name":"90–95%","price":1500},
---   {"name":"95–100%","price":1800}
--- ]
+-- Optional per-color/per-variant stock, price and image.
+-- Example: [{"name":"Silver","stock":true,"price":"1200","image_url":"topcases/silver.jpg"}]
+alter table public.products_new
+  add column if not exists color_variants jsonb not null default '[]'::jsonb;
 
--- Example color_variants value:
--- [
---   {"name":"Silver","image_url":"models/.../silver.jpg","model":"A1932","stock":true},
---   {"name":"Space Gray","image_url":"models/.../space-gray.jpg","model":"A1932","stock":true},
---   {"name":"Gold","image_url":"models/.../gold.jpg","model":"A1932","stock":false},
---   {"name":"Midnight","image_url":"models/.../midnight.jpg","model":"A1932","stock":true}
--- ]
+-- Optional indexes (safe to run once):
+create index if not exists products_new_model_idx on public.products_new (model);
+create index if not exists products_new_category_idx on public.products_new (category);
+create index if not exists products_new_search_text_idx on public.products_new using gin (to_tsvector('simple', coalesce(search_text,'')));

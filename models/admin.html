@@ -62,4 +62,5 @@ window.deleteProduct=async id=>{const p=allProducts.find(x=>x.id===id);if(!p||!c
 $('form').addEventListener('submit',async e=>{e.preventDefault();const id=$('id').value;const title=$('title').value.trim(),model=$('model').value.trim(),category=$('category').value.trim(),description=$('description').value.trim();const row={title,model,category,description,price:$('price').value.trim(),stock:$('stock').value==='true',image_url:$('image_url').value.trim(),search_text:[title,model,category,description].filter(Boolean).join(' ').toLowerCase()};let result;if(id){result=await db.from('products_new').update(row).eq('id',id)}else{result=await db.from('products_new').insert(row)}if(result.error){showStatus('Помилка збереження: '+result.error.message,true);return}showStatus(id?'Товар оновлено':'Товар додано');$('modal').classList.remove('open');load()});
 $('addBtn').onclick=()=>openEditor();$('cancelBtn').onclick=()=>$('modal').classList.remove('open');$('modal').onclick=e=>{if(e.target===$('modal'))$('modal').classList.remove('open')};$('reloadBtn').onclick=load;$('search').oninput=render;$('stockFilter').onchange=render;$('categoryFilter').onchange=render;load();
 </script>
-</body></html>
+  <script src="../supabase-auto-loader.js"></script>
+ </body></html>

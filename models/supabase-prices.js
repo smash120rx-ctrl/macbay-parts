@@ -20,7 +20,7 @@ function mbpPageInfo() {
 
   const categories = [
     'antennas','battery','cables','cooler','display',
-    'io-board','motherboard','speakers','topcase','trackpad',
+    'motherboard','speakers','topcase','trackpad',
     'keyboard','accessories','daughterboard'
   ];
   const category = categories.find(c => path.includes(`-${c}.html`)) || '';
@@ -131,7 +131,7 @@ function mbpApplyProduct(card, product) {
 }
 
 async function mbpFetchProducts() {
-  const url = `${SUPABASE_URL}/rest/v1/products_new?select=id,title,model,category,description,price,stock,image_url,battery_variants,color_variants&limit=1000&_=${Date.now()}`;
+  const url = `${SUPABASE_URL}/rest/v1/products_new?select=id,title,model,category,description,price,stock,image_url,search_text&limit=1000`;
   const response = await fetch(url, {
     method: 'GET',
     cache: 'no-store',

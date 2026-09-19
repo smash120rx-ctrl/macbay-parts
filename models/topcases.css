@@ -251,38 +251,6 @@ button {
     color: #64748b;
 }
 
-.popular-searches {
-    padding: 20px;
-    border-top: 1px solid #e5e7eb;
-}
-
-.popular-searches h3 {
-    margin-bottom: 14px;
-    font-size: 16px;
-}
-
-.popular-list {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-}
-
-.popular-list button {
-    padding: 8px 13px;
-    border: 1px solid #dbeafe;
-    border-radius: 999px;
-    background: #f8fbff;
-    color: #334155;
-    font-size: 13px;
-    transition: 0.2s ease;
-}
-
-.popular-list button:hover {
-    background: #e0f2fe;
-    border-color: #7dd3fc;
-    color: #0284c7;
-}
-
 /* =========================================================
    HEADER RIGHT
    ========================================================= */
@@ -1189,10 +1157,7 @@ footer a:hover {
         font-size: 25px;
     }
 
-    .popular-searches {
-        padding: 15px;
     }
-}
 
 /* =========================================================
    DYNAMIC LISTINGS — DISPLAY / TOPCASE
@@ -1283,4 +1248,13 @@ footer a:hover {
 
 @media (max-width: 520px) {
     .single-product .products.dynamic-listings-grid { grid-template-columns: 1fr; }
+}
+
+/* Telegram button */
+.telegram-button {
+    text-decoration: none;
+    white-space: nowrap;
+}
+.telegram-button:hover {
+    text-decoration: none;
 }

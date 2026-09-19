@@ -168,6 +168,89 @@ h2 {
 }
 
 
+.search-result {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    width: 100%;
+    min-height: 68px;
+    padding: 10px 14px;
+    box-sizing: border-box;
+    color: #111827;
+    text-decoration: none;
+    background: #fff;
+    border-bottom: 1px solid #eef0f3;
+    transition: background .15s ease;
+}
+
+.search-result:hover {
+    background: #f8fafc;
+}
+
+.search-result-image,
+.search-result-icon {
+    width: 46px;
+    height: 46px;
+    flex: 0 0 46px;
+    border-radius: 10px;
+}
+
+.search-result-image {
+    object-fit: contain;
+    background: #f7f7f8;
+    border: 1px solid #ececef;
+}
+
+.search-result-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #f1f5f9;
+    color: #64748b;
+    font-size: 24px;
+}
+
+.search-result-content {
+    min-width: 0;
+    flex: 1;
+}
+
+.search-result-title {
+    font-size: 15px;
+    font-weight: 650;
+    line-height: 1.3;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.search-result-type {
+    margin-top: 4px;
+    color: #64748b;
+    font-size: 13px;
+    line-height: 1.25;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.search-result-arrow {
+    flex: 0 0 auto;
+    color: #94a3b8;
+    font-size: 20px;
+}
+
+.search-result:hover .search-result-arrow {
+    color: #0284c7;
+}
+
+.search-highlight {
+    padding: 0 2px;
+    border-radius: 3px;
+    background: #fef08a;
+    color: inherit;
+}
+
 /* =========================
    NO RESULTS & POPULAR
 ========================= */
@@ -178,41 +261,6 @@ h2 {
     color: #64748b;
     font-size: 15px;
 }
-
-.popular-searches {
-    padding: 20px;
-    border-top: 1px solid #e5e7eb;
-}
-
-.popular-searches h3 {
-    margin-bottom: 14px;
-    font-size: 16px;
-    color: #111827;
-}
-
-.popular-list {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-}
-
-.popular-list button {
-    padding: 8px 13px;
-    border: 1px solid #dbeafe;
-    border-radius: 999px;
-    background: #f8fbff;
-    color: #334155;
-    font-size: 13px;
-    cursor: pointer;
-    transition: .2s;
-}
-
-.popular-list button:hover {
-    background: #e0f2fe;
-    border-color: #7dd3fc;
-    color: #0284c7;
-}
-
 
 /* =========================
    HEADER RIGHT & PHONE MENU
@@ -829,6 +877,26 @@ footer a:hover {
     background: #f0f9ff;
     color: #0284c7;
 }
+
+.color-option.unavailable {
+    border-color: #fecaca;
+    background: #fff7f7;
+    color: #9f1239;
+    opacity: .9;
+}
+.color-option.unavailable:hover,
+.color-option.unavailable.active {
+    border-color: #ef4444;
+    background: #fff1f2;
+    color: #9f1239;
+}
+.color-stock {
+    margin-left: 5px;
+    font-size: 11px;
+    font-weight: 700;
+    opacity: .8;
+}
+
 .color-dot {
     display:inline-block;
     width:12px;
@@ -853,57 +921,73 @@ footer a:hover {
 .preorder-modal {
     position:fixed;
     inset:0;
-    background:rgba(15,23,42,.48);
-    backdrop-filter:blur(6px);
+    background:rgba(0,0,0,.72);
+    backdrop-filter:blur(4px);
     display:none;
-    align-items:center;
+    align-items:flex-end;
     justify-content:center;
-    padding:20px;
+    padding:0;
     z-index:10000;
 }
 .preorder-modal.open { display:flex; }
 .preorder-dialog {
-    width:min(520px,100%);
-    background:#fff;
-    border-radius:22px;
-    box-shadow:0 25px 80px rgba(0,0,0,.25);
-    padding:26px;
+    width:min(830px,100%);
+    background:#111;
+    color:#fff;
+    border-radius:16px 16px 0 0;
+    box-shadow:0 -18px 70px rgba(0,0,0,.45);
+    padding:28px 28px 38px;
     position:relative;
 }
-.preorder-dialog h3 { margin:0 0 8px; font-size:24px; }
-.preorder-dialog p { margin:0 0 18px; color:#64748b; }
+.preorder-dialog h3 {
+    margin:0 44px 28px;
+    font-size:clamp(25px,4vw,42px);
+    line-height:1.25;
+    text-align:center;
+    font-weight:800;
+}
 .preorder-close {
     position:absolute;
     right:14px;
-    top:12px;
-    width:38px;
-    height:38px;
+    top:-58px;
+    width:52px;
+    height:52px;
     border:0;
-    border-radius:50%;
-    background:#f1f5f9;
+    border-radius:8px;
+    background:#111;
+    color:#fff;
     cursor:pointer;
-    font-size:24px;
+    font-size:42px;
+    line-height:45px;
+    font-weight:300;
 }
-.preorder-form { display:grid; gap:12px; }
+.preorder-form { display:grid; gap:16px; }
 .preorder-form input {
     width:100%;
-    padding:13px 14px;
-    border:1px solid #d1d5db;
-    border-radius:12px;
+    padding:18px 20px;
+    border:2px solid #666;
+    border-radius:8px;
     outline:none;
+    background:#111;
+    color:#fff;
     font:inherit;
+    font-size:22px;
 }
-.preorder-form input:focus { border-color:#0ea5e9; }
+.preorder-form input::placeholder { color:#b8b8b8; opacity:1; }
+.preorder-form input:focus { border-color:#aaa; }
 .preorder-submit {
     border:0;
-    border-radius:12px;
-    padding:14px;
-    background:#1d1d1f;
+    border-radius:8px;
+    padding:18px;
+    background:#d9282f;
     color:#fff;
+    font-size:23px;
     font-weight:800;
     cursor:pointer;
 }
-.preorder-status { min-height:20px; font-size:14px; }
+.preorder-submit:hover { background:#bd2027; }
+.preorder-submit:disabled { opacity:.6; cursor:not-allowed; }
+.preorder-status { min-height:22px; font-size:15px; text-align:center; }
 .product-detail-modal {
     position:fixed;
     inset:0;
@@ -947,3 +1031,20 @@ footer a:hover {
     .product-options { padding:13px; }
 }
 
+
+@media (max-width: 600px) {
+  .preorder-dialog { padding:24px 16px 28px; }
+  .preorder-dialog h3 { margin:0 28px 22px; font-size:25px; }
+  .preorder-close { top:-52px; width:46px; height:46px; font-size:36px; }
+  .preorder-form input { font-size:18px; padding:15px; }
+  .preorder-submit { font-size:19px; padding:16px; }
+}
+
+/* Telegram button */
+.telegram-button {
+    text-decoration: none;
+    white-space: nowrap;
+}
+.telegram-button:hover {
+    text-decoration: none;
+}

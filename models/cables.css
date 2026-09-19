@@ -21,17 +21,21 @@ a {
 }
 
 
-/* ================= HEADER ================= */
+/* =========================
+   HEADER
+========================= */
 
 .header {
     min-height: 76px;
-    background: rgba(255, 255, 255, .97);
+
+    background: rgba(255,255,255,.97);
     backdrop-filter: blur(15px);
 
     display: flex;
     align-items: center;
 
     gap: 28px;
+
     padding: 0 40px;
 
     position: sticky;
@@ -45,10 +49,16 @@ a {
 .header-left {
     display: flex;
     align-items: center;
+
     gap: 16px;
 
     flex-shrink: 0;
 }
+
+
+/* =========================
+   MENU BUTTON
+========================= */
 
 .menu-button {
     width: 44px;
@@ -72,8 +82,14 @@ a {
     transform: scale(1.04);
 }
 
+
+/* =========================
+   LOGO
+========================= */
+
 .logo {
     font-size: 25px;
+
     font-weight: 800;
 
     letter-spacing: -1px;
@@ -84,12 +100,15 @@ a {
 }
 
 
-/* ================= SEARCH ================= */
+/* =========================
+   SEARCH
+========================= */
 
 .search {
     position: relative;
 
     flex: 1;
+
     max-width: 700px;
 
     margin: auto;
@@ -107,6 +126,7 @@ a {
     background: #f8fafc;
 
     border: 1px solid #d1d5db;
+
     border-radius: 12px;
 
     z-index: 4002;
@@ -116,6 +136,7 @@ a {
 
 .search.open .search-input-wrapper {
     background: white;
+
     border-color: #0ea5e9;
 
     border-radius: 12px 12px 0 0;
@@ -129,6 +150,8 @@ a {
     color: #64748b;
 
     font-size: 25px;
+
+    line-height: 1;
 
     pointer-events: none;
 }
@@ -145,6 +168,8 @@ a {
     padding: 0 50px;
 
     font-size: 16px;
+
+    color: #111827;
 }
 
 .search-input-wrapper input::placeholder {
@@ -167,6 +192,7 @@ a {
     color: #64748b;
 
     font-size: 20px;
+
     line-height: 28px;
 
     cursor: pointer;
@@ -177,6 +203,15 @@ a {
 .search.has-text .search-clear {
     display: block;
 }
+
+.search-clear:hover {
+    background: #cbd5e1;
+}
+
+
+/* =========================
+   SEARCH PANEL
+========================= */
 
 .search-panel {
     position: absolute;
@@ -209,11 +244,16 @@ a {
 
 .search-results {
     max-height: 420px;
+
     overflow-y: auto;
 }
 
+
+/* SEARCH RESULT */
+
 .search-result {
     display: flex;
+
     align-items: center;
 
     width: 100%;
@@ -244,27 +284,35 @@ a {
     border-radius: 10px;
 
     background: #f1f5f9;
+
+    font-size: 17px;
 }
 
 .search-result-content {
     flex: 1;
+
     padding-left: 12px;
 }
 
 .search-result-title {
     font-size: 16px;
+
     font-weight: 600;
+
+    color: #111827;
 }
 
 .search-result-type {
     margin-top: 2px;
 
     font-size: 13px;
+
     color: #94a3b8;
 }
 
 .search-result-arrow {
     font-size: 21px;
+
     color: #94a3b8;
 }
 
@@ -274,59 +322,18 @@ a {
     text-align: center;
 
     color: #64748b;
+
+    font-size: 15px;
 }
 
 
-/* ================= POPULAR SEARCHES ================= */
-
-.popular-searches {
-    padding: 20px;
-
-    border-top: 1px solid #e5e7eb;
-}
-
-.popular-searches h3 {
-    margin-bottom: 14px;
-
-    font-size: 16px;
-}
-
-.popular-list {
-    display: flex;
-    flex-wrap: wrap;
-
-    gap: 8px;
-}
-
-.popular-list button {
-    padding: 8px 13px;
-
-    border: 1px solid #dbeafe;
-    border-radius: 999px;
-
-    background: #f8fbff;
-    color: #334155;
-
-    font-size: 13px;
-
-    cursor: pointer;
-
-    transition: .2s;
-}
-
-.popular-list button:hover {
-    background: #e0f2fe;
-
-    border-color: #7dd3fc;
-
-    color: #0284c7;
-}
-
-
-/* ================= HEADER RIGHT ================= */
+/* =========================
+   HEADER RIGHT
+========================= */
 
 .header-right {
     display: flex;
+
     align-items: center;
 
     gap: 8px;
@@ -352,6 +359,7 @@ a {
     font-family: inherit;
 
     font-size: 14px;
+
     font-weight: 600;
 
     cursor: pointer;
@@ -366,7 +374,9 @@ a {
 }
 
 
-/* ================= PHONE ================= */
+/* =========================
+   PHONE
+========================= */
 
 .phone-dropdown {
     position: relative;
@@ -378,6 +388,7 @@ a {
     position: absolute;
 
     right: 0;
+
     top: calc(100% + 9px);
 
     width: 260px;
@@ -408,10 +419,6 @@ a {
     font-weight: 600;
 }
 
-.phone-menu a:last-child {
-    border-bottom: none;
-}
-
 .phone-menu a:hover {
     background: #f0f9ff;
 
@@ -419,7 +426,9 @@ a {
 }
 
 
-/* ================= SIDE MENU ================= */
+/* =========================
+   SIDE MENU
+========================= */
 
 .side-menu {
     position: fixed;
@@ -476,6 +485,7 @@ a {
 
 .side-menu nav {
     display: flex;
+
     flex-direction: column;
 
     margin-top: 20px;
@@ -495,6 +505,7 @@ a {
 
 .side-menu nav a:hover {
     background: #e0f2fe;
+
     color: #0284c7;
 }
 
@@ -515,7 +526,9 @@ a {
 }
 
 
-/* ================= CATALOG ================= */
+/* =========================
+   CATALOG
+========================= */
 
 .catalog {
     max-width: 1450px;
@@ -543,8 +556,6 @@ a {
     font-size: 46px;
 
     margin: 8px 0 12px;
-
-    line-height: 1.15;
 }
 
 .catalog-heading p {
@@ -554,7 +565,9 @@ a {
 }
 
 
-/* ================= PRODUCTS ================= */
+/* =========================
+   PRODUCTS
+========================= */
 
 .products {
     display: grid;
@@ -586,48 +599,18 @@ a {
     border-color: #7dd3fc;
 }
 
-
-/* ================= PRODUCT IMAGE ================= */
-
 .product-image {
     width: 100%;
     height: 230px;
 
-    background: #ffffff;
+    background: white;
 
     border: 1px solid #f1f5f9;
 
     border-radius: 12px;
 
     margin-bottom: 15px;
-
-    display: flex;
-
-    align-items: center;
-    justify-content: center;
-
-    overflow: hidden;
 }
-
-.product-image img {
-    width: 100%;
-    height: 100%;
-
-    object-fit: contain;
-
-    padding: 18px;
-
-    display: block;
-
-    transition: transform .25s;
-}
-
-.product-card:hover .product-image img {
-    transform: scale(1.04);
-}
-
-
-/* ================= PRODUCT INFO ================= */
 
 .stock {
     color: #16a34a;
@@ -654,7 +637,25 @@ a {
 
     line-height: 1.55;
 
-    min-height: 45px;
+    min-height: 44px;
+}
+
+.quantity {
+    display: inline-block;
+
+    margin-top: 8px;
+
+    padding: 5px 9px;
+
+    border-radius: 6px;
+
+    background: #ecfdf5;
+
+    color: #15803d;
+
+    font-size: 13px;
+
+    font-weight: 700;
 }
 
 .price {
@@ -665,14 +666,17 @@ a {
     font-weight: 700;
 
     margin-top: 20px;
+
     margin-bottom: 12px;
 }
 
 .buy-button {
     width: 100%;
+
     height: 44px;
 
     border: none;
+
     border-radius: 9px;
 
     background: #0ea5e9;
@@ -680,21 +684,20 @@ a {
     color: white;
 
     font-size: 16px;
+
     font-weight: 700;
 
     cursor: pointer;
-
-    transition: .2s;
 }
 
 .buy-button:hover {
     background: #0284c7;
-
-    transform: translateY(-1px);
 }
 
 
-/* ================= FOOTER ================= */
+/* =========================
+   FOOTER
+========================= */
 
 footer {
     background: #0f172a;
@@ -739,8 +742,6 @@ footer a {
     color: #94a3b8;
 
     margin-bottom: 10px;
-
-    transition: .2s;
 }
 
 footer a:hover {
@@ -748,9 +749,11 @@ footer a:hover {
 }
 
 
-/* ================= TABLET ================= */
+/* =========================
+   TABLET
+========================= */
 
-@media (max-width: 1100px) {
+@media(max-width:1100px) {
 
     .products {
         grid-template-columns:
@@ -763,9 +766,11 @@ footer a:hover {
 }
 
 
-/* ================= MOBILE ================= */
+/* =========================
+   MOBILE
+========================= */
 
-@media (max-width: 800px) {
+@media(max-width:800px) {
 
     .header {
         flex-wrap: wrap;
@@ -776,7 +781,7 @@ footer a:hover {
     }
 
     .header-left {
-        width: 100%;
+        width: auto;
     }
 
     .search {
@@ -804,9 +809,11 @@ footer a:hover {
 }
 
 
-/* ================= SMALL MOBILE ================= */
+/* =========================
+   SMALL MOBILE
+========================= */
 
-@media (max-width: 550px) {
+@media(max-width:550px) {
 
     .header {
         padding: 12px 15px;
@@ -828,7 +835,9 @@ footer a:hover {
         font-size: 36px;
     }
 
-    .header-icon {
+    .header-button {
+        font-size: 13px;
+
         padding: 10px;
     }
 
@@ -836,7 +845,6 @@ footer a:hover {
         position: fixed;
 
         top: 76px;
-
         left: 0;
 
         width: 100%;
@@ -855,4 +863,97 @@ footer a:hover {
     .phone-menu {
         right: -10px;
     }
+
+}
+/* =====================================================
+   MACBAYPARTS — КОРЕКТНИЙ РОЗМІР МАТРИЦЬ І ВИБІР КОЛЬОРУ
+===================================================== */
+.product-image {
+    height: 230px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #fff;
+}
+.product-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+    padding: 8px;
+}
+.color-picker {
+    width: 100%;
+    margin: 14px 0 2px;
+    padding: 12px;
+    background: #fff;
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+}
+.color-picker-title {
+    font-size: 13px;
+    font-weight: 700;
+    margin-bottom: 9px;
+    color: #334155;
+}
+.color-options {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 8px;
+}
+.color-option {
+    min-height: 40px;
+    border: 1px solid #cbd5e1;
+    border-radius: 9px;
+    background: #fff;
+    color: #1e293b;
+    font: inherit;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: .18s;
+}
+.color-option:hover {
+    border-color: #0ea5e9;
+    background: #f0f9ff;
+}
+.color-option.selected {
+    border-color: #0ea5e9;
+    background: #e0f2fe;
+    color: #0369a1;
+    box-shadow: 0 0 0 2px rgba(14,165,233,.12);
+}
+@media(max-width:550px) {
+    .product-image { height: 210px; }
+    .color-options { grid-template-columns: 1fr; }
+}
+
+/* CABLES ANNOUNCEMENT BOARD */
+.cable-color-options{margin:14px 0 2px;}
+.cable-color-options .color-options{display:grid;grid-template-columns:1fr 1fr;gap:8px;}
+.cable-color-options .color-option{display:flex;align-items:center;justify-content:flex-start;gap:7px;min-height:40px;padding:8px 10px;border:1px solid #d1d5db;border-radius:10px;background:#fff;color:#111827;font:inherit;font-size:12px;font-weight:700;cursor:pointer;transition:.18s;}
+.cable-color-options .color-option:hover,.cable-color-options .color-option.active{border-color:#0ea5e9;background:#f0f9ff;color:#0284c7;}
+.cable-color-options .color-dot{display:inline-block;width:14px;height:14px;flex:0 0 14px;border-radius:50%;border:1px solid rgba(0,0,0,.16);}
+.cable-color-options .color-dot.space-gray{background:#6b7280;}
+.cable-color-options .color-dot.silver{background:#e5e7eb;}
+.cable-color-options .color-dot.midnight{background:#1e293b;}
+.cable-color-options .color-dot.starlight{background:#e9dfc8;}
+@media(max-width:550px){.cable-color-options .color-options{grid-template-columns:1fr;}}
+
+/* Four cable color choices — same compact selector style as trackpads. */
+.product-card[data-category="Шлейф"] .product-options .color-options{display:grid;grid-template-columns:1fr 1fr;gap:8px;}
+.product-card[data-category="Шлейф"] .product-options .color-option{flex:1;justify-content:flex-start;}
+.product-card[data-category="Шлейф"] .product-options .color-option:nth-child(1) .color-dot{background:#6b7280;}
+.product-card[data-category="Шлейф"] .product-options .color-option:nth-child(2) .color-dot{background:#e5e7eb;}
+.product-card[data-category="Шлейф"] .product-options .color-option:nth-child(3) .color-dot{background:#1e293b;}
+.product-card[data-category="Шлейф"] .product-options .color-option:nth-child(4) .color-dot{background:#e9dfc8;}
+
+/* Telegram button */
+.telegram-button {
+    text-decoration: none;
+    white-space: nowrap;
+}
+.telegram-button:hover {
+    text-decoration: none;
 }

@@ -1,20 +1,26 @@
-MACBAYPARTS — products_new
+MACBAYPARTS — PRODUCTS_NEW
 
-Ця версія сайту підключена до Supabase table: products_new.
+This ZIP is wired to the Supabase table:
+  public.products_new
 
-Поля таблиці:
-id | title | model | category | description | price | stock | image_url | search_text
+Expected columns:
+  id bigint primary key
+  title text
+  model text
+  category text
+  description text
+  price text
+  stock boolean
+  image_url text
+  search_text text
+  color_variants jsonb
 
-Що змінено:
-- каталог Display/Topcase читає products_new;
-- ціни читаються з products_new;
-- головний пошук підтягує товари з products_new;
-- models/admin.html — редагування назви, моделі, категорії, опису, ціни, наявності та URL фото;
-- стара таблиця products не використовується для каталогу.
+The website reads prices, stock, titles, descriptions and images from products_new.
+It does not require the old public.products table.
+Color-specific stock/price/image can optionally be stored in color_variants JSONB. If it is empty, the site falls back to the product-level stock/price.
 
-Адмінка:
-models/admin.html
+For display/topcase listings, each products_new row is rendered as a product card.
+For battery pages, the three capacity choices use the price from the matching battery row.
 
-ВАЖЛИВО:
-Стару таблицю products не видаляйте, доки нову версію не перевірено.
-Для зміни фото в адмінці вставляйте публічний URL у поле «Фото — URL». Локальний файл можна спочатку завантажити у Supabase Storage і вставити його public URL.
+Supabase project configured in the site:
+https://ofkirctsgclaqdpdvjis.supabase.co

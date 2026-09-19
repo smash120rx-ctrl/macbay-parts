@@ -1,5 +1,5 @@
 /*
- * MACBAYPARTS — dynamic listings for Display / Topcase pages
+ * MACBAYPARTS — dynamic listings for Display / Topcase / Cable pages
  * Every row in Supabase products becomes its own product card.
  * Duplicate titles are intentionally NOT merged.
  */
@@ -9,7 +9,7 @@
     const KEY = 'sb_publishable_ixT1HmrvcAyXdJJQ0pIYLg_Je15dQTV';
 
     const path = location.pathname.toLowerCase();
-    const match = path.match(/\/models\/([a-z0-9]+)-(display|topcase)\.html$/);
+    const match = path.match(/\/models\/([a-z0-9]+)-(display|topcase|cables)\.html$/);
     if (!match) return;
 
     const MODEL = match[1].toUpperCase();
@@ -17,7 +17,9 @@
 
     const CATEGORY_WORDS = TYPE === 'display'
         ? ['display', 'матриц', 'екран', 'screen', 'lcd', 'дисплей']
-        : ['topcase', 'топкейс', 'top case', 'верхня панель', 'верхняя панель'];
+        : TYPE === 'cables'
+            ? ['cable', 'cables', 'шлейф', 'шлейфи', 'flex', 'стрічка']
+            : ['topcase', 'топкейс', 'top case', 'верхня панель', 'верхняя панель'];
 
     const COLOR_NAMES = [
         'Midnight', 'Міднайт', 'Midnight Blue', 'MidnightBlue',
@@ -141,8 +143,8 @@
         const v = variant || {};
         const merged = { ...product, ...v };
         return {
-            title: cleanPartTitle(first(v, ['title', 'name', 'product_name'], first(product, ['title', 'name', 'product_name'], TYPE === 'display' ? 'Матриця' : 'Топкейс'))),
-            description: cleanPartTitle(first(v, ['description'], first(product, ['description'], `${TYPE === 'display' ? 'Матриця' : 'Топкейс'} для MacBook ${MODEL}.`))),
+            title: cleanPartTitle(first(v, ['title', 'name', 'product_name'], first(product, ['title', 'name', 'product_name'], TYPE === 'display' ? 'Матриця' : (TYPE === 'cables' ? 'Шлейф' : 'Топкейс')))),
+            description: cleanPartTitle(first(v, ['description'], first(product, ['description'], `${TYPE === 'display' ? 'Матриця' : (TYPE === 'cables' ? 'Шлейф' : 'Топкейс')} для MacBook ${MODEL}.`))),
             color: first(v, ['color', 'color_name', 'colour', 'name'], colorFrom(product)),
             model: first(v, ['model', 'model_number', 'compatibility'], first(product, ['model', 'model_number', 'compatibility'], MODEL)),
             price: first(v, ['price', 'sale_price', 'cost'], first(product, ['price', 'sale_price', 'cost'], '')),
